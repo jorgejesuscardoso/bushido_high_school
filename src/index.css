@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+select {
+  border: none;
+  outline: none;
+}
+.navFloats {
+  z-index: 100;
+}
+.floatFixed {
+  position: fixed !important;
+  top: 0 !important;
+}
+#navFixed {
+  z-index: 100;
+}

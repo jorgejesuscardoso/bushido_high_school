@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavBa = styled.nav`
-  background-color: #225a47;
+  background-color: var(--nav-background-color);
   position: absolute;
   top: 0;
   display: flex;
@@ -11,7 +11,7 @@ export const NavBa = styled.nav`
   height: 5vw;
   font-weight: bolder;
   font-size: 1.3em;
-  color: #fff;
+  color: var(--font-nav-color);
   margin-bottom: 10px;
 `;
 export const DivDrawn = styled.div`
@@ -37,17 +37,17 @@ export const DivSearch = styled.div`
   width: 30%;
   height: 5vw;
   input {
-    background-color: #1f3300;
+    background-color: var( --nav-input-background-color);
     width: 70%;
     height: 50%;
     border-radius: 10px;
     padding: 10px;
     margin-right: 10px;
     &:focus {
-      background-color: #fff;
+      background-color: var(--nav-button-background-color);
     }
     &::placeholder {
-      color: #fff;
+      color: var(--placeholder-color);
     }
   }
   button {
@@ -55,14 +55,14 @@ export const DivSearch = styled.div`
     height: 50%;
     border-radius: 10px;
     border: none;
-    background-color: #fff;
-    color: #225a47;
+    background-color: var(--nav-button-background-color);
+    color: var(--nav-button-color);
     font-weight: bolder;
     cursor: pointer;
     transition: 0.3s;
     &:hover {
-      background-color: #9dff00;
-      color: #225a47;
+      background-color: var(--nav-button-hover-color);
+      color: var(--body-color);
     }
   }
 `;
@@ -77,14 +77,14 @@ export const DivLogin = styled.div`
     height: 50%;
     border-radius: 10px;
     border: none;
-    background-color: #fff;
-    color: #225a47;
+    background-color: var(--nav-button-background-color);
+    color: var(--nav-button-color);
     font-weight: bolder;
     transition: 0.3s;
     margin-right: 20px;
     &:hover {
-      background-color: #9dff00;
-      color: #225a47;
+      background-color: var(--nav-button-hover-color);
+      color: var(--body-color);
     }
   }
   div {
@@ -97,95 +97,98 @@ export const DivLogin = styled.div`
     gap: 5px;
 
   input {
-    background-color: #1f3300;
+    background-color: var( --nav-input-background-color);
     width: 80%;
     height: 40%;
     border-radius: 10px;
     padding: 10px;
     &:focus {
-      background-color: #fff;
+     background-color: var(--nav-button-background-color);
     }
     &::placeholder {
-      color: #fff;
+      color: var(--placeholder-color);
     }
   }
   }
 `;
 export const NavFloats = styled.nav`
-  background-color: #225a47;
+background-color: var(--nav-background-color);
   position: absolute;
   top: 5vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 3vw;
+  height: 2.5vw;
   font-weight: bolder;
   font-size: 1.3em;
-  color: #fff;
+  color: var(--font-nav-color);
   margin-bottom: 10px;
 
     button {
     width: 10%;
-    height: 100%;
+    height: 97%;
     border: none;
-    background-color: #225a47;
-    color: #fff;
+    background-color: var(--nav-color);
+    color: var(--font-nav-color);
     font-weight: bolder;
+    border-radius: 7px;
     transition: 0.3s;
     &:hover {
-      background-color: #9dff00;
-      color: #225a47;
+      background-color: var(--nav-color-button-hover);
+      color: var(--font-nav-button-hover-color);
     }
   }
 `;
 export const DivIsNews = styled.div`
+  background-color: var(--nav-menu-floating-background-color);
+  box-shadow: 0px 3px 5px 1px var(--nav-menu-floating-shadow-color);
   position: absolute;
-  top: 3vw;
+  top: 2.5vw;
   left: 30.7%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 10%;
-  height: 3vw;
-  background-color: #1c8560;
+  border-radius: 0 0 5px 5px;
   button {
     text-align: center;
     width: 100%;
-    height: 45%;
+    height: 25px;
     border: none;
-    background-color: #1c8560;
-    color: #fff;
+    color: var(--font-nav-color);
     font-weight: bolder;
     transition: 0.2s;
     &:hover {
-      background-color: #9dff00;
-      color: #225a47;
+      background-color: var(--nav-color-button-menu-hover);
+      color: var(--font-nav-button-hover-color);
+      border-radius: 0 ;
     }
   }
 `;
 export const DivIsMatric = styled.div`
+  background-color: var(--nav-menu-floating-background-color);
+  box-shadow: 0px 3px 5px 1px var(--nav-menu-floating-shadow-color);
   position: absolute;
-  top: 3vw;
+  top: 2.5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 10%;
-  height: 5vw;
-  background-color: #1c8560;
+  border-radius: 0 0 5px 5px;
   button {
     text-align: start;
     padding-left: 10px;
     width: 100%;
-    height: 30%;
+    height: 25px;
     border: none;
-    background-color: #1c8560;
-    color: #fff;
+    color: var(--font-nav-color);
     font-weight: bolder;
     transition: 0.2s;
     &:hover {
-      background-color: #9dff00;
-      color: #225a47;
+      background-color: var(--nav-color-button-menu-hover);
+      color: var(--font-nav-button-hover-color);
+      border-radius: 0;
     }
   }
 `;

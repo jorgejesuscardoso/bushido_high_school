@@ -39,3 +39,29 @@ select {
 #navFixed {
   z-index: 100;
 }
+:root {
+  --body-color: #fff;
+  --nav-background-color: #00335c;
+  --nav-background-color-2: #0dbb81;
+  --nav-color-button-hover-2: #9dff00;
+  --nav-color-button-hover: #fff;
+  --nav-menu-floating-background-color: #004a86;
+  --nav-menu-floating-background-color-2: #1c8560;
+  --nav-color-button-menu-hover: #fff;
+  --nav-color-button-menu-hover-2: #9dff00;
+  --nav-color-background-menu: #9dff00;
+  --nav-input-background-color: #08080849;
+  --nav-input-background-color-2: #1f3300;
+  --nav-button-background-color: #fff;
+  --nav-button-hover-color: #a9aa;
+  --nav-button-hover-color-2: #9dff00;
+  --nav-button-color-2: #225a47;
+  --nav-button-color: #00335c;
+  --nav-menu-floating-shadow-color: #ccc;
+  --font-nav-color: #fff;
+  --font-nav-button-hover-color: #00335c;
+  --font-nav-button-hover-color-2: #225a47;
+  --placeholder-color: #fff;
+  --home-font-color: #00335c;
+  --home-button-color: #cccccc;
+}

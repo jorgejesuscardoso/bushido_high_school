@@ -1,10 +1,10 @@
 import { CardWarning } from "../cards/CardWarning";
 import { Main } from "./style";
 
-export const Home = () => {
+export const Contact = () => {
   return (
     <Main>
-      <CardWarning props="Inicio" />
+      <CardWarning props="Contato" />
     </Main>
   );
 }

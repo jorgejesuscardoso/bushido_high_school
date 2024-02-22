@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { DivIsMatric, DivIsNews, NavFloats } from "./Style"
+import { useNavigate } from "react-router-dom";
 
 export const NavFloat = () => {
+  const navigate = useNavigate();
   const [isNews, setIsNews] = useState(false);
   const [isMatric, setIsMatric] = useState(false);
 
@@ -52,6 +54,7 @@ export const NavFloat = () => {
           setIsNews(false);
           setIsMatric(false);        
         }}
+        onClick={ () => navigate('/') }
       >
         Home
       </button>
@@ -60,18 +63,25 @@ export const NavFloat = () => {
           setIsNews(false);
           setIsMatric(false);        
         }}
+        onClick={ () => navigate('/studentarea') }
       >
         Área do aluno
       </button>
       <button
         onMouseOver={ handleNews }
-        onClick={ handleNews }
+        onClick={ () => {
+          handleNews();
+          navigate('/news');        
+        } }        
       >
         Notícias {'>'}
       </button>
       <button
         onMouseOver={ handleMatric }
-        onClick={ handleMatric }
+        onClick={ () => {
+          handleMatric();
+          navigate('/matric');        
+        } }   
       >
         Matrículas {'>'}
       </button>
@@ -80,6 +90,7 @@ export const NavFloat = () => {
           setIsNews(false);
           setIsMatric(false);        
         }}
+        onClick={ () => navigate('/contact')}
       >
         Contato
       </button>
@@ -88,6 +99,7 @@ export const NavFloat = () => {
           setIsNews(false);
           setIsMatric(false);        
         }}
+        onClick={ () => navigate('/calendar')}
       >
         Calendário
       </button>
@@ -96,6 +108,7 @@ export const NavFloat = () => {
           setIsNews(false);
           setIsMatric(false);        
         }}
+        onClick={ () => navigate('/about')}
       >
         Quem somos
       </button>
@@ -104,6 +117,7 @@ export const NavFloat = () => {
         <DivIsNews id="newsMenu">
           <button>Notícias</button>
           <button>Eventos</button>
+          <button>Programações</button>
         </DivIsNews>
       )}
 

@@ -19,6 +19,21 @@ export const NavFloat = () => {
       setIsNews(false);
       setIsMatric(false);
     });
+    window.addEventListener('click', (event) => {
+      const newsMenu = document.getElementById('newsMenu');
+      const matricMenu = document.getElementById('matricMenu');
+
+      if (event.target) {
+        if (!newsMenu?.contains(event.target as Node)) {
+          setIsNews(false);
+        }
+      
+        if (!matricMenu?.contains(event.target as Node)) {
+          setIsMatric(false);
+        }
+      }
+    });
+    
   }, []);
   useEffect(() => {
     const floats = document.getElementById('navFloats');
@@ -86,14 +101,14 @@ export const NavFloat = () => {
       </button>
 
       {isNews && (
-        <DivIsNews>
+        <DivIsNews id="newsMenu">
           <button>Notícias</button>
           <button>Eventos</button>
         </DivIsNews>
       )}
 
       {isMatric && (
-        <DivIsMatric>
+        <DivIsMatric id="matricMenu">
           <button>Fazer Matrícula</button>
           <button>Confirmar Matrícula</button>
           <button>Documentos</button>

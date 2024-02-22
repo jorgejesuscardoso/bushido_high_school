@@ -1,28 +1,13 @@
 // Code: Home component
 
+import { Main } from "./style";
+
 export const Home = () => {
   return (
-    <div>
+    <Main>
       <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-    </div>
+      <p>Bem vindo ao nosso website</p>
+      <button>Ainda em produção</button>
+    </Main>
   );
 }

@@ -46,6 +46,9 @@ export const DivSearch = styled.div`
     &:focus {
       background-color: #fff;
     }
+    &::placeholder {
+      color: #fff;
+    }
   }
   button {
     width: 20%;
@@ -101,6 +104,9 @@ export const DivLogin = styled.div`
     padding: 10px;
     &:focus {
       background-color: #fff;
+    }
+    &::placeholder {
+      color: #fff;
     }
   }
   }

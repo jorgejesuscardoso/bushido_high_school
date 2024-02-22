@@ -21,15 +21,12 @@ export const NavFloat = () => {
     });
   }, []);
   useEffect(() => {
-    let top = 0;
     const floats = document.getElementById('navFloats');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > top) {
+      if (window.scrollY > 5 * window.innerWidth / 100) {
         floats?.classList.add('floatFixed');
-        top = window.scrollY;
       } else {
         floats?.classList.remove('floatFixed');
-        top = window.scrollY;
       }
     });
   },[]);

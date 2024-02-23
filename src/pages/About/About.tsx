@@ -1,4 +1,4 @@
-import { CardWarning } from "../cards/CardWarning";
+import { CardWarning } from '../../components/cards/CardWarning';
 import { Main } from './style';
 
 export const About = () => {

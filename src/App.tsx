@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom"
-import { Home } from "./components/Home/Home"
+import { Home } from "./pages/Home/Home"
 import { LayOut } from "./components/LayOut/LayOut"
-import { StudentArea } from "./components/StudentArea.tsx/StudentArea"
-import { Contact } from "./components/contact/Contact"
-import { About } from "./components/About/About"
-import { Calendar } from "./components/Calendar/Calendar"
+import { StudentArea } from "./pages/StudentArea.tsx/StudentArea"
+import { Contact } from "./pages/contact/Contact"
+import { About } from "./pages/About/About"
+import { Calendar } from "./pages/Calendar/Calendar"
 
 function App() {
 

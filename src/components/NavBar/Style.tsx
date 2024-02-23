@@ -116,14 +116,13 @@ background-color: var(--nav-background-color);
   position: absolute;
   top: 5vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: end;
   align-items: center;
   width: 100%;
   height: 2.5vw;
   font-weight: bolder;
   font-size: 1.3em;
   color: var(--font-nav-color);
-  margin-bottom: 10px;
 
     button {
     width: 10%;
@@ -135,17 +134,15 @@ background-color: var(--nav-background-color);
     border-radius: 7px;
     transition: 0.3s;
     &:hover {
-      background-color: var(--nav-color-button-hover);
-      color: var(--font-nav-button-hover-color);
+      background-color: var(--nav-color-button-hover-2);
     }
   }
 `;
 export const DivIsNews = styled.div`
   background-color: var(--nav-menu-floating-background-color);
-  box-shadow: 0px 3px 5px 1px var(--nav-menu-floating-shadow-color);
   position: absolute;
   top: 2.5vw;
-  left: 30.7%;
+  left: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -168,9 +165,9 @@ export const DivIsNews = styled.div`
 `;
 export const DivIsMatric = styled.div`
   background-color: var(--nav-menu-floating-background-color);
-  box-shadow: 0px 3px 5px 1px var(--nav-menu-floating-shadow-color);
   position: absolute;
   top: 2.5vw;
+  right: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

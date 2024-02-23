@@ -1,10 +1,10 @@
-import { CardWarning } from "../cards/CardWarning";
+import { ImageDisplay } from "../../components/ImageDisplay/ImagemDisplay";
 import { Main } from "./style";
 
 export const Home = () => {
   return (
     <Main>
-      <CardWarning props="Inicio" />
+      <ImageDisplay />
     </Main>
   );
 }

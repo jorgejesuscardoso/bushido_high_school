@@ -141,9 +141,10 @@ export const Pages = styled.div`
 export const GradeContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 95%;
   max-height: 100px;
+  padding: 5px;
   background-color: var(--slide-grade-content-color);
   cursor: pointer;
   
@@ -152,7 +153,7 @@ export const GradeContainer = styled.div`
     }
     img {
       width: 40%;
-      height: 100px;
+      height: 95px;
     }
     h4 {
       color: white;

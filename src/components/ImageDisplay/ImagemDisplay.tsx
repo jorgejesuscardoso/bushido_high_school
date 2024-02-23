@@ -6,36 +6,44 @@ import { ImageFrameProps } from "../../types/components";
 import { ImageGrade } from "./ImageGrade";
 
 export const ImageDisplay = () => {
-  const [image, setImage] = useState({ src: '', alt: '', title: '', description: ''});
+  const [image, setImage] = useState({ id: 0 ,src: '', alt: '', title: '', description: ''});
   const [count, setCount] = useState(0);
   const [slidelength, setSlideLength] = useState(0);
   const [grade, setGrade] = useState<ImageFrameProps[]>();
 
   useEffect(() => {
     const imageArray = ImageMap();
+
     setGrade(imageArray);
 
-    const { src, alt, title, description } = imageArray[count];
-
     setSlideLength(imageArray.length);
+    
+    const { id, src, alt, title, description } = imageArray[count];
 
-    setImage({ src, alt, title, description });
+    setImage({ id, src, alt, title, description });
 
   }, [count]);
   const handleNextImage = () => {
     setCount((count + 1) % slidelength);
-  }
+  };
   const handlePreviousImage = () => {
     if (count === 0) {
       setCount(slidelength - 1);
       return;
     }
     setCount((count - 1) % slidelength);
-  }
+  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((count + 1) % slidelength);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [count, slidelength]);
   return (
     <SlideSection>
       <Frame>
         <ImageFrame
+          id={ image.id }
           src= { image.src }
           alt= { image.alt }
           title= { image.title }
@@ -55,14 +63,16 @@ export const ImageDisplay = () => {
       <SlideGradeSection>
         <h3>Novidades</h3>
         <DivDisplaySection>
-          {grade && grade.map((item, index) => {
+          {grade && grade.map((item) => {
             return (
               <ImageGrade
-                key= { index }
+                key= { item.id }
+                id={ item.id }
                 src= { item.src }
                 alt= { item.alt }
                 title= { item.title }
                 description= { item.description }
+                activeId={ image.id }
               />
             );
           })}

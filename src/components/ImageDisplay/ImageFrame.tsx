@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { ImageFrameProps } from "../../types/components";
 import { ImgFrame, ImgFrameContainer, Pages } from "./style";
 
-export const ImageFrame = ({ src, alt, description, title, slideLength }: ImageFrameProps) => {
+export const ImageFrame = ({ id, src, alt, description, title, slideLength }: ImageFrameProps) => {
   const [pages, setPages] = useState<number[]>([]);
+  const [activePage, setActivePage] = useState<number>(1);
+
   useEffect(() => {
     const pages = [];
     if (slideLength) {
@@ -12,8 +14,12 @@ export const ImageFrame = ({ src, alt, description, title, slideLength }: ImageF
     }
     setPages(pages);
   }
-  }, [src, alt, description, title, slideLength]);
-  console.log(pages);
+  }, [slideLength]);
+  useEffect(() => {
+    if (id) {
+      setActivePage(id);
+    } 
+}, [id, pages]);
   return (
       <ImgFrameContainer>
         <ImgFrame src={ src } alt={ alt } />
@@ -22,9 +28,14 @@ export const ImageFrame = ({ src, alt, description, title, slideLength }: ImageF
           <p>{ description }</p>
         </div>
         <Pages>
-          {pages.map((page, index) => {
+          {pages.map((page) => {
             return (
-              <span key={ index }>{ page }</span>
+              <span 
+                key={ page } 
+                className={ activePage === page ? 'active' : '' }
+              >
+                { page }
+              </span>
             );
             })
           }

@@ -39,6 +39,9 @@ select {
 #navFixed {
   z-index: 100;
 }
+.active {
+  background-color: #0dbb819c !important;
+}
 :root {
   --body-color: #fff;
   --nav-background-color: #00335c;

@@ -6,4 +6,5 @@ export interface ImageFrameProps {
   description?: string;
   slideLength?: number;
   activeId?: number;
+  show?: string;
 }

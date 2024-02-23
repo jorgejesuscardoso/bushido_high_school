@@ -2,7 +2,15 @@ import { useEffect, useState } from "react";
 import { ImageFrameProps } from "../../types/components";
 import { ImgFrame, ImgFrameContainer, Pages } from "./style";
 
-export const ImageFrame = ({ id, src, alt, description, title, slideLength }: ImageFrameProps) => {
+export const ImageFrame = ({ 
+  id, 
+  src, 
+  alt, 
+  description, 
+  title, 
+  slideLength,
+  show
+  }: ImageFrameProps) => {
   const [pages, setPages] = useState<number[]>([]);
   const [activePage, setActivePage] = useState<number>(1);
 
@@ -17,12 +25,16 @@ export const ImageFrame = ({ id, src, alt, description, title, slideLength }: Im
   }, [slideLength]);
   useEffect(() => {
     if (id) {
-      setActivePage(id);
+      setActivePage(id);     
     } 
-}, [id, pages]);
+}, [id, activePage]);
   return (
       <ImgFrameContainer>
-        <ImgFrame src={ src } alt={ alt } />
+        <ImgFrame 
+          src={ src } 
+          alt={ alt } 
+          className={ show }
+         />
         <div>
           <h3>{ title }</h3>
           <p>{ description }</p>

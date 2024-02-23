@@ -22,48 +22,9 @@ export const ImgFrame = styled.img`
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 5px 5px 5px var(--shadow-color);
-  transition: 0.3s;
-  :hover {
+  transition: transform 0.5s ease;
+  &:hover {
     transform: scale(1.1);
-  }
-`;
-export const BtnPrevious = styled.button`
-  position: absolute;
-  top: 40%;
-  left: 5%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  img {
-    width: 50px;
-    height: 50px;
-  }
-`;
-export const BtnNext = styled.button`
-  position: absolute;
-  top: 40%;
-  right: 35%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  img {
-    width: 50px;
-    height: 50px;
-  }
-`;
-export const BtnReset = styled.button`
-  position: absolute;
-  top: 70%;
-  left: 3%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  img {
-    width: 30px;
-    height: 30px;
   }
 `;
 export const ImgFrameContainer = styled.div`
@@ -71,7 +32,23 @@ export const ImgFrameContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 
+    img {
+      transform: translateX(100%);
+    }
+    img.imgEnterPosition {
+      transition:  0.5s ease;
+      transform: translateX(0%);
+    }
+    img.imgOutPosition {
+      transition:  0.5s ease-in-out;
+      transform: translateX(-100%);
+    }
+    img.startPosition {
+      transition: 0s ease-in-out;
+      transform: translateX(100%);
+    }
     div {
       display: flex;
       flex-direction: column;
@@ -115,6 +92,45 @@ export const ImgFrameContainer = styled.div`
         width: 10px;
       }
     }
+`;
+export const BtnPrevious = styled.button`
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+`;
+export const BtnNext = styled.button`
+  position: absolute;
+  top: 40%;
+  right: 35%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+`;
+export const BtnReset = styled.button`
+  position: absolute;
+  top: 70%;
+  left: 3%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  img {
+    width: 30px;
+    height: 30px;
+  }
 `;
 export const Pages = styled.div`
   background-color: transparent !important;

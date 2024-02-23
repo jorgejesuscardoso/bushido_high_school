@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ImageFrame } from "./ImageFrame";
 import { ImageMap } from "../../utils/Hooks";
-import { BtnNext, BtnPrevious, BtnReset, DivDisplaySection, Frame, SlideGradeSection, SlideSection } from "./style";
+import { BtnNext, BtnPrevious, DivDisplaySection, Frame, SlideGradeSection, SlideSection } from "./style";
 import { ImageFrameProps } from "../../types/components";
 import { ImageGrade } from "./ImageGrade";
 
@@ -10,6 +10,7 @@ export const ImageDisplay = () => {
   const [count, setCount] = useState(0);
   const [slidelength, setSlideLength] = useState(0);
   const [grade, setGrade] = useState<ImageFrameProps[]>();
+  const [show, setShow] = useState('imgEnterPosition');
 
   useEffect(() => {
     const imageArray = ImageMap();
@@ -23,6 +24,28 @@ export const ImageDisplay = () => {
     setImage({ id, src, alt, title, description });
 
   }, [count]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((count + 1) % slidelength);
+    }, 6250);
+    const imgEnter = setTimeout(() => {
+      setShow('imgEnterPosition');
+    }, 0);
+    const imgOut = setTimeout(() => {
+      setShow('imgOutPosition');
+    }, 5800);
+    const toStart = setTimeout(() => {
+      setShow('startPosition');
+    }, 6200);
+
+    return () => {
+      clearInterval(interval),
+      clearTimeout(imgOut);
+      clearTimeout(toStart);
+      clearTimeout(imgEnter);
+    };
+  }, [count, slidelength]);
+  
   const handleNextImage = () => {
     setCount((count + 1) % slidelength);
   };
@@ -33,12 +56,6 @@ export const ImageDisplay = () => {
     }
     setCount((count - 1) % slidelength);
   };
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount((count + 1) % slidelength);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [count, slidelength]);
   return (
     <SlideSection>
       <Frame>
@@ -48,14 +65,12 @@ export const ImageDisplay = () => {
           alt= { image.alt }
           title= { image.title }
           description= { image.description }
-          slideLength= { slidelength }        
+          slideLength= { slidelength }
+          show= { show }
         />
         <BtnPrevious onClick={ handlePreviousImage }>
           <img src="prev.png" />
         </BtnPrevious>
-        <BtnReset onClick={ () => setCount(0) }>
-          <img src="reset.png" alt="" />
-        </BtnReset>
         <BtnNext onClick={ handleNextImage }>
           <img src="next.png" alt="" />
         </BtnNext>

@@ -4,7 +4,6 @@ export const SlideSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
   width: 100%;
   height: 60%;
   background-color: var(--slide-frame-color);
@@ -22,6 +21,8 @@ export const ImgDisplay = styled.img`
   border-radius: 10px;
 `;
 export const ImgDisplayContainer = styled.div`
+  background-color: white;
+  border: 3px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +51,7 @@ export const ImgDisplayContainer = styled.div`
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: 27.5vw;
+      top: 28.6vw;
       width: 70.5%;
       height: 15%;
       overflow-y: scroll;
@@ -91,7 +92,7 @@ export const ImgDisplayContainer = styled.div`
 export const BtnPrevious = styled.button`
   position: absolute;
   opacity: 0.4;
-  top: 40%;
+  top: 48%;
   left: 5%;
   transform: translateY(-50%);
   background-color: transparent;
@@ -108,7 +109,7 @@ export const BtnPrevious = styled.button`
 export const BtnNext = styled.button`
   position: absolute;
   opacity: 0.4;
-  top: 40%;
+  top: 48%;
   right: 35%;
   transform: translateY(-50%);
   background-color: transparent;
@@ -142,7 +143,7 @@ export const Pages = styled.div`
   justify-content: space-around !important;
   flex-direction: row !important;
   right: 30%;
-  top: 32vw !important;
+  top: 33.3vw !important;
   gap: 5px;
   width: 20% !important;
   height: 5% !important;
@@ -157,7 +158,6 @@ export const Pages = styled.div`
 `;
 export const GradeContainer = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
   width: 95%;
   max-height: 100px;
@@ -174,10 +174,12 @@ export const GradeContainer = styled.div`
   }
   img {
     width: 40%;
-    height: 95px;
+    height: 90px;
   }
   h4 {
-    color: white;
+    text-align: center;
+    background-color: #ffffff;
+    color: #00244d;
   }
   p {
     color: white; 
@@ -185,9 +187,9 @@ export const GradeContainer = styled.div`
   div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 55%;
     gap: 5px;
+    overflow: hidden;
   }
 `;
 export const SlideGradeSection = styled.section`

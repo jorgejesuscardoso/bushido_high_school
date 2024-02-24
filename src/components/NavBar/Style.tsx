@@ -129,9 +129,9 @@ export const NavFloats = styled.nav`
     font-weight: bolder;
     font-size: 0.9em;
     border-radius: 7px;
-    transition: 0.3s;
     &:hover {
-      border: 1px solid var(--nav-color-button-hover);
+      background-color: var(--nav-color-button-menu-hover);
+      color: var(--font-nav-button-hover-color);
     }
   }
 `;

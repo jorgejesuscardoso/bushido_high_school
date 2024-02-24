@@ -56,13 +56,6 @@ export const ImageFrame = () => {
     }
     setCount((count - 1) % slidelength);
   };
-  // scroll to the selected image
-  useEffect(() => {
-    const selectedImage = document.getElementById(image.id.toString());
-    if (selectedImage) {
-      selectedImage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }, [count, image.id]);
   return (
     <SlideSection>
       <Frame>
@@ -85,7 +78,9 @@ export const ImageFrame = () => {
       </Frame>
       <SlideGradeSection>
         <h3>Novidades</h3>
-        <DivSlideSection>
+        <DivSlideSection
+          id="slideGradeSection"
+        >
           {grade && grade.map((item) => {
             return (
               <ImageGrade

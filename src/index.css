@@ -40,15 +40,11 @@ select {
   z-index: 100;
 }
 .active {
-  background-color: #ffffff !important;
-  color: #c50000 !important;
-}
-.active p, .active h4 {
-  color: #c50000 !important;
+  background-color: #119b11b0 !important;
 }
 :root {
   --body-color: #fff;
-  --nav-color: #004a86;
+  --nav-color: #002644;
   --nav-background-color: #004a86;
   --nav-background-color-2: #00335c;
   --nav-color-button-hover-2: #fff2;
@@ -74,14 +70,14 @@ select {
   --placeholder-color: #fff;
   --home-font-color: #00335c;
   --home-button-color: #cccccc;
-  --slide-frame-color: #e9e9e9;
-  --slide-grade-color: #c50000;
-  --slide-grade-content-color: #cccccc38;
+  --slide-frame-color: #000000;
+  --slide-grade-color: #000000;
+  --slide-grade-content-color: #8d8d8d38;
   --slide-grade-hover-color: #ccc5;
   --slide-frame-p-background-color: rgba(5, 5, 5, 0.712);
   --slide-frame-p-hover-color: rgba(0, 0, 0, 0.7);
   --slide-frame-span-background-color: #cccccc34;
-  --slide-frame-background-pages-color: #ff0000;
+  --slide-frame-background-pages-color: #000000;
   --scroll-bar-color: #ccccccd0;
   --scroll-thumb-color: #575757bb;
   --text-color: #fff;

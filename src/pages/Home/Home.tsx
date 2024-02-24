@@ -1,10 +1,10 @@
-import { ImageDisplay } from "../../components/ImageDisplay/ImagemDisplay";
+import { ImageFrame } from "../../components/SlideDisplayHome/ImageFrame";
 import { Main } from "./style";
 
 export const Home = () => {
   return (
     <Main>
-      <ImageDisplay />
+      <ImageFrame />
     </Main>
   );
 }

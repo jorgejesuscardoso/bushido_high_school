@@ -15,21 +15,16 @@ export const Frame = styled.div`
   width: 80%;
   height: 100%;
 `;
-export const ImgFrame = styled.img`
-  width: 100%;
+export const ImgDisplay = styled.img`
+  width: 75%;
   height: 100%;
   padding: 5px;
-  object-fit: contain;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px var(--shadow-color);
-  transition: transform 0.5s ease;
-  &:hover {
-    transform: scale(1.1);
-  }
 `;
-export const ImgFrameContainer = styled.div`
+export const ImgDisplayContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -47,7 +42,7 @@ export const ImgFrameContainer = styled.div`
     }
     img.startPosition {
       transition: 0s ease-in-out;
-      transform: translateX(100%);
+      transform: translateX(150%);
     }
     div {
       display: flex;
@@ -95,6 +90,7 @@ export const ImgFrameContainer = styled.div`
 `;
 export const BtnPrevious = styled.button`
   position: absolute;
+  opacity: 0.4;
   top: 40%;
   left: 5%;
   transform: translateY(-50%);
@@ -105,18 +101,24 @@ export const BtnPrevious = styled.button`
     width: 50px;
     height: 50px;
   }
+  &:hover {
+    opacity: 1;
+  }
 `;
 export const BtnNext = styled.button`
   position: absolute;
+  opacity: 0.4;
   top: 40%;
   right: 35%;
   transform: translateY(-50%);
   background-color: transparent;
-  border: none;
   cursor: pointer;
   img {
     width: 50px;
     height: 50px;
+  }
+  &:hover {
+    opacity: 1;
   }
 `;
 export const BtnReset = styled.button`
@@ -150,7 +152,7 @@ export const Pages = styled.div`
     display: block;
     color: white;
     width: 20px;
-    border: 1px solid white;
+    background-color: var(--slide-frame-span-background-color);
     cursor: pointer;
   }
 `;
@@ -200,7 +202,7 @@ export const SlideGradeSection = styled.section`
       color: white;
     }
 `;
-export const DivDisplaySection = styled.div`
+export const DivSlideSection = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;

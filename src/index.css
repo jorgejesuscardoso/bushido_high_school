@@ -40,7 +40,7 @@ select {
   z-index: 100;
 }
 .active {
-  background-color: #0dbb819c !important;
+  background-color: #067a32 !important;
 }
 :root {
   --body-color: #fff;
@@ -73,6 +73,7 @@ select {
   --slide-grade-hover-color: #ccc5;
   --slide-frame-p-background-color: rgba(5, 5, 5, 0.712);
   --slide-frame-p-hover-color: rgba(0, 0, 0, 0.7);
+  --slide-frame-span-background-color: #cccccc70;
   --slide-frame-background-pages-color: #ff0000;
   --scroll-bar-color: #ccc;
   --scroll-thumb-color: #4c4b4b42;

@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { ImageFrameProps } from "../../types/components";
-import { ImgFrame, ImgFrameContainer, Pages } from "./style";
+import { ImgDisplay, ImgDisplayContainer, Pages } from "./style";
 
-export const ImageFrame = ({ 
+export const ImageDisplay = ({ 
   id, 
   src, 
   alt, 
   description, 
   title, 
   slideLength,
-  show
+  show,
+  setCount
   }: ImageFrameProps) => {
   const [pages, setPages] = useState<number[]>([]);
   const [activePage, setActivePage] = useState<number>(1);
@@ -29,8 +30,8 @@ export const ImageFrame = ({
     } 
 }, [id, activePage]);
   return (
-      <ImgFrameContainer>
-        <ImgFrame 
+      <ImgDisplayContainer>
+        <ImgDisplay 
           src={ src } 
           alt={ alt } 
           className={ show }
@@ -45,6 +46,9 @@ export const ImageFrame = ({
               <span 
                 key={ page } 
                 className={ activePage === page ? 'active' : '' }
+                onClick={ () => {
+                  setCount && setCount(page - 1);
+                } }
               >
                 { page }
               </span>
@@ -52,6 +56,6 @@ export const ImageFrame = ({
             })
           }
         </Pages>
-      </ImgFrameContainer>
+      </ImgDisplayContainer>
   );
 }

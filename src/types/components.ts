@@ -7,4 +7,5 @@ export interface ImageFrameProps {
   slideLength?: number;
   activeId?: number;
   show?: string;
+  setCount?: (count: number) => void;
 }

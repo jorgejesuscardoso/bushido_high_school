@@ -1,5 +1,5 @@
 import { ImageFrameProps } from "../../types/components";
-import { GradeContainer } from "./style";
+import { GridContainer } from "./style";
 
 export const ImageGrade = ({ 
   id, 
@@ -12,18 +12,18 @@ export const ImageGrade = ({
 }: ImageFrameProps) => {
     
   return (
-    <GradeContainer
+    <GridContainer
       className={ id === activeId ? 'active' : '' }
       onClick={ () => {
-        const selectId = id as unknown as number;
+        const selectId = id as number;
         setCount && setCount(selectId - 1)
       }}      
     >
       <img src={ src } alt={ alt } id={ id as unknown as string} />
       <div>
-        <h4>{ title }</h4> 
+        <h3>{ title }</h3> 
         <p>{ description }</p>
       </div>
-    </GradeContainer>
+    </GridContainer>
   );
 }

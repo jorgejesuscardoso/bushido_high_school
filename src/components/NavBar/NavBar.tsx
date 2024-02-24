@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom"
-import { DivDrawn, DivLogin, DivSearch, NavBa } from "./Style"
+import { DivLogoMark, DivLogin, DivSearch, NavBa } from "./Style"
 
 export const NavBar = () => {
   return (
     <NavBa>
-      <DivDrawn>
+      <DivLogoMark>
         <Link to="/">
           <img src='mark.png' alt="" />
         </Link>
-      </DivDrawn>
+      </DivLogoMark>
       <DivSearch>
         <input type="text" id="nav-search" placeholder="Faça uma pesquisa" />
         <button>Pesquisar</button>

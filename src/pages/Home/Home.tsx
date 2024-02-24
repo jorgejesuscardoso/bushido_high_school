@@ -1,4 +1,4 @@
-import { ImageFrame } from "../../components/SlideDisplayHome/ImageFrame";
+import { ImageFrame } from "../../components/SlideHome/ImageFrame";
 import { Main } from "./style";
 
 export const Home = () => {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Footers = styled.footer`
-  background-color: #123;
+  background-color: var(--footer-background-color);
   position: relative;
   bottom: 0;
   display: flex;
@@ -9,7 +9,7 @@ export const Footers = styled.footer`
   flex-wrap: wrap;
   width: 100%;
   height: 15vw;
-  color: white;
+  color: var(--text-color);
   text-align: center;
   padding: 10px;
   div {
@@ -24,7 +24,7 @@ export const Footers = styled.footer`
       li {
         margin-bottom: 10px;
         a {
-          color: white;
+          color: var(--text-color);
           text-decoration: none;
         }
       }
@@ -51,5 +51,5 @@ export const Parceiros = styled.div`
 `;
 export const Copyright = styled.p`
   font-size: 0.8em;
-  color: #fff;
+  color: var(--text-color);
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NavBa = styled.nav`
-  background-color: var(--nav-color);
+  background-color: var(--nav-background-color);
   position: absolute;
   top: 0;
   display: flex;
@@ -11,20 +11,19 @@ export const NavBa = styled.nav`
   height: 6vw;
   font-weight: bolder;
   font-size: 1.3em;
-  color: var(--font-nav-color);
   margin-bottom: 10px;
 `;
-export const DivDrawn = styled.div`
+export const DivLogoMark = styled.div`
   position: absolute;
   left: 0;
   display: flex;
   align-items: center;
-  width: 40%;
+  width: 24%;
   height: 6vw;
   overflow: hidden;
   a {
     position: absolute;
-    width: 60%;
+    width: 100%;
     img {
       width: 100%;
       height: 100%;
@@ -112,7 +111,7 @@ export const DivLogin = styled.div`
   }
 `;
 export const NavFloats = styled.nav`
-  background-color: var(--nav-menu-floating-background-color);
+  background-color: var(--nav-background-color);
   position: absolute;
   top: 6vw;
   display: flex;
@@ -125,7 +124,7 @@ export const NavFloats = styled.nav`
     width: 10%;
     height: 97%;
     border: none;
-    color: var(--font-nav-color);
+    color: var(--text-color);
     font-weight: bolder;
     font-size: 0.9em;
     border-radius: 7px;

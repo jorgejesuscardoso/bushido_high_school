@@ -113,6 +113,24 @@ export const NavFloat = () => {
       >
         Quem somos
       </button>
+      <button
+        onMouseOver={ () => {
+          setIsNews(false);
+          setIsMatric(false);        
+        }}
+        onClick={ () => navigate('/login')}
+      >
+        Login
+      </button>
+      <button
+        onMouseOver={ () => {
+          setIsNews(false);
+          setIsMatric(false);        
+        }}
+        onClick={ () => navigate('/register')}
+      >
+       Registrar
+      </button>
 
       {isNews && (
         <DivIsNews id="newsMenu">

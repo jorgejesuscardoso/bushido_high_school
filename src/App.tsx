@@ -5,6 +5,7 @@ import { StudentArea } from "./pages/StudentArea.tsx/StudentArea"
 import { Contact } from "./pages/contact/Contact"
 import { About } from "./pages/About/About"
 import { Calendar } from "./pages/Calendar/Calendar"
+import { NotFound } from "./pages/NotFound/NotFound"
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
         <Route path="/contact" element={ <Contact /> } />
         <Route path="/about" element={ <About />} />
       </Route>
-        <Route path="*" element={ <h1>Not Found</h1> } />
+        <Route path="*" element={ <NotFound /> } />
     </Routes>
   )
 }

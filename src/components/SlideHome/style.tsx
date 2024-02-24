@@ -6,10 +6,11 @@ export const SlideSection = styled.section`
   justify-content: center;
   width: 100%;
   height: 60%;
-  background-color: var(--slide-frame-color);
+  background-color: var(--slide-frame-background-color);
   
 `;
 export const Frame = styled.div`
+  display: flex;
   justify-content: center;
   width: 80%;
   height: 100%;
@@ -22,13 +23,13 @@ export const ImgDisplay = styled.img`
 `;
 export const ImgDisplayContainer = styled.div`
   background-color: white;
-  border: 3px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background-color: var(--slide-frame-background-color);
 
     img {
       transform: translateX(100%);
@@ -51,7 +52,7 @@ export const ImgDisplayContainer = styled.div`
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: 28.6vw;
+      top: 28.4vw;
       width: 70.5%;
       height: 15%;
       overflow-y: scroll;
@@ -156,13 +157,13 @@ export const Pages = styled.div`
     cursor: pointer;
   }
 `;
-export const GradeContainer = styled.div`
+export const GridContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 95%;
   max-height: 100px;
   padding: 5px;
-  background-color: var(--slide-grade-content-color);
+  font-size: 0.85em;
   cursor: pointer;
 
   &:last-child {
@@ -170,16 +171,15 @@ export const GradeContainer = styled.div`
   }
   
   &:hover {
-    background-color: var(--slide-grade-hover-color);
+    background-color: var(--slide-grid-hover-color);
   }
   img {
     width: 40%;
     height: 90px;
   }
-  h4 {
+  h3 {
     text-align: center;
-    background-color: #ffffff;
-    color: #00244d;
+    color: white;
   }
   p {
     color: white; 
@@ -200,7 +200,7 @@ export const SlideGradeSection = styled.section`
   width: 33%;
   height: 97%;
   margin-right: 5px;
-  background-color: var(--slide-grade-color);
+  background-color: var(--slide-grid-color);
   gap: 5px;
 
     h3 {

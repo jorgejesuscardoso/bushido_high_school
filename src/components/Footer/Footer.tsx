@@ -1,3 +1,4 @@
+import { parceiro1 } from "../../utils/imports";
 import { Footers, Parceiros, Copyright } from "./style";
 
 export const Footer = () => {
@@ -38,8 +39,8 @@ export const Footer = () => {
       <Parceiros>
         <h3>Nossos Parceiros</h3>
         <div>
-          <img src="https://www.saude.ba.gov.br/wp-content/uploads/2020/03/marca_governo_bahia.jpg" alt="Parceiro 1" />
-          <img src="https://pbs.twimg.com/profile_images/748541241583886336/ibXKHwKH_400x400.jpg" alt="Parceiro 2" />
+          <img src={ parceiro1 } alt="Parceiro 1" />
+          <img src={ parceiro1 } alt="Parceiro 2" />
         </div>
       </Parceiros>
       <Copyright>&copy; Todos os direitos reservados. Jorge de Jesus Cardoso, 2024.</Copyright>

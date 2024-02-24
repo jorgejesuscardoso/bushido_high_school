@@ -44,6 +44,7 @@ export const NavFloat = () => {
         floats?.classList.add('floatFixed');
       } else {
         floats?.classList.remove('floatFixed');
+        
       }
     });
   },[]);

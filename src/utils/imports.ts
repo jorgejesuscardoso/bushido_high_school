@@ -1,0 +1,1 @@
+export const headerImg = '101.png';

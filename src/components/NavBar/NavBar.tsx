@@ -4,7 +4,11 @@ import { DivDrawn, DivLogin, DivSearch, NavBa } from "./Style"
 export const NavBar = () => {
   return (
     <NavBa>
-      <DivDrawn><Link to="/"><img src="logo4.png" alt="" /></Link></DivDrawn>
+      <DivDrawn>
+        <Link to="/">
+          <img src='mark.png' alt="" />
+        </Link>
+      </DivDrawn>
       <DivSearch>
         <input type="text" id="nav-search" placeholder="Faça uma pesquisa" />
         <button>Pesquisar</button>

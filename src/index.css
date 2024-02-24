@@ -40,40 +40,47 @@ select {
   z-index: 100;
 }
 .active {
-  background-color: #067a32 !important;
+  background-color: #ffffff !important;
+  color: #c50000 !important;
+}
+.active p, .active h4 {
+  color: #c50000 !important;
 }
 :root {
   --body-color: #fff;
-  --nav-background-color: #00335c;
-  --nav-background-color-2: #0dbb81;
-  --nav-color-button-hover-2: #cccccc3b;
+  --nav-color: #004a86;
+  --nav-background-color: #004a86;
+  --nav-background-color-2: #00335c;
+  --nav-color-button-hover-2: #fff2;
   --nav-color-button-hover: #fff;
-  --nav-menu-floating-background-color: #004a86;
+  --nav-menu-floating-background-color: #00335c;
   --nav-menu-floating-background-color-2: #1c8560;
   --nav-color-button-menu-hover: #fff;
   --nav-color-button-menu-hover-2: #ff9900;
   --nav-color-background-menu: #9dff00;
   --nav-input-background-color: #08080849;
   --nav-input-background-color-2: #1f3300;
+  --nav-input-focus-color: #ffffffa9;
   --nav-button-background-color: #fff;
-  --nav-button-hover-color: #a9aa;
+  --nav-button-hover-color: #cccccc51;
   --nav-button-hover-color-2: #828b82;
   --nav-button-color-2: #225a47;
   --nav-button-color: #00335c;
   --nav-menu-floating-shadow-color: #ccc;
+  --nav-barra-color: #fff;
   --font-nav-color: #fff;
   --font-nav-button-hover-color: #00335c;
   --font-nav-button-hover-color-2: #225a47;
   --placeholder-color: #fff;
   --home-font-color: #00335c;
   --home-button-color: #cccccc;
-  --slide-frame-color: #000000dc;
-  --slide-grade-color: #259;
+  --slide-frame-color: #e9e9e9;
+  --slide-grade-color: #c50000;
   --slide-grade-content-color: #cccccc38;
   --slide-grade-hover-color: #ccc5;
   --slide-frame-p-background-color: rgba(5, 5, 5, 0.712);
   --slide-frame-p-hover-color: rgba(0, 0, 0, 0.7);
-  --slide-frame-span-background-color: #cccccc70;
+  --slide-frame-span-background-color: #cccccc34;
   --slide-frame-background-pages-color: #ff0000;
   --scroll-bar-color: #ccccccd0;
   --scroll-thumb-color: #575757bb;

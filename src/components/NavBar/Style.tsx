@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const NavBa = styled.nav`
-  background-color: var(--nav-background-color);
+  background-color: var(--nav-color);
   position: absolute;
   top: 0;
   display: flex;
   justify-content: end;
   align-items: center;
   width: 100%;
-  height: 5vw;
+  height: 6vw;
   font-weight: bolder;
   font-size: 1.3em;
   color: var(--font-nav-color);
@@ -20,7 +20,7 @@ export const DivDrawn = styled.div`
   display: flex;
   align-items: center;
   width: 40%;
-  height: 5vw;
+  height: 6vw;
   overflow: hidden;
   a {
     position: absolute;
@@ -34,25 +34,25 @@ export const DivDrawn = styled.div`
 export const DivSearch = styled.div`
   display: flex;
   align-items: center;
-  width: 30%;
-  height: 5vw;
+  width: 35%;
+  height: 6vw;
   input {
     background-color: var( --nav-input-background-color);
     width: 70%;
-    height: 50%;
+    height: 40%;
     border-radius: 10px;
     padding: 10px;
     margin-right: 10px;
     &:focus {
-      background-color: var(--nav-button-background-color);
+      background-color: var(--nav-input-focus-color);
     }
     &::placeholder {
       color: var(--placeholder-color);
     }
   }
   button {
-    width: 20%;
-    height: 50%;
+    width: 15%;
+    height: 40%;
     border-radius: 10px;
     border: none;
     background-color: var(--nav-button-background-color);
@@ -70,11 +70,11 @@ export const DivLogin = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
-  width: 35%;
-  height: 5vw;
+  width: 40%;
+  height: 6vw;
   button {
     width: 15%;
-    height: 50%;
+    height: 40%;
     border-radius: 10px;
     border: none;
     background-color: var(--nav-button-background-color);
@@ -103,7 +103,7 @@ export const DivLogin = styled.div`
     border-radius: 10px;
     padding: 10px;
     &:focus {
-     background-color: var(--nav-button-background-color);
+     background-color: var(--nav-input-focus-color);
     }
     &::placeholder {
       color: var(--placeholder-color);
@@ -112,29 +112,26 @@ export const DivLogin = styled.div`
   }
 `;
 export const NavFloats = styled.nav`
-background-color: var(--nav-background-color);
+  background-color: var(--nav-menu-floating-background-color);
   position: absolute;
-  top: 5vw;
+  top: 6vw;
   display: flex;
   justify-content: end;
   align-items: center;
   width: 100%;
   height: 2.5vw;
-  font-weight: bolder;
-  font-size: 1.3em;
-  color: var(--font-nav-color);
 
     button {
     width: 10%;
     height: 97%;
     border: none;
-    background-color: var(--nav-color);
     color: var(--font-nav-color);
     font-weight: bolder;
+    font-size: 0.9em;
     border-radius: 7px;
     transition: 0.3s;
     &:hover {
-      background-color: var(--nav-color-button-hover-2);
+      border: 1px solid var(--nav-color-button-hover);
     }
   }
 `;
@@ -188,4 +185,12 @@ export const DivIsMatric = styled.div`
       border-radius: 0;
     }
   }
+`;
+export const BarraStart = styled.div`
+  background-color: var(--nav-barra-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24%;
+  height: 2vw;
 `;

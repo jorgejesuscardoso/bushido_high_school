@@ -164,27 +164,31 @@ export const GradeContainer = styled.div`
   padding: 5px;
   background-color: var(--slide-grade-content-color);
   cursor: pointer;
+
+  &:last-child {
+    margin-bottom: 200px;
+  }
   
-    &:hover {
-      background-color: var(--slide-grade-hover-color);
-    }
-    img {
-      width: 40%;
-      height: 95px;
-    }
-    h4 {
-      color: white;
-    }
-    p {
-      color: white; 
-    }
-    div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 55%;
-      gap: 5px;
-    }
+  &:hover {
+    background-color: var(--slide-grade-hover-color);
+  }
+  img {
+    width: 40%;
+    height: 95px;
+  }
+  h4 {
+    color: white;
+  }
+  p {
+    color: white; 
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 55%;
+    gap: 5px;
+  }
 `;
 export const SlideGradeSection = styled.section`
   display: flex;
@@ -200,6 +204,7 @@ export const SlideGradeSection = styled.section`
     h3 {
       color: white;
     }
+    
 `;
 export const DivSlideSection = styled.div`
   display: flex;

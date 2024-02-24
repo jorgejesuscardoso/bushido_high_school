@@ -10,6 +10,7 @@ export const ImageGrade = ({
   activeId,
   setCount
 }: ImageFrameProps) => {
+    
   return (
     <GradeContainer
       className={ id === activeId ? 'active' : '' }

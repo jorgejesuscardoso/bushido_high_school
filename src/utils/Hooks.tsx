@@ -1,4 +1,4 @@
-import ObjImage from './Image.json';
+import ObjImage from '../SlideImg.json';
 
 export const ImageMap = () => {
  const Array = ObjImage.map((item) => {

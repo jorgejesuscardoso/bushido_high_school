@@ -75,8 +75,7 @@ select {
   --slide-frame-p-hover-color: rgba(0, 0, 0, 0.7);
   --slide-frame-span-background-color: #cccccc70;
   --slide-frame-background-pages-color: #ff0000;
-  --scroll-bar-color: #ccc;
-  --scroll-thumb-color: #4c4b4b42;
-  --scroll-track-color: #d30a0a;
+  --scroll-bar-color: #ccccccd0;
+  --scroll-thumb-color: #575757bb;
   --text-color: #fff;
 }

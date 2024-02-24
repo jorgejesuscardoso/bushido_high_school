@@ -143,9 +143,8 @@ export const Pages = styled.div`
   flex-direction: row !important;
   right: 30%;
   top: 32vw !important;
-
   gap: 5px;
-  width: 12% !important;
+  width: 20% !important;
   height: 5% !important;
   span {
     text-align: center;
@@ -212,7 +211,8 @@ export const DivSlideSection = styled.div`
 
   &::-webkit-scrollbar {
     background-color: var( --scroll-bar-color);
-    width: 10px;
+    border-radius: 10px;
+    width: 5px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: var( --scroll-thumb-color);

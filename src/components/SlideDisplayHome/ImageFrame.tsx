@@ -56,6 +56,13 @@ export const ImageFrame = () => {
     }
     setCount((count - 1) % slidelength);
   };
+  // scroll to the selected image
+  useEffect(() => {
+    const selectedImage = document.getElementById(image.id.toString());
+    if (selectedImage) {
+      selectedImage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [count, image.id]);
   return (
     <SlideSection>
       <Frame>

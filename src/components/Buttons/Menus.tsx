@@ -11,7 +11,7 @@ export const CalendarMenu = () => {
         Calendário
       </button>
       <button
-        onClick={ () => navigate('/schoolyear') }
+        onClick={ () => navigate('/school_year') }
       >
         Ano Letivo
       </button>
@@ -44,7 +44,7 @@ export const MatricMenu = () => {
         Fazer Matrícula
       </button>
       <button
-        onClick={ () => navigate('/confirmatric') }
+        onClick={ () => navigate('/confirm_matric') }
       >
         Confirmar Matrícula
       </button>

@@ -15,7 +15,9 @@ import { Matriculation } from "./pages/Matriculation/Matriculation"
 import { ConfirMatric } from "./pages/ConfirMatric/ConfirMatric"
 import { SendDocuments } from "./pages/Documents/SendDocuments"
 import { Register } from "./pages/Register/Register"
-import { Login } from "./pages/Login/Loging"
+import { Login } from "./pages/Login/Login"
+import { TeacherArea } from "./pages/TeacherArea/TeacherArea"
+import { AdminArea } from "./pages/Admin/AdminArea"
 
 function App() {
 
@@ -25,7 +27,7 @@ function App() {
         <Route index element={ <Home /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/register" element={ <Register /> } />
-        <Route path="/studentarea" element={ <StudentArea /> } />
+        <Route path="/student_area" element={ <StudentArea /> } />
         <Route path="/calendar" element={ <Calendar /> } />
         <Route path="/contact" element={ <Contact /> } />
         <Route path="/about" element={ <About />} />
@@ -33,10 +35,12 @@ function App() {
         <Route path="/event" element={ <Eventos /> } />
         <Route path="/programming" element={ <Programming /> } />
         <Route path="/evaluation" element={ <Evaluation /> } />
-        <Route path="/schoolyear" element={ <SchoolYear /> } />
+        <Route path="/school_year" element={ <SchoolYear /> } />
         <Route path="/matriculation" element={ <Matriculation /> } />
-        <Route path="/confirmatric" element={ <ConfirMatric /> } />
+        <Route path="/confirm_matric" element={ <ConfirMatric /> } />
         <Route path="/send_document" element={ <SendDocuments /> } />
+        <Route path="/teacher_area" element={ <TeacherArea /> } />
+        <Route path="/admin" element={ <AdminArea /> } />
       </Route>
         <Route path="*" element={ <NotFound /> } />
     </Routes>

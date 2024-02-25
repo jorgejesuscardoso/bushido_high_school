@@ -1,9 +1,9 @@
 import { CardWarning } from "../../components/Cards/CardWarning"
 
-export const Register = () => {
+export const TeacherArea = () => {
   return (
     <CardWarning
-      props="Registrar um ID para um novo aluno ou professor."
+      props="Área do Professor."
     />
   )
 }

@@ -13,7 +13,7 @@ export const FloatNavButtons = ({
  }: FloatNavButtonsProps) => {
   const navigate = useNavigate(); 
 
-  const userRole = userType === 'direção' ? 'manager' : userType === 'professor' ? 'teacher' : 'student';
+  const userRole = userType === 'direção' ? 'admin' : userType === 'professor' ? 'teacher_area' : 'student_area';
   const userArea =  userType === 'direção' ? 'Área da Direção' : userType === 'professor' ? 'Área do Professor' : 'Área do Aluno';
 
   return (
@@ -26,7 +26,7 @@ export const FloatNavButtons = ({
       </button>
         <button        
         onMouseOver={ handleCloseMenus }
-        onClick={ () => navigate(`/${userRole}area`) }
+        onClick={ () => navigate(`/${userRole}`) }
       >
         { userArea }
       </button>

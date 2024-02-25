@@ -4,7 +4,7 @@ import { Main } from "./style";
 export const Calendar = () => {
   return (
     <Main>
-      <CardWarning props="Calendário" />
+      <CardWarning props="O que vai acontecer nos próximos dias?" />
     </Main>
   );
 }

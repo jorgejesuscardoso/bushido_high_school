@@ -4,7 +4,7 @@ import { Main } from "./style";
 export const StudentArea = () => {
     return (
         <Main>
-            <CardWarning props="Área do estudante" />
+            <CardWarning props="Área do estudante. Dados escolares e boletins" />
         </Main>
     );
 }

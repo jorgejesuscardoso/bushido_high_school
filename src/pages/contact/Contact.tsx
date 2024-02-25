@@ -4,7 +4,7 @@ import { Main } from "./style";
 export const Contact = () => {
   return (
     <Main>
-      <CardWarning props="Contato" />
+      <CardWarning props="Como nos contactar" />
     </Main>
   );
 }

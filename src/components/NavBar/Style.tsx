@@ -87,6 +87,29 @@ export const LoginOrRegister = styled.div`
       width: 50%;
     }
 `;
+export const LogOut = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4%;
+  height: 27px;
+  margin-right: 5%;
+  gap: 15px;
+  color: var(--text-color);
+  z-index: 10;
+  border: 1px solid var(--logOut-color);
+  border-radius: 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+    &:hover {
+      background-color: var(--logOut-hover-color);
+    }
+  a {
+    color: var(--text-color);
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+`;
 export const NavFloats = styled.nav`
   background-color: var(--nav-background-color);
   display: flex;

@@ -2,13 +2,20 @@ import { useNavigate } from "react-router-dom";
 import { FloatNavButtonsProps } from "../../types/components";
 import { ButtonsFloatNav } from "./style";
 
+type UserTypes = 'professor' | 'direção' | 'aluno';
+
 export const FloatNavButtons = ({ 
   handleCloseMenus,
   handleNewsMenu,
   handleMatricMenu,
   handleCalendarMenu,
+  userType = 'aluno' as UserTypes,
  }: FloatNavButtonsProps) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
+
+  const userRole = userType === 'direção' ? 'manager' : userType === 'professor' ? 'teacher' : 'student';
+  const userArea =  userType === 'direção' ? 'Área da Direção' : userType === 'professor' ? 'Área do Professor' : 'Área do Aluno';
+
   return (
     <ButtonsFloatNav>
        <button
@@ -17,11 +24,11 @@ export const FloatNavButtons = ({
       >
         Home
       </button>
-      <button        
+        <button        
         onMouseOver={ handleCloseMenus }
-        onClick={ () => navigate('/studentarea') }
+        onClick={ () => navigate(`/${userRole}area`) }
       >
-        Área do aluno
+        { userArea }
       </button>
       <button
         onMouseOver={ handleNewsMenu }

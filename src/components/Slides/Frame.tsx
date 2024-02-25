@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Display } from "./Display";
 import { ImageMap } from "../../utils/Hooks";
-import { BtnNext, BtnPrevious, DivSlideSection, Frame, SlideGradeSection, SlideSection } from "./style";
+import { BtnNext, BtnPrevious, GridSection, Frame, SlideGradeSection, SlideSection } from "./style";
 import { ImageFrameProps } from "../../types/components";
 import { Grid } from "./Grid";
 
@@ -56,6 +56,7 @@ export const Slide = () => {
     }
     setCount((count - 1) % slidelength);
   };
+    
   return (
     <SlideSection>
       <Frame>
@@ -78,9 +79,7 @@ export const Slide = () => {
       </Frame>
       <SlideGradeSection>
         <h3>Novidades</h3>
-        <DivSlideSection
-          id="slideGridSection"
-        >
+        <GridSection>
           {grade && grade.map((item) => {
             return (
               <Grid
@@ -95,7 +94,7 @@ export const Slide = () => {
               />
             );
           })}
-        </DivSlideSection>
+        </GridSection>
       </SlideGradeSection>
     </SlideSection>
   );

@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom"
-import { DivLogoMark, DivSearch, LoginOrRegister, NavBa } from "./Style"
+import { DivLogoMark, DivSearch, LogOut, LoginOrRegister, NavBa } from "./Style"
 import { useEffect, useState } from "react";
+import { GetUserType } from "../../utils/LocalStorage";
 
 export const NavBar = () => {
   const [scroll, setScroll] = useState(false);
+  const userType = GetUserType();
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -29,10 +31,16 @@ export const NavBar = () => {
         <input type="text" id="nav-search" placeholder="Faça uma pesquisa" />
         <button>Pesquisar</button>
       </DivSearch>
-      <LoginOrRegister className={ scroll ? 'loginLink' : '' }>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Registrar</Link>
-      </LoginOrRegister>
+      { !userType ? (
+        <LogOut className={ scroll ? 'loginLink' : '' }>
+         <Link to='/'>LogOut</Link>
+        </LogOut>
+      ) : (
+        <LoginOrRegister className={ scroll ? 'loginLink' : '' }>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Registrar</Link>
+        </LoginOrRegister>
+      )}
     </NavBa>
   )
 }

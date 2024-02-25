@@ -8,6 +8,7 @@ export interface ImageFrameProps {
   activeId?: number;
   show?: string;
   setCount?: (count: number) => void;
+  ref?: React.RefObject<HTMLImageElement>;
 }
 
 export type FloatNavButtonsProps = {
@@ -15,4 +16,5 @@ export type FloatNavButtonsProps = {
   handleNewsMenu: () => void;
   handleMatricMenu: () => void;
   handleCalendarMenu: () => void;
+  userType: string;
 };

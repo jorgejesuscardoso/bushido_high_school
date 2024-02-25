@@ -211,7 +211,7 @@ export const SlideGradeSection = styled.section`
     }
     
 `;
-export const DivSlideSection = styled.div`
+export const GridSection = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;

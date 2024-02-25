@@ -46,7 +46,7 @@ select {
 .active p {
   color: #ddd !important;
 }
-.activeBoxPage {
+.boxPage {
   background-color: #383 !important;
   color: #fff !important;
 }

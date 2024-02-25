@@ -24,5 +24,10 @@ export const Main = styled.main`
     border: none;
     border-radius: 10px;
     margin-top: 20px;
+
+    &:hover {
+      background-color: green;
+      color: var(--text-color);
+    }
   }
 `;

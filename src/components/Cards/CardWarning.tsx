@@ -11,7 +11,7 @@ export const CardWarning = ({ props }: any) => {
       <button
         onClick={ () => navigate('/') }
       >
-        Ainda em produção
+        Em produção
       </button>
     </Main>
   );

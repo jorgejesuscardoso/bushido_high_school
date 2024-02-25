@@ -73,10 +73,7 @@ export const Slide = () => {
         });
       }
     }
-  }, [count]);
-  
-  
-  
+  }, [count]);  
     
   return (
     <SlideSection>
@@ -91,15 +88,20 @@ export const Slide = () => {
           show= { show }
           setCount= { setCount }
         />
+
         <BtnPrevious onClick={ handlePreviousImage }>
           <img src="prev.png" />
         </BtnPrevious>
+
         <BtnNext onClick={ handleNextImage }>
           <img src="next.png" alt="" />
-        </BtnNext>
+        </BtnNext>        
       </Frame>
+
       <SlideGradeSection>
+
         <h3>Novidades</h3>
+
         <GridSection id="GridSection">  
           {grade && grade.map((item) => {
             return (
@@ -116,6 +118,7 @@ export const Slide = () => {
             );
           })}
         </GridSection>
+        
       </SlideGradeSection>
     </SlideSection>
   );

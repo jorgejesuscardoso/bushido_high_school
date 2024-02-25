@@ -24,11 +24,13 @@ export const Display = ({
     setPages(pages);
   }
   }, [slideLength]);
+
   useEffect(() => {
     if (id) {
-      setActivePage(id);     
+      setActivePage(id);
     } 
 }, [id, activePage]);
+
   return (
     <DisplayContainer>
       <ImgDisplay 
@@ -45,7 +47,7 @@ export const Display = ({
           return (
             <span 
               key={ page } 
-              className={ activePage === page ? 'activeBoxPage' : '' }
+              className={ activePage === page ? 'boxPage' : '' }
               onClick={ () => {
                 setCount && setCount(page - 1);
               } }

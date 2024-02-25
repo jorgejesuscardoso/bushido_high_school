@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { parceiro1 } from "../../utils/imports";
 import { Footers, Parceiros, Copyright } from "./style";
 
@@ -23,6 +24,9 @@ export const Footer = () => {
             <a href="#"> tst.jorgecardoso@gmail.com</a>
           </li>
         </ul>
+        <h3>
+          <Link to="/about">About</Link>
+        </h3>
       </div>
       <div>
         <h3>Endereço</h3>

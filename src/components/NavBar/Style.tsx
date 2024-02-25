@@ -208,18 +208,18 @@ export const CalendarMenus = styled.div`
 export const ContainerCalendarMenu = styled.div`
   position: absolute;
   top: 2.5vw;
-  left: 42.5%;
+  left: 43.5%;
   width: 13%;  
 `;
 export const ContainerMatricMenu = styled.div`
   position: absolute;
   top: 2.5vw;
-  left: 32%;
+  left: 33%;
   width: 13%;  
 `;
 export const ContainerNewsMenu = styled.div`
   position: absolute;
   top: 2.5vw;
-  left: 21%;
+  left: 22%;
   width: 13%;  
 `;

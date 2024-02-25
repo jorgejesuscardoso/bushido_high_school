@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { CalendarMenus, MatricMenus, NewsMenus } from "./Style"
+import { CalendarMenus, MatricMenus, NewsMenus } from "../NavBar/Style"
 
 export const CalendarMenu = () => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export const CalendarMenu = () => {
         Calendário
       </button>
       <button
-        onClick={ () => navigate('/year') }
+        onClick={ () => navigate('/schoolyear') }
       >
         Ano Letivo
       </button>
@@ -39,17 +39,17 @@ export const MatricMenu = () => {
   return (
     <MatricMenus >
       <button
-        onClick={ () => navigate('/matric') }
+        onClick={ () => navigate('/matriculation') }
       >
         Fazer Matrícula
       </button>
       <button
-        onClick={ () => navigate('/confirm') }
+        onClick={ () => navigate('/confirmatric') }
       >
         Confirmar Matrícula
       </button>
       <button
-        onClick={ () => navigate('/document') }
+        onClick={ () => navigate('/send_document') }
       >
         Documentos
       </button>

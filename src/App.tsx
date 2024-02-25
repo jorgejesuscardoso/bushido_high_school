@@ -6,6 +6,14 @@ import { Contact } from "./pages/contact/Contact"
 import { About } from "./pages/About/About"
 import { Calendar } from "./pages/Calendar/Calendar"
 import { NotFound } from "./pages/NotFound/NotFound"
+import { News } from "./pages/News/News"
+import { Eventos } from "./pages/Evento/Eventos"
+import { Programming } from "./pages/Programming/Programming"
+import { Evaluation } from "./pages/Evaluation/Evaluation"
+import { SchoolYear } from "./pages/SchoolYear/SchoolYear"
+import { Matriculation } from "./pages/Matriculation/Matriculation"
+import { ConfirMatric } from "./pages/ConfirMatric/ConfirMatric"
+import { SendDocuments } from "./pages/Documents/SendDocuments"
 
 function App() {
 
@@ -17,6 +25,14 @@ function App() {
         <Route path="/calendar" element={ <Calendar /> } />
         <Route path="/contact" element={ <Contact /> } />
         <Route path="/about" element={ <About />} />
+        <Route path="/news" element={ <News /> } />
+        <Route path="/event" element={ <Eventos /> } />
+        <Route path="/programming" element={ <Programming /> } />
+        <Route path="/evaluation" element={ <Evaluation /> } />
+        <Route path="/schoolyear" element={ <SchoolYear /> } />
+        <Route path="/matriculation" element={ <Matriculation /> } />
+        <Route path="/confirmatric" element={ <ConfirMatric /> } />
+        <Route path="/send_document" element={ <SendDocuments /> } />
       </Route>
         <Route path="*" element={ <NotFound /> } />
     </Routes>

@@ -6,7 +6,7 @@ export const Main = styled.main`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: var(--body-color);
+  background-color: var(--body-warning-color);
   h1 {
     font-size: 3em;
     color: var(--text-color);

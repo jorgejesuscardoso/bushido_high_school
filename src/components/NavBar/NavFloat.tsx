@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ContainerCalendarMenu, ContainerMatricMenu, ContainerNewsMenu, NavFloats } from "./Style";
-import { CalendarMenu, MatricMenu, NewsMenu } from "./Menus";
+import { CalendarMenu, MatricMenu, NewsMenu } from "../Buttons/Menus";
 import { FloatNavButtons } from "../Buttons/NavFloatBtn";
 import { GetUserType } from "../../utils/LocalStorage";
 

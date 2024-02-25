@@ -32,17 +32,11 @@ export const FloatNavButtons = ({
       </button>
       <button
         onMouseOver={ handleNewsMenu }
-        onClick={ () => {
-          handleNewsMenu();       
-        } }        
       >
         Notícias
       </button>
       <button
         onMouseOver={ handleMatricMenu }
-        onClick={ () => {
-          handleMatricMenu();       
-        } }   
       >
         Matrículas
       </button>

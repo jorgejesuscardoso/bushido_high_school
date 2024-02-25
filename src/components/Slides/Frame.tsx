@@ -56,6 +56,27 @@ export const Slide = () => {
     }
     setCount((count - 1) % slidelength);
   };
+  useEffect(() => {
+    const getActive = document.getElementById(`${count + 1}`);
+    const gridSection = document.getElementById("GridSection"); 
+
+    if (getActive && gridSection) {
+      const gridSectionRect = gridSection.getBoundingClientRect();
+      const activeRect = getActive.getBoundingClientRect();
+      const offsetTop = getActive.offsetTop - gridSection.offsetTop - (gridSectionRect.height / 3);
+  
+      if (activeRect.bottom > gridSectionRect.bottom || activeRect.top < gridSectionRect.top) {
+
+        gridSection.scrollTo({
+          top: offsetTop,
+          behavior: "smooth"
+        });
+      }
+    }
+  }, [count]);
+  
+  
+  
     
   return (
     <SlideSection>
@@ -79,7 +100,7 @@ export const Slide = () => {
       </Frame>
       <SlideGradeSection>
         <h3>Novidades</h3>
-        <GridSection>
+        <GridSection id="GridSection">  
           {grade && grade.map((item) => {
             return (
               <Grid

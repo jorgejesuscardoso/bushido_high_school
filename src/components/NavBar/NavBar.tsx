@@ -31,7 +31,7 @@ export const NavBar = () => {
         <input type="text" id="nav-search" placeholder="Faça uma pesquisa" />
         <button>Pesquisar</button>
       </DivSearch>
-      { !userType ? (
+      { userType ? (
         <LogOut className={ scroll ? 'loginLink' : '' }>
          <Link to='/'>LogOut</Link>
         </LogOut>

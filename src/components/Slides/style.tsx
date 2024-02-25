@@ -6,6 +6,7 @@ export const SlideSection = styled.section`
   justify-content: center;
   width: 100%;
   height: 429px;
+  max-height: 429px;
   background-color: var(--slide-frame-background-color);
   
 `;
@@ -14,6 +15,7 @@ export const Frame = styled.div`
   justify-content: center;
   width: 80%;
   height: 100%;
+  max-height: 100%;
 `;
 export const ImgDisplay = styled.img`
   width: 75%;
@@ -28,6 +30,7 @@ export const DisplayContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  max-height: 100%;
   overflow: hidden;
   background-color: var(--slide-frame-background-color);
 
@@ -202,6 +205,7 @@ export const SlideGradeSection = styled.section`
   padding: 10px;
   width: 33%;
   height: 97%;
+  max-height: 97%;
   margin-right: 5px;
   background-color: var(--slide-grid-color);
   gap: 5px;
@@ -216,6 +220,7 @@ export const GridSection = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  max-height: 100%;
   overflow-y: scroll;
   gap: 10px;
 

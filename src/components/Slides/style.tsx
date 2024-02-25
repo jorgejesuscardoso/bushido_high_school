@@ -149,10 +149,13 @@ export const SelectBoxImg = styled.div`
   width: 20% !important;
   height: 5% !important;
   span {
-    text-align: center;
-    display: block;
-    color: white;
-    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+    color: #aaa;
+    width: 17px;
+    height: 17px;
     background-color: var(--slide-frame-span-background-color);
     cursor: pointer;
   }

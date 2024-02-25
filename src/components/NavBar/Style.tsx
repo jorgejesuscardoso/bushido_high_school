@@ -11,7 +11,6 @@ export const NavBa = styled.nav`
   height: 6vw;
   font-weight: bolder;
   font-size: 1.3em;
-  margin-bottom: 10px;
 `;
 export const DivLogoMark = styled.div`
   position: absolute;
@@ -35,6 +34,8 @@ export const DivSearch = styled.div`
   align-items: center;
   width: 35%;
   height: 6vw;
+  margin-right: 10%;
+
   input {
     background-color: var( --nav-input-background-color);
     width: 70%;
@@ -42,8 +43,11 @@ export const DivSearch = styled.div`
     border-radius: 10px;
     padding: 10px;
     margin-right: 10px;
+    color: var(--text-color);
+
     &:focus {
       background-color: var(--nav-input-focus-color);
+      font-size: 0.8em;
     }
     &::placeholder {
       color: var(--placeholder-color);
@@ -64,131 +68,135 @@ export const DivSearch = styled.div`
     }
   }
 `;
-export const DivLogin = styled.div`
+export const LoginOrRegister = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: end;
-  width: 40%;
-  height: 6vw;
-  button {
-    width: 15%;
-    height: 40%;
-    border-radius: 10px;
-    border: none;
-    background-color: var(--nav-button-background-color);
-    color: var(--nav-button-color);
-    font-weight: bolder;
-    transition: 0.3s;
-    margin-right: 20px;
-    &:hover {
-      background-color: var(--nav-button-hover-color);
-      color: var(--body-color);
-    }
-  }
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 90%;
-    gap: 5px;
+  justify-content: space-around;
+  width: 10%;
+  margin-right: 5%;
+  gap: 15px;
+  color: var(--text-color);
+  z-index: 10;
 
-  input {
-    background-color: var( --nav-input-background-color);
-    width: 80%;
-    height: 40%;
-    border-radius: 10px;
-    padding: 10px;
-    &:focus {
-     background-color: var(--nav-input-focus-color);
+    a {
+      text-align: center;
+      border: 1px solid var(--login-color);
+      border-radius: 10px;
+      font-size: 0.8em;
+      font-weight: 400;
+      padding: 5px;
+      width: 50%;
     }
-    &::placeholder {
-      color: var(--placeholder-color);
-    }
-  }
-  }
 `;
 export const NavFloats = styled.nav`
   background-color: var(--nav-background-color);
+  display: flex;
+  align-items: center;
   position: absolute;
   top: 6vw;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
   width: 100%;
   height: 2.5vw;
 
     button {
-    width: 7%;
+    width: 15%;
     height: 70%;
     color: var(--text-color);
     font-weight: bolder;
     font-size: 0.9em;
-    border-radius: 7px;
     &:hover {
-      background-color: var( --nav-floating-btn-hover-color);
-      color: var(--font-nav-button-hover-color);
+      border-bottom: 1px solid var( --button-border-color);
     }
   }
 `;
-export const DivIsNews = styled.div`
- background-color: var(--nav-menu-floating-background-color);
-  position: absolute;
-  top: 2.5vw;
-  left: 25.8%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 13%;
-  border-radius: 0 0 5px 5px;
-  button {
-    text-align: start;
-    padding-left: 10px;
-    width: 100%;
-    height: 25px;
-    border: none;
-    color: var(--text-color);
-    font-weight: bolder;
-    transition: 0.2s;
-    &:hover {
-      background-color: var(--nav-menu-floating-btn-hover-color);
-      color: var(--font-nav-button-hover-color);
-      border-radius: 0 ;
-    }
-  }
-`;
-export const DivIsMatric = styled.div`
+export const NewsMenus = styled.div`
   background-color: var(--nav-menu-floating-background-color);
-  position: absolute;
-  top: 2.5vw;
-  left: 37.8%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 13%;
+  width: 100%;
   border-radius: 0 0 5px 5px;
+
   button {
     text-align: start;
     padding-left: 10px;
     width: 100%;
     height: 25px;
-    border: none;
+    font-size: 0.8em;
+    font-weight: 400;
+    border-bottom: 1px solid var(--nav-menu-floating-btn-border-color);
+    border-radius: 0;   
     color: var(--text-color);
-    font-weight: bolder;
     transition: 0.2s;
     &:hover {
       background-color: var(--nav-menu-floating-btn-hover-color);
-      color: var(--font-nav-button-hover-color);
       border-radius: 0 ;
     }
   }
 `;
-export const BarraStart = styled.div`
-  background-color: var(--nav-barra-color);
+export const MatricMenus = styled.div`
+  background-color: var(--nav-menu-floating-background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+
+  button {
+    text-align: start;
+    padding-left: 10px;
+    width: 100%;
+    height: 25px;
+    font-size: 0.8em;
+    font-weight: 400;
+    border-bottom: 1px solid var(--nav-menu-floating-btn-border-color);
+    border-radius: 0;   
+    color: var(--text-color);
+    transition: 0.2s;
+    &:hover {
+      background-color: var(--nav-menu-floating-btn-hover-color);
+     border-radius: 0 ;
+    }
+  }
+`;
+export const CalendarMenus = styled.div`
+  background-color: var(--nav-menu-floating-background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+
+  button {
+    text-align: start;
+    padding-left: 10px;
+    width: 100%;
+    height: 25px;
+    font-size: 0.8em;
+    font-weight: 400;
+    border-bottom: 1px solid var(--nav-menu-floating-btn-border-color);
+    border-radius: 0;   
+    color: var(--text-color);
+    transition: 0.2s;
+    &:hover {
+      background-color: var(--nav-menu-floating-btn-hover-color);
+      border-radius: 0 ;
+    }
+  }
+`;
+export const ContainerCalendarMenu = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 24%;
-  height: 2vw;
+  top: 2.5vw;
+  left: 42.5%;
+  width: 13%;  
+`;
+export const ContainerMatricMenu = styled.div`
+  position: absolute;
+  top: 2.5vw;
+  left: 32%;
+  width: 13%;  
+`;
+export const ContainerNewsMenu = styled.div`
+  position: absolute;
+  top: 2.5vw;
+  left: 21%;
+  width: 13%;  
 `;

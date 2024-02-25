@@ -9,11 +9,11 @@ export const Main = styled.main`
   background-color: var(--body-color);
   h1 {
     font-size: 3em;
-    color: var(--home-font-color);
+    color: var(--text-color);
   }
   p {
     font-size: 1.5em;
-    color: var(--home-font-color);
+    color: var(--text-color);
   }
   button {
     padding: 10px 20px;

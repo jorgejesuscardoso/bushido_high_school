@@ -1,151 +1,92 @@
-import { useEffect, useState } from "react";
-import { DivIsMatric, DivIsNews, NavFloats } from "./Style"
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { ContainerCalendarMenu, ContainerMatricMenu, ContainerNewsMenu, NavFloats } from "./Style";
+import { CalendarMenu, MatricMenu, NewsMenu } from "./Menus";
+import { FloatNavButtons } from "../Buttons/NavFloatBtn";
 
 export const NavFloat = () => {
-  const navigate = useNavigate();
+  const refs = useRef<HTMLDivElement>(null);
   const [isNews, setIsNews] = useState(false);
   const [isMatric, setIsMatric] = useState(false);
   const [isCalendar, setIsCalendar] = useState(false);
+  const [isFloatFixed, setIsFloatFixed] = useState(false);
 
   const handleNewsMenu = () => {
-    setIsNews(!isNews);
+    setIsNews(true);
     setIsMatric(false);
     setIsCalendar(false);
   }
 
   const handleMatricMenu = () => {
-    setIsMatric(!isMatric);
+    setIsMatric(true);
     setIsNews(false);
     setIsCalendar(false);
   }
 
   const handleCalendarMenu = () => {
-    setIsCalendar(!isCalendar);
+    setIsCalendar(true);
     setIsMatric(false);
     setIsNews(false);
   }
 
-  const handleCloseMenus = () => {
-    setIsCalendar(false);
-    setIsMatric(false);
-    setIsNews(false);
+  const handleCloseMenus = (event: React.MouseEvent | MouseEvent) => {
+    if (!refs.current?.contains(event.target as Node)) {
+      setIsNews(false);
+      setIsMatric(false);
+      setIsCalendar(false);
+    }
+  }
+
+  const handleNavFloat = () => {
+    if (window.scrollY > 100) {
+      setIsFloatFixed(true);
+    } else {
+      setIsFloatFixed(false);
+    }
   }
 
   useEffect(() => {    
-    window.addEventListener('click', (event) => {
-      const newsMenu = document.getElementById('newsMenu');
-      const matricMenu = document.getElementById('matricMenu');
-      const calendarMenu = document.getElementById('calendarMenu');
-      const targets = [newsMenu, matricMenu, calendarMenu];
-      const mapTargets = targets.map((t) => t?.contains(event.target as Node)); 
-     
-      if (event.target) {
-        if (mapTargets.includes(false)) {
-          handleCloseMenus();
-        }
-      }
-    });
+    window.addEventListener('click', (event) => { handleCloseMenus(event) });
 
     return () => {
       window.removeEventListener('click', () => {});
     }
     
   }, []);
+
   useEffect(() => {
-    const floats = document.getElementById('navFloats');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 5 * window.innerWidth / 100) {
-        floats?.classList.add('floatFixed');
-      } else {
-        floats?.classList.remove('floatFixed');        
-      }
-    });
+
+    window.addEventListener('scroll', handleNavFloat);
     return () => {
       window.removeEventListener('scroll', () => {});
     }
+
   },[]);
+
   return (
-    <NavFloats id="navFloats">
-      
-      <button
-        onMouseOver={ handleCloseMenus }
-        onClick={ () => navigate('/') }
-      >
-        Home
-      </button>
-      <button        
-        onMouseOver={ handleCloseMenus }
-        onClick={ () => navigate('/studentarea') }
-      >
-        Área do aluno
-      </button>
-      <button
-        onMouseOver={ handleNewsMenu }
-        onClick={ () => {
-          handleNewsMenu();
-          navigate('/news');        
-        } }        
-      >
-        Notícias {'>'}
-      </button>
-      <button
-        onMouseOver={ handleMatricMenu }
-        onClick={ () => {
-          handleMatricMenu();
-          navigate('/matric');        
-        } }   
-      >
-        Matrículas {'>'}
-      </button>
-      <button
-        onMouseOver={ handleCalendarMenu }
-        onClick={ () => navigate('/calendar')}
-      >
-        Calendário {'>'}
-      </button>
-      <button        
-        onMouseOver={ handleCloseMenus }
-        onClick={ () => navigate('/contact')}
-      >
-        Contato
-      </button>
-      <button
-        onMouseOver={ handleCloseMenus }
-        onClick={ () => navigate('/login')}
-      >
-        Login
-      </button>
-      <button        
-        onMouseOver={ handleCloseMenus }
-        onClick={ () => navigate('/register')}
-      >
-       Registrar
-      </button>
+    <NavFloats className={ isFloatFixed ? 'floatFixed' : '' }>
+  
+      <FloatNavButtons 
+        handleCloseMenus={ handleCloseMenus }
+        handleNewsMenu={ handleNewsMenu }
+        handleMatricMenu={ handleMatricMenu }
+        handleCalendarMenu={ handleCalendarMenu }
+      />
 
       {isNews && (
-        <DivIsNews id="newsMenu">
-          <button>Notícias</button>
-          <button>Eventos</button>
-          <button>Programações</button>
-        </DivIsNews>
+        <ContainerNewsMenu ref={ refs }>
+          <NewsMenu />
+        </ContainerNewsMenu>
       )}
 
       {isMatric && (
-        <DivIsMatric id="matricMenu">
-          <button>Fazer Matrícula</button>
-          <button>Confirmar Matrícula</button>
-          <button>Documentos</button>
-        </DivIsMatric>
+        <ContainerMatricMenu ref={ refs }>
+          <MatricMenu />
+        </ContainerMatricMenu>
       )}
       {isCalendar && (
-        <DivIsMatric id="calendarMenu">
-          <button>Calendário</button>
-          <button>Ano Letivo</button>
-          <button>Avalições</button>
-          <button>Eventos</button>
-          <button>Programações</button>
-          </DivIsMatric>
+        <ContainerCalendarMenu  ref={ refs }>
+          <CalendarMenu />
+        </ContainerCalendarMenu>
       )}
     </NavFloats>
   )

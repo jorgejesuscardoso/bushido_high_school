@@ -8,7 +8,7 @@ a {
   color: inherit;
 }
 a:hover {
-  color: rgb(0, 255, 255) !important;
+  color: rgb(20, 200, 255) !important;
 }
 ul {
   list-style: none;
@@ -44,35 +44,38 @@ select {
   z-index: 100;
 }
 .active {
-  background-color: #161616 !important;
+  background-color: #383 !important;
 }
 .active p {
-  color: #ccc !important;
+  color: #ddd !important;
 }
 .activeBoxPage {
-  background-color: #0d6b25 !important;
+  background-color: #383 !important;
   color: #fff !important;
-  font-weight: 900;
+}
+.loginLink {
+  position: fixed ;
+  top: 0.5%;
+  z-index: 100;
 }
 :root {
-  --body-color: #222;
-  --nav-background-color: #141414;
-  --nav-menu-floating-background-color: #333333;
+  --body-color: #000000;
+  --nav-background-color: #000000;
+  --nav-button-hover-color: #053;
+  --nav-floating-btn-hover-color: #3335;
+  --nav-menu-floating-background-color: #141414;--nav-menu-floating-btn-border-color: #222;
   --nav-input-background-color: #85858549;
-  --nav-input-focus-color: #ffffff75;
+  --nav-input-focus-color: #ffffff35;
   --nav-button-background-color: #0d6b25;
-  --nav-button-hover-color: #04682b7c;
-  --nav-floating-btn-hover-color: #3333337c;
   --nav-menu-floating-btn-hover-color: #2228;
   --font-nav-button-hover-color: #fff;
   --placeholder-color: #fff;
   --home-font-color: #00335c;
   --home-button-color: #cccccc;
-  --slide-frame-background-color: #1a1a1a;
-  --slide-frame-background-color-2: #242424;
-  --slide-grid-color: #0009;
+  --slide-frame-background-color: #111;
+  --slide-grid-color: rgba(0, 0, 0, 0.8);
   --slide-grid-content-color: #8d8d8d38;
-  --slide-grid-hover-color: #151515;
+  --slide-grid-hover-color: #111;
   --slide-grid-p-color: #999;
   --slide-frame-p-background-color: rgba(5, 5, 5, 0.712);
   --slide-frame-p-hover-color: rgba(0, 0, 0, 0.7);
@@ -88,4 +91,6 @@ select {
   --button-hover-color: #ffffffb7;
   --button-background-color: #3d3c3c;
   --button-text-color: #ccc;
+  --button-border-color: #444;
+  --login-color: #086;
 }

@@ -7,6 +7,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+a:hover {
+  color: rgb(0, 255, 255) !important;
+}
 ul {
   list-style: none;
 }
@@ -41,30 +44,36 @@ select {
   z-index: 100;
 }
 .active {
-  background-color: #00ff001d !important;
+  background-color: #161616 !important;
+}
+.active p {
+  color: #ccc !important;
+}
+.activeBoxPage {
+  background-color: #0d6b25 !important;
+  color: #fff !important;
+  font-weight: 900;
 }
 :root {
   --body-color: #222;
   --nav-background-color: #141414;
-  --nav-menu-floating-background-color: #5e5e5e;
-  --nav-color-button-menu-hover: #8f8f8f;
+  --nav-menu-floating-background-color: #333333;
   --nav-input-background-color: #85858549;
   --nav-input-focus-color: #ffffff75;
-  --nav-button-background-color: #61616179;
-  --nav-button-hover-color: #ffffff51;
-  --nav-button-hover-color-2: #828b82;
-  --nav-button-color-2: #225a47;
-  --nav-button-color: #c4c4c4;
-  --nav-menu-floating-shadow-color: #ccc;
+  --nav-button-background-color: #0d6b25;
+  --nav-button-hover-color: #04682b7c;
+  --nav-floating-btn-hover-color: #3333337c;
+  --nav-menu-floating-btn-hover-color: #2228;
   --font-nav-button-hover-color: #fff;
   --placeholder-color: #fff;
   --home-font-color: #00335c;
   --home-button-color: #cccccc;
   --slide-frame-background-color: #1a1a1a;
   --slide-frame-background-color-2: #242424;
-  --slide-grid-color: #000000;
+  --slide-grid-color: #0009;
   --slide-grid-content-color: #8d8d8d38;
   --slide-grid-hover-color: #151515;
+  --slide-grid-p-color: #999;
   --slide-frame-p-background-color: rgba(5, 5, 5, 0.712);
   --slide-frame-p-hover-color: rgba(0, 0, 0, 0.7);
   --slide-frame-span-background-color: #cccccc34;
@@ -73,8 +82,10 @@ select {
   --scroll-thumb-color: #575757bb;
   --text-color: #ccc;
   --text-color-black: #000000;
+  --text-float-nav-color: #fff;
   --footer-background-color: #141414;
   --button-color: #cccccc;
   --button-hover-color: #ffffffb7;
   --button-background-color: #3d3c3c;
+  --button-text-color: #ccc;
 }

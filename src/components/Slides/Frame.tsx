@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { ImageDisplay } from "./ImageDisplay";
+import { Display } from "./Display";
 import { ImageMap } from "../../utils/Hooks";
 import { BtnNext, BtnPrevious, DivSlideSection, Frame, SlideGradeSection, SlideSection } from "./style";
 import { ImageFrameProps } from "../../types/components";
-import { ImageGrade } from "./ImageGrade";
+import { Grid } from "./Grid";
 
-export const ImageFrame = () => {
+export const Slide = () => {
   const [image, setImage] = useState({ id: 0 ,src: '', alt: '', title: '', description: ''});
   const [count, setCount] = useState(0);
   const [slidelength, setSlideLength] = useState(0);
@@ -59,7 +59,7 @@ export const ImageFrame = () => {
   return (
     <SlideSection>
       <Frame>
-        <ImageDisplay
+        <Display
           id={ image.id }
           src= { image.src }
           alt= { image.alt }
@@ -79,11 +79,11 @@ export const ImageFrame = () => {
       <SlideGradeSection>
         <h3>Novidades</h3>
         <DivSlideSection
-          id="slideGradeSection"
+          id="slideGridSection"
         >
           {grade && grade.map((item) => {
             return (
-              <ImageGrade
+              <Grid
                 key= { item.id }
                 id={ item.id }
                 src= { item.src }

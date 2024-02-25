@@ -1,10 +1,22 @@
-import { ImageFrame } from "../../components/SlideHome/ImageFrame";
+import { Slide } from "../../components/Slides/Frame";
 import { Main } from "./style";
 
 export const Home = () => {
   return (
     <Main>
-      <ImageFrame />
+      <Slide />
+      <h1>asd</h1>
+      <h1>asd</h1>
+      <h1>asd</h1>
+      <h1>asd</h1>
+      <h1>asd</h1>
+      <h1>asd</h1>
+      <h1>asd</h1>
+      <h1>asd</h1>
+      <h1>asd</h1>
+      <h1>asd</h1>
+      <h1>asd</h1>
+      <h1>asd</h1>
     </Main>
   );
 }

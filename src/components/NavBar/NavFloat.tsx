@@ -6,35 +6,50 @@ export const NavFloat = () => {
   const navigate = useNavigate();
   const [isNews, setIsNews] = useState(false);
   const [isMatric, setIsMatric] = useState(false);
+  const [isCalendar, setIsCalendar] = useState(false);
 
-  const handleNews = () => {
+  const handleNewsMenu = () => {
     setIsNews(!isNews);
     setIsMatric(false);
+    setIsCalendar(false);
   }
 
-  const handleMatric = () => {
+  const handleMatricMenu = () => {
     setIsMatric(!isMatric);
     setIsNews(false);
+    setIsCalendar(false);
   }
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      setIsNews(false);
-      setIsMatric(false);
-    });
+
+  const handleCalendarMenu = () => {
+    setIsCalendar(!isCalendar);
+    setIsMatric(false);
+    setIsNews(false);
+  }
+
+  const handleCloseMenus = () => {
+    setIsCalendar(false);
+    setIsMatric(false);
+    setIsNews(false);
+  }
+
+  useEffect(() => {    
     window.addEventListener('click', (event) => {
       const newsMenu = document.getElementById('newsMenu');
       const matricMenu = document.getElementById('matricMenu');
-
+      const calendarMenu = document.getElementById('calendarMenu');
+      const targets = [newsMenu, matricMenu, calendarMenu];
+      const mapTargets = targets.map((t) => t?.contains(event.target as Node)); 
+     
       if (event.target) {
-        if (!newsMenu?.contains(event.target as Node)) {
-          setIsNews(false);
-        }
-      
-        if (!matricMenu?.contains(event.target as Node)) {
-          setIsMatric(false);
+        if (mapTargets.includes(false)) {
+          handleCloseMenus();
         }
       }
     });
+
+    return () => {
+      window.removeEventListener('click', () => {});
+    }
     
   }, []);
   useEffect(() => {
@@ -43,90 +58,66 @@ export const NavFloat = () => {
       if (window.scrollY > 5 * window.innerWidth / 100) {
         floats?.classList.add('floatFixed');
       } else {
-        floats?.classList.remove('floatFixed');
-        
+        floats?.classList.remove('floatFixed');        
       }
     });
+    return () => {
+      window.removeEventListener('scroll', () => {});
+    }
   },[]);
   return (
     <NavFloats id="navFloats">
+      
       <button
-        onMouseOver={ () => {
-          setIsNews(false);
-          setIsMatric(false);        
-        }}
+        onMouseOver={ handleCloseMenus }
         onClick={ () => navigate('/') }
       >
         Home
       </button>
-      <button
-        onMouseOver={ () => {
-          setIsNews(false);
-          setIsMatric(false);        
-        }}
+      <button        
+        onMouseOver={ handleCloseMenus }
         onClick={ () => navigate('/studentarea') }
       >
         Área do aluno
       </button>
       <button
-        onMouseOver={ handleNews }
+        onMouseOver={ handleNewsMenu }
         onClick={ () => {
-          handleNews();
+          handleNewsMenu();
           navigate('/news');        
         } }        
       >
         Notícias {'>'}
       </button>
       <button
-        onMouseOver={ handleMatric }
+        onMouseOver={ handleMatricMenu }
         onClick={ () => {
-          handleMatric();
+          handleMatricMenu();
           navigate('/matric');        
         } }   
       >
         Matrículas {'>'}
       </button>
       <button
-        onMouseOver={ () => {
-          setIsNews(false);
-          setIsMatric(false);        
-        }}
+        onMouseOver={ handleCalendarMenu }
+        onClick={ () => navigate('/calendar')}
+      >
+        Calendário {'>'}
+      </button>
+      <button        
+        onMouseOver={ handleCloseMenus }
         onClick={ () => navigate('/contact')}
       >
         Contato
       </button>
       <button
-        onMouseOver={ () => {
-          setIsNews(false);
-          setIsMatric(false);        
-        }}
-        onClick={ () => navigate('/calendar')}
-      >
-        Calendário
-      </button>
-      <button
-        onMouseOver={ () => {
-          setIsNews(false);
-          setIsMatric(false);        
-        }}
-        onClick={ () => navigate('/about')}
-      >
-        Quem somos
-      </button>
-      <button
-        onMouseOver={ () => {
-          setIsNews(false);
-          setIsMatric(false);        
-        }}
+        onMouseOver={ handleCloseMenus }
         onClick={ () => navigate('/login')}
       >
         Login
       </button>
-      <button
-        onMouseOver={ () => {
-          setIsNews(false);
-          setIsMatric(false);        
-        }}
+      <button        
+        onMouseOver={ handleCloseMenus }
         onClick={ () => navigate('/register')}
       >
        Registrar
@@ -146,6 +137,15 @@ export const NavFloat = () => {
           <button>Confirmar Matrícula</button>
           <button>Documentos</button>
         </DivIsMatric>
+      )}
+      {isCalendar && (
+        <DivIsMatric id="calendarMenu">
+          <button>Calendário</button>
+          <button>Ano Letivo</button>
+          <button>Avalições</button>
+          <button>Eventos</button>
+          <button>Programações</button>
+          </DivIsMatric>
       )}
     </NavFloats>
   )

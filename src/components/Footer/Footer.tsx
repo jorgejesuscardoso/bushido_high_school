@@ -7,24 +7,27 @@ export const Footer = () => {
       <div>
         <h3>Nossas redes sociais</h3>
         <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Twitter</a></li>
+          <li>
+            <a href="https://www.instagram.com/jorge.bushido/">Instagram</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/tst.jorgecardoso">Facebook</a>
+          </li>
         </ul>
       </div>
       <div>
         <h3>Contato</h3>
         <ul>
-          <li>Telefone: (11) 9999-9999</li>
+          <li>Telefone: (73) 9126-6263</li>
           <li>Email:
-            <a href="#"> escola@gmail.com</a>
+            <a href="#"> tst.jorgecardoso@gmail.com</a>
           </li>
         </ul>
       </div>
       <div>
         <h3>Endereço</h3>
         <ul>
-          <li>Rua: Largo da igreja, 123</li>
+          <li>Rua: Travessa Ana Delmira</li>
           <li>Bairro: Curral Novo</li>
           <li>Cidade: Jequié - BA</li>
         </ul>

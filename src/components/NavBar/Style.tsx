@@ -55,13 +55,12 @@ export const DivSearch = styled.div`
     border-radius: 10px;
     border: none;
     background-color: var(--nav-button-background-color);
-    color: var(--nav-button-color);
-    font-weight: bolder;
+    color: var(--button-text-color);
+    font-weight: bolder !important;
+    font-size: 0.7em;
     cursor: pointer;
-    transition: 0.3s;
     &:hover {
       background-color: var(--nav-button-hover-color);
-      color: var(--body-color);
     }
   }
 `;
@@ -115,45 +114,45 @@ export const NavFloats = styled.nav`
   position: absolute;
   top: 6vw;
   display: flex;
-  justify-content: end;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   height: 2.5vw;
 
     button {
-    width: 10%;
-    height: 97%;
-    border: none;
+    width: 7%;
+    height: 70%;
     color: var(--text-color);
     font-weight: bolder;
     font-size: 0.9em;
     border-radius: 7px;
     &:hover {
-      background-color: var(--nav-color-button-menu-hover);
+      background-color: var( --nav-floating-btn-hover-color);
       color: var(--font-nav-button-hover-color);
     }
   }
 `;
 export const DivIsNews = styled.div`
-  background-color: var(--nav-menu-floating-background-color);
+ background-color: var(--nav-menu-floating-background-color);
   position: absolute;
   top: 2.5vw;
-  left: 50%;
+  left: 25.8%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 10%;
+  width: 13%;
   border-radius: 0 0 5px 5px;
   button {
-    text-align: center;
+    text-align: start;
+    padding-left: 10px;
     width: 100%;
     height: 25px;
     border: none;
-    color: var(--font-nav-color);
+    color: var(--text-color);
     font-weight: bolder;
     transition: 0.2s;
     &:hover {
-      background-color: var(--nav-color-button-menu-hover);
+      background-color: var(--nav-menu-floating-btn-hover-color);
       color: var(--font-nav-button-hover-color);
       border-radius: 0 ;
     }
@@ -163,11 +162,11 @@ export const DivIsMatric = styled.div`
   background-color: var(--nav-menu-floating-background-color);
   position: absolute;
   top: 2.5vw;
-  right: 30%;
+  left: 37.8%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 10%;
+  width: 13%;
   border-radius: 0 0 5px 5px;
   button {
     text-align: start;
@@ -175,13 +174,13 @@ export const DivIsMatric = styled.div`
     width: 100%;
     height: 25px;
     border: none;
-    color: var(--font-nav-color);
+    color: var(--text-color);
     font-weight: bolder;
     transition: 0.2s;
     &:hover {
-      background-color: var(--nav-color-button-menu-hover);
+      background-color: var(--nav-menu-floating-btn-hover-color);
       color: var(--font-nav-button-hover-color);
-      border-radius: 0;
+      border-radius: 0 ;
     }
   }
 `;

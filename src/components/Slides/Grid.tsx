@@ -1,7 +1,7 @@
 import { ImageFrameProps } from "../../types/components";
-import { GridContainer } from "./style";
+import { Grids } from "./style";
 
-export const ImageGrade = ({ 
+export const Grid = ({ 
   id, 
   src, 
   alt, 
@@ -12,7 +12,7 @@ export const ImageGrade = ({
 }: ImageFrameProps) => {
     
   return (
-    <GridContainer
+    <Grids
       className={ id === activeId ? 'active' : '' }
       onClick={ () => {
         const selectId = id as number;
@@ -24,6 +24,6 @@ export const ImageGrade = ({
         <h3>{ title }</h3> 
         <p>{ description }</p>
       </div>
-    </GridContainer>
+    </Grids>
   );
 }

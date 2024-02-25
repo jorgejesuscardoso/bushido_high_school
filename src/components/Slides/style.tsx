@@ -5,7 +5,7 @@ export const SlideSection = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 60%;
+  height: 429px;
   background-color: var(--slide-frame-background-color);
   
 `;
@@ -21,7 +21,7 @@ export const ImgDisplay = styled.img`
   padding: 5px;
   border-radius: 10px;
 `;
-export const ImgDisplayContainer = styled.div`
+export const DisplayContainer = styled.div`
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -136,7 +136,7 @@ export const BtnReset = styled.button`
     height: 30px;
   }
 `;
-export const Pages = styled.div`
+export const SelectBoxImg = styled.div`
   background-color: transparent !important;
   position: absolute;
   display: flex;
@@ -157,7 +157,7 @@ export const Pages = styled.div`
     cursor: pointer;
   }
 `;
-export const GridContainer = styled.div`
+export const Grids = styled.div`
   display: flex;
   justify-content: space-between;
   width: 95%;
@@ -182,7 +182,7 @@ export const GridContainer = styled.div`
     color: white;
   }
   p {
-    color: white; 
+    color: var(--slide-grid-p-color); 
   }
   div {
     display: flex;

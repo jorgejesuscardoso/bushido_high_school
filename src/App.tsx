@@ -14,6 +14,8 @@ import { SchoolYear } from "./pages/SchoolYear/SchoolYear"
 import { Matriculation } from "./pages/Matriculation/Matriculation"
 import { ConfirMatric } from "./pages/ConfirMatric/ConfirMatric"
 import { SendDocuments } from "./pages/Documents/SendDocuments"
+import { Register } from "./pages/Register/Register"
+import { Login } from "./pages/Login/Loging"
 
 function App() {
 
@@ -21,6 +23,8 @@ function App() {
     <Routes>
       <Route path="/" element={ <LayOut /> } >
         <Route index element={ <Home /> } />
+        <Route path="/login" element={ <Login /> } />
+        <Route path="/register" element={ <Register /> } />
         <Route path="/studentarea" element={ <StudentArea /> } />
         <Route path="/calendar" element={ <Calendar /> } />
         <Route path="/contact" element={ <Contact /> } />

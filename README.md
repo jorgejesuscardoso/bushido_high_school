@@ -2,6 +2,14 @@
 ## Visão Geral
 
 O Bushido School é uma plataforma educacional projetada para facilitar a comunicação e interação entre alunos, professores e administração de uma escola. A plataforma oferece funcionalidades específicas para cada tipo de usuário, incluindo áreas de login distintas e recursos dedicados para matrículas, eventos, calendário e mais.
+
+Imagine a seguinte situação: você mora em uma região remota, como uma zona rural, e precisa contatar a escola para resolver questões importantes ou se manter atualizado sobre o progresso de seu filho. Porém, devido a condições climáticas adversas, como uma forte chuva, você não consegue comparecer pessoalmente, resultando em perda de tempo e desatualização.
+
+Apesar de existirem aplicativos como o WhatsApp e o Google Sala de Aula, que facilitam a comunicação, realizar matrículas ou acompanhar o desenvolvimento dos alunos pode ser trabalhoso e não oferece um feedback rápido e prático sobre a entrega e recebimento de informações.
+
+No Bushido School, oferecemos uma interface intuitiva e amigável, projetada para facilitar a navegação entre projetos, trabalhos e atividades dos alunos. Você pode enviar e receber documentos de forma segura, assinar boletins, fazer ou cancelar matrículas, entrar em contato com a secretaria da escola, se inscrever em eventos e projetos escolares, tudo isso sem sair de casa. As mensagens enviadas pela direção ficam salvas em seu perfil, permitindo que você as acesse a qualquer momento.
+
+O Bushido School foi criado para simplificar o dia a dia dos pais de alunos, especialmente para aqueles com pouco tempo disponível ou que vivem em regiões remotas, garantindo acesso fácil e rápido a informações importantes sobre a vida escolar de seus filhos.
 ## Funcionalidades Principais
 ### Áreas de Usuários
 

@@ -1,0 +1,23 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+    container_name: CN_School
+    env_file:
+      - .env
+    ports:
+      - "33060:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+  node:
+    build: 
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: CN_School_Node
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3030:3000"
+    depends_on:
+      - db

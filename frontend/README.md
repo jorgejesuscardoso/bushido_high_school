@@ -21,7 +21,7 @@ Após a chencagem "health" do banco de dados, garantindo que ele ta rodando corr
 
 Está página: 
 
-<img src="initialPage.png"/>
+<img src="public/initialPage.png"/>
 
 Se não houver nenhum erro na página, significa que as rotas e o banco de dados está ok. 
 

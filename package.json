@@ -2,10 +2,10 @@
   "name": "bushido_school",
   "version": "1.0.0",
   "description": "Plataforma online de uma escola",
-  "main": "src/server.js",
+  "main": "backend/src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/server.js"
+    "start": "nodemon backend/src/server.js"
   },
   "author": "jorge de jesus cardoso",
   "license": "ISC",

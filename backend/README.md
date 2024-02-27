@@ -6,11 +6,233 @@ O banco de dados do projeto conta com um sistema ORM para uma consulta segura e 
 
 Outro fator que contribui significativamente para a segurança do projeto é a adoção do modelo MSC (Model, Service, Controller).
 
-#### Camada Controller
- - A camada de controle (Controller) realiza uma verificação do tipo de solicitação que está sendo feita e, se não houver um token válido e uma 'role' associada, o acesso é bloqueado. Nesse caso, é enviada uma mensagem de erro com o status HTTP 400 (Bad Request), explicando que os dados não são válidos. Se houver muitas tentativas inválidas de acesso (5 vezes), a conexão é bloqueada por 5 minutos, e um e-mail é enviado para o usuário registrado naquele login, alertando-o sobre as tentativas de acesso inválidas.
+### Camada Controller
 
-#### Camada Service
-- A camada de serviços (Service) fica responsavél para lidar com as regras de negócios
+A camada de controle (Controller) é responsável por verificar o tipo de solicitação que está sendo feita. Em quase todas as requisições, é necessário estar devidamente autenticado, com um token válido e uma 'role' associada, exceto nas seguintes rotas:
+
+- `app.get('/', GetAllPosts)`
+- `app.get('/news', GetAllNews)`
+- `app.get('/events', GetAllEvents)`
+- `app.get('/slides', GetSlideImg)`
+- `app.post('/users', CreateNewStudent)`
+- `app.post('/matric', RequestNewMatric)`
+
+Se não houver um token válido ou uma role associada na requisição, é enviado um erro com o status HTTP 400 (Bad Request), indicando que os dados não são válidos. Em casos de múltiplas tentativas inválidas de acesso (5 vezes), a conexão é bloqueada por 5 minutos como medida de segurança. Além disso, um e-mail é enviado para o usuário registrado naquele login, alertando sobre as tentativas de acesso inválidas.
+
+
+### Camada Service
+- A camada de serviços (Service) é responsável por lidar com as regras de negócios. Ela verifica se todos os dados são válidos e então os encaminha para a camada Model. Se houver algum dado que não esteja de acordo com os padrões estipulados, um erro é retornado.
+
+  - Exemplo, ao tentar acessar uma rota sem a devida credêncial: 
+
+   - Um aluno, devidamente logado, com seu token e role ativos, tenta acessar um painel que apenas um professor ou alguem com uma role superior ao de `student` pode acessar. Nesse exemplo, ele passará pela rota controller, já que existe um token ativo e uma role válida no corpo da requisição. No entanto, essa rota é destinada a professores ou a uma role superior à de student, como staff, manager ou admin. Quando a requisição chega na camada de serviços (Service) e a verificação da role não atende às regras de serviços, `é necessário ter uma role válida;`  a requisição é recusada e é retornado um erro com status 401 unauthorized e uma mensagem, `Acesso Negado! Você não possui as permissões necessárias para acessar esta funcionalidade.` .
+### Camada Model
+
+A camada Model é responsável pela interação com o banco de dados e pela manipulação dos dados da aplicação. Ela representa as entidades do sistema e define suas estruturas, relações e comportamentos.
+
+Cada modelo possui responsabilidades únicas, consultando sua respectiva entidade (tabela do banco de dados). Cada consulta é feita utilizando o ORM do Sequelize, o que facilita muito a implementação do CRUD.
+
+#### A model StudentModel
+O Model StudentModel é responsável por interagir com a tabela `students` no banco de dados. Com ele, realizamos todas as operações de CRUD com segurança, desde adicionar um novo aluno até lançar notas e excluí-lo.
+
+A tabela de alunos armazena todos os usuários de alunos. Nenhum aluno tem permissões acima de sua função, que é somente de leitura, exceto para enviar mensagens para a secretária.
+
+Nenhum aluno tem permissão para modificar seus dados cadastrais em seu perfil, com exceção do email, senha e `apelido`. No entanto, a alteração do `apelido` não afeta o nome real do aluno no banco de dados.
+
+Para o registro de um novo `user` estudante no banco de dados, é necessário passar os seguintes dados na rota `app.post('/student', CreateStudent)`:
+
+  - <b>Nome de usuário</b>: Pode ser o que você quizer. É nome que vai aparecer ao entrar em seu perfil, máximo de 20 caracteres.
+
+  - <b>Email</b>: email valido com `@` e `.com`. nao pode terpaço vazio. Máximo de 50 caracteres.
+
+  - <b>Password</b>: A senha deve ser alfanúmerica com letras maiuscula e minuscula e com o minimo de 6 caracteres e com o máximo de 20 caracteres.
+
+Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário passar os seguintes dados na rota `app.post('/students/data', CreateStudentData)`.
+
+  - <b>Role id</b>: `role_id`. para aluno e a role id número 5
+  .
+ - <b>Id de usuário do aluno</b>: pode conseguir o id de usuário passando o paramento `getemail`, na rota `app.get('/student', GetStudentByEmail)`, ficando assim `/users&getemail:"email aqui"`:
+
+ - <b>Nome completo</b>: O Nome completo do aluno.
+
+ - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, 
+ estado.
+
+ - <b>Nome do responsável</b>: Se o responsável não reside na mesma residência do aluno, deve informar tambem o endereço do responsável passando o paramento `responsible` no endpoint, ficando assim `/student/data&responsible:"o endereço aqui!"`.
+
+ - <b>Telefone do responsável</b>: O telefone tem que ter o formato por padrão xx-x-xxxx-xxxx.
+
+Apatir daqui todos os documentos são de ambos, aluno e responsável.
+
+ - <b>RG</b>.
+ - <b>CPF</b>
+ - <b>Cartão de vácina do COVID</b>
+
+#### A TeacherModel
+ Model TeacherModel é responsável por interagir com a tabela `teachers` no banco de dados. Com ele, podemos criar um novo usuário para um professor, adicionar uma nova disciplina, modificar a carga horária ou a classe pela qual ele é responsável.
+
+Nessa tabela são listados todos os usuários com permissões e privilégios de professores no sistema. Os professores têm acesso limitado às funcionalidades referentes ao seu cargo, não podendo acessar áreas administrativas ou de gerência. Por exemplo, até o momento, um professor não tem permissão para criar postagens nem gerenciar publicações de notícias ou eventos.
+
+Para registrar um novo `user` para o professor no banco de dados e necessário passar os seguintes dados na rota `app.post('/teacher', CreateTeacher)`:
+
+  - <b>Nome de usuário</b>: Pode ser o que você quizer. É nome que vai aparecer ao entrar em seu perfil, máximo de 20 caracteres.
+
+  - <b>Email</b>: email valido com `@` e `.com`. nao pode terpaço vazio. Máximo de 50 caracteres.
+
+  - <b>Password</b>: A senha deve ser alfanúmerica com letras maiuscula e minuscula e com o minimo de 6 caracteres e com o máximo de 20 caracteres.
+
+  Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/teacher/data', CreateTeacherData)`:
+
+ - <b>Id de usuário</b>: Pode ser encontrada passando o email do professor na pesquisa que acessa o endpoint `app.get('/teacher', GetTeacherByEmail)` passando o paramento `getemail`, ficando assim `/teacher&getemail:"email aqui"`.
+
+ - <b>Nome completo</b>: O Nome completo do funcionário.
+
+ - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, estado.
+
+ - <b>Telefone</b>: O telefone tem que ter o formato por padrão xx-x-xxxx-xxxx.
+
+ - <b>RG</b>.
+ - <b>CPF</b>
+ - <b>CNH</b>: Opicional.
+ - <b>Cartão de vácina do COVID</b>
+ - <b>Certificação</b>: Diploma ou certificado. Dependendo do cargo.
+
+ Para os dados relacionados ao exercicio da profissão, deve-se passar os dados na rota `app.post('/teacher/data/role', CreateRole)`:
+
+ - <b>id da Role</b>: `role_id`, deve ser um Number. No caso para professor é o id número 3 .
+
+ - <b>carga horária</b>: `workload`, String no fomato, exemplo, `40 horas`.
+
+ - <b>turnos</b>: `shift`, deve ser um array e não pode ser vazio. Exemplo: `["matutino", "verpertino", "noturno"]`.
+
+ - <b>classe</b>: `class`, deve ser um array, com todas as classes onde irá lecionar. Exemplo, Terceiro ano do ensino médio. E se tiver mais de uma turma, a estrutura deve ser igual no enxemplo, um array de String, começando com o valor ordinário da classe. Exemplo: 
+ `["9º ano do ensino fundamental", "2º ano do ensino médio", "3º ano do ensino médio", "2º ano do ensino médio"]`.
+
+ - <b>matéria</b>: `subject`, qual matérias ele lecionará. Deve seré um array de string, e não pode ser vazio. Exemplo: `["Matemática"]`.
+
+
+##### A StaffModel
+
+A StaffModel é responsável por interagir com a tabela `staffs`. Nessa tabela, podemos adicionar todos os outros funcionários que não façam parte do corpo docente oficial ou administrativo, como estagiários, prestadores de serviços, etc.
+
+Essa tabela armazena os usuários das pessoas colaboradoras que possuem privilégios mais limitados do que os professores. No entanto, elas podem ser promovidas e receber privilégios adicionais conforme necessário. Elas podem até mesmo ter sua função elevada para `manager`, obtendo permissões semitotais no sistema, com nível de privilégio inferior apenas ao de admin. Caso de exemplo, durante periodo de matrículas onde a demada é alta e é necessário ter mais funcionários com permissões de manipulação dos cadastrais dos alunos.
+
+Para registrar um novo `user` para uma pessoa colaboradora que não faz parte do corpo docente ou administrativo, é necessário passar os seguintes dados na rota `app.post('/staff', CreateStaff)`:
+
+  - <b>Nome de usuário</b>: Pode ser o que você quizer. É nome que vai aparecer ao entrar em seu perfil, máximo de 20 caracteres.
+
+  - <b>Email</b>: email valido com `@` e `.com`. nao pode terpaço vazio. Máximo de 50 caracteres.
+
+  - <b>Password</b>: A senha deve ser alfanúmerica com letras maiuscula e minuscula e com o minimo de 6 caracteres e com o máximo de 20 caracteres.
+
+  Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/staff/data', CreateStaffData)`:
+
+ - <b>Id de usuário</b>: Pode ser encontrada passando o email da pessoa colaboradora na pesquisa que acessa o endpoint `app.get('/staff', GetStaffByEmail)` passando o paramento `getemail`, ficando assim `/staff&getemail:"email aqui"`.
+
+ - <b>Nome completo</b>: O Nome completo do funcionário.
+
+ - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, estado.
+
+ - <b>Telefone</b>: O telefone tem que ter o formato por padrão xx-x-xxxx-xxxx.
+
+ - <b>RG</b>.
+ - <b>CPF</b>
+ - <b>CNH</b>: Opicional.
+ - <b>Cartão de vácina do COVID</b>
+ - <b>Certificação</b>: Diploma ou certificado. Dependendo do cargo.
+
+ Para os dados relacionados ao exercicio da profissão, deve-se passar os dados na rota `app.post('/staff/data/role', CreateRole)`:
+
+ - <b>id da Role</b>: `role_id`, deve ser um Number. No caso para staff é o id número 4 .
+
+ - <b>carga horária</b>: `workload`, String no fomato, exemplo, `40 horas`.
+
+ - <b>turnos</b>: `shift`, deve ser um array e não pode ser vazio. Exemplo: `["matutino", "verpertino", "noturno"]`.
+
+- <b>Cargo</b>: `role_description`, descreve o cargo da pessoa colaboradora. Deve ser uma string, exemplo. `Estágiario`, `serviços gerais`, `jardineiro`, `merendeira`.
+
+Apartir daqui, é no caso dessa pessoa colaboradora for trabalhar em sala de aula, exemplo, um professor estágiario, instrutor temporário.
+
+ - <b>classe</b>: `class`, deve ser um array, com todas as classes onde irá lecionar. Exemplo, Terceiro ano do ensino médio. E se tiver mais de uma turma, a estrutura deve ser igual no enxemplo, um array de String, começando com o valor ordinário da classe. Exemplo: 
+ `["9º ano do ensino fundamental", "2º ano do ensino médio", "3º ano do ensino médio", "2º ano do ensino médio"]`.
+
+ - <b>matéria</b>: `subject`, qual matérias ele lecionará. Deve seré um array de string, e não pode ser vazio. Exemplo: `["Matemática"]`.
+
+##### A ManagerModel
+
+A ManagerModel é responsável por interagir com a tabela `manager`, reservada para os usuários das pessoas colaboradoras com cargo de gerência na escola. Isso inclui secretários, coordenadores, supervisores, entre outros. São responsáveis diretos pelo tratamento com os alunos e seus dados pessoais, lidando com o cadastro, manutenção e atualização desses dados, bem como o tratamento direto com os alunos e responsáveis.
+
+Para registrar um novo `user` para uma pessoa da direção é necessário passar os seguintes dados na rota `app.post('/manager', CreateManager )`:
+
+  - <b>Nome de usuário</b>: Pode ser o que você quizer. É nome que vai aparecer ao entrar em seu perfil, máximo de 20 caracteres.
+
+  - <b>Email</b>: email valido com `@` e `.com`. nao pode terpaço vazio. Máximo de 50 caracteres.
+
+  - <b>Password</b>: A senha deve ser alfanúmerica com letras maiuscula e minuscula e com o minimo de 6 caracteres e com o máximo de 20 caracteres.
+
+  Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/manager/data', CreateManagerData)`:
+
+ - <b>Id de usuário</b>: Pode ser encontrada passando o email da pessoa colaboradora na pesquisa que acessa o endpoint `app.get('/manager', GetManagerByEmail)` passando o paramento `getemail`, ficando assim `/manager&getemail:"email aqui"`.
+
+ - <b>Nome completo</b>: O Nome completo do funcionário.
+
+ - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, estado.
+
+ - <b>Telefone</b>: O telefone tem que ter o formato por padrão xx-x-xxxx-xxxx.
+
+ - <b>RG</b>.
+ - <b>CPF</b>
+ - <b>CNH</b>: Opicional.
+ - <b>Cartão de vácina do COVID</b>
+ - <b>Certificação</b>: Diploma ou certificado. Dependendo do cargo.
+
+ Para os dados relacionados ao exercicio da profissão, deve-se passar os dados na rota `app.post('/manager/data/role', CreateRole)`:
+
+ - <b>id da Role</b>: `role_id`, deve ser um Number. No caso para staff é o id número 4 .
+
+ - <b>carga horária</b>: `workload`, String no fomato, exemplo, `40 horas`.
+
+ - <b>turnos</b>: `shift`, deve ser um array e não pode ser vazio. Exemplo: `["matutino", "verpertino", "noturno"]`.
+
+- <b>Cargo</b>: `role_description`, descreve o cargo da pessoa colaboradora. Deve ser uma string, exemplo. `Secretário/a`, `Supervisor/a`, `Coordenador/a`. `RH`
+
+##### A AdminModel
+
+Esta model é simples, porém é responsável por interagir com a tabela admin, onde são listados todos os usuários com privilégio total no sistema. Exemplos de pessoas para esse cargo incluem diretores, reitores e seus vices.
+
+Para registrar um novo `user` para uma pessoa da direção é necessário passar os seguintes dados na rota `app.post('/admin', CreateAdm)`:
+
+  - <b>Nome de usuário</b>: Pode ser o que você quizer. É nome que vai aparecer ao entrar em seu perfil, máximo de 20 caracteres.
+
+  - <b>Email</b>: email valido com `@` e `.com`. nao pode terpaço vazio. Máximo de 50 caracteres.
+
+  - <b>Password</b>: A senha deve ser alfanúmerica com letras maiuscula e minuscula e com o minimo de 6 caracteres e com o máximo de 20 caracteres.
+
+  Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/admin/data', CreateAdmData)`:
+
+ - <b>Id de usuário</b>: Pode ser encontrada passando o email da pessoa colaboradora na pesquisa que acessa o endpoint `app.get('/admin', GetAdmByEmail)` passando o paramento `getemail`, ficando assim `/admin&getemail:"email aqui"`.
+
+ - <b>Nome completo</b>: O Nome completo do funcionário.
+
+ - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, estado.
+
+ - <b>Telefone</b>: O telefone tem que ter o formato por padrão xx-x-xxxx-xxxx.
+
+ - <b>RG</b>.
+ - <b>CPF</b>
+ - <b>CNH</b>: Opicional.
+ - <b>Cartão de vácina do COVID</b>
+ - <b>Certificação</b>: Diploma ou certificado. Dependendo do cargo.
+
+ Para os dados relacionados ao exercicio da profissão, deve-se passar os dados na rota `app.post('/adm/data/role', CreateRole)`:
+
+ - <b>id da Role</b>: `role_id`, deve ser um Number. No caso para staff é o id número 4 .
+
+ - <b>carga horária</b>: `workload`, String no fomato, exemplo, `40 horas`.
+
+ - <b>turnos</b>: `shift`, deve ser um array e não pode ser vazio. Exemplo: `["matutino", "verpertino", "noturno"]`.
+
+- <b>Cargo</b>: `role_description`, descreve o cargo da pessoa colaboradora. Deve ser uma string, exemplo. `Diretor/a`, `Reitor/a`, `Vice diretor/a`. `Vice reitor/a`
 
 ## ORM Sequelize
 O Sequelize é uma biblioteca Node.js amplamente adotada para mapeamento objeto-relacional (ORM - Object-Relational Mapping). Essa ferramenta simplifica a interação entre uma aplicação Node.js e um banco de dados relacional, tornando a manipulação de dados mais intuitiva e eficiente.

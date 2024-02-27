@@ -7,6 +7,7 @@ export const SlideSection = styled.section`
   width: 100%;
   height: 429px;
   max-height: 429px;
+  font-size: 0.8em;
   background-color: var(--slide-frame-background-color);
   
 `;
@@ -29,7 +30,7 @@ export const DisplayContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vw;
   max-height: 100%;
   overflow: hidden;
   background-color: var(--slide-frame-background-color);
@@ -55,7 +56,7 @@ export const DisplayContainer = styled.div`
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: 28.4vw;
+      top: 63.65%;
       width: 70.5%;
       height: 15%;
       overflow-y: scroll;
@@ -91,13 +92,17 @@ export const DisplayContainer = styled.div`
       &::-webkit-scrollbar-track {
         width: 10px;
       }
+      @media (max-width: 968px) {
+        top: 68%;
+        font-size: 0.9em;
+      }
     }
 `;
 export const BtnPrevious = styled.button`
   position: absolute;
   opacity: 0.4;
   top: 48%;
-  left: 5%;
+  left: 3vw;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -114,7 +119,7 @@ export const BtnNext = styled.button`
   position: absolute;
   opacity: 0.4;
   top: 48%;
-  right: 35%;
+  right: 33vw;
   transform: translateY(-50%);
   background-color: transparent;
   cursor: pointer;
@@ -126,20 +131,7 @@ export const BtnNext = styled.button`
     opacity: 1;
   }
 `;
-export const BtnReset = styled.button`
-  position: absolute;
-  top: 70%;
-  left: 3%;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  img {
-    width: 30px;
-    height: 30px;
-  }
-`;
-export const SelectBoxImg = styled.div`
+export const SelectBox = styled.div`
   background-color: transparent !important;
   position: absolute;
   display: flex;
@@ -147,10 +139,11 @@ export const SelectBoxImg = styled.div`
   justify-content: space-around !important;
   flex-direction: row !important;
   right: 30%;
-  top: 33.3vw !important;
+  top: 74% ;
   gap: 5px;
   width: 20% !important;
   height: 5% !important;
+
   span {
     display: flex;
     justify-content: center;
@@ -162,6 +155,7 @@ export const SelectBoxImg = styled.div`
     background-color: var(--slide-frame-span-background-color);
     cursor: pointer;
   }
+
 `;
 export const Grids = styled.div`
   display: flex;
@@ -237,4 +231,4 @@ export const GridSection = styled.div`
   &::-webkit-scrollbar-track {
     width: 10px;
   }
-`;
+`; 

@@ -11,11 +11,13 @@ export const Footers = styled.footer`
   height: 15vw;
   color: var(--text-color);
   text-align: center;
+  font-size: 0.7rem;
   padding: 10px;
   div {
     width: 20%;
     height: 80%;
-    h3 {
+    h1 {
+      font-size: 1em;
       margin-bottom: 10px;
     }
     ul {

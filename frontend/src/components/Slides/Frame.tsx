@@ -89,12 +89,12 @@ export const Slide = () => {
           setCount= { setCount }
         />
 
-        <BtnPrevious onClick={ handlePreviousImage }>
-          <img src="prev.png" />
+        <BtnPrevious onClick={ handlePreviousImage } >
+          <img src="prev.png" alt="Previous Button"/>
         </BtnPrevious>
 
-        <BtnNext onClick={ handleNextImage }>
-          <img src="next.png" alt="" />
+        <BtnNext onClick={ handleNextImage } >
+          <img src="next.png" alt="Next Button" />
         </BtnNext>        
       </Frame>
 

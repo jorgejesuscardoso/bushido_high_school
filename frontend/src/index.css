@@ -41,13 +41,13 @@ select {
   z-index: 100;
 }
 .active {
-  background-color: #383 !important;
+  background-color: rgb(46, 121, 46) !important;
 }
 .active p {
-  color: #ddd !important;
+  color: #fff !important;
 }
 .boxPage {
-  background-color: #383 !important;
+  background-color: rgb(45, 121, 45) !important;
   color: #fff !important;
 }
 .loginLink {
@@ -70,11 +70,9 @@ select {
   --home-font-color: #00335c;
   --home-button-color: #cccccc;
   --slide-frame-background-color: #111;
-  --slide-grid-color: rgba(0, 0, 0, 0.5);
-  --slide-grid-content-color: #8d8d8d38;
+  --slide-grid-color: rgb(0, 0, 0);
   --slide-grid-hover-color: #111;
-  --slide-grid-p-color: #999;
-  --slide-frame-p-background-color: rgba(5, 5, 5, 0.712);
+  --slide-grid-p-color: #fff;
   --slide-frame-p-hover-color: rgba(0, 0, 0, 0.7);
   --slide-frame-span-background-color: #cccccc34;
   --slide-frame-background-pages-color: #000000;

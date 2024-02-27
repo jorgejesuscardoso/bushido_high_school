@@ -24,7 +24,7 @@ export const NavBar = () => {
     <NavBa>
       <DivLogoMark>
         <Link to="/">
-          <img src='mark.png' alt="" />
+          <img src='mark.png' alt="Logo Marca: Bushido School" />
         </Link>
       </DivLogoMark>
       <DivSearch>

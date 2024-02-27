@@ -6,4 +6,5 @@ export const ButtonsFloatNav = styled.div`
   align-items: center;
   width: 65%;
   height: 100%;
+  font-size: 0.9rem;
 `;

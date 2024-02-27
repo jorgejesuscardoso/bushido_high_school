@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <Footers>
       <div>
-        <h3>Nossas redes sociais</h3>
+        <h1>Nossas redes sociais</h1>
         <ul>
           <li>
             <a href="https://www.instagram.com/jorge.bushido/">Instagram</a>
@@ -17,19 +17,19 @@ export const Footer = () => {
         </ul>
       </div>
       <div>
-        <h3>Contato</h3>
+        <h1>Contato</h1>
         <ul>
           <li>Telefone: (73) 9126-6263</li>
           <li>Email:
             <a href="#"> tst.jorgecardoso@gmail.com</a>
           </li>
         </ul>
-        <h3>
+        <h1>
           <Link to="/about">About</Link>
-        </h3>
+        </h1>
       </div>
       <div>
-        <h3>Endereço</h3>
+        <h1>Endereço</h1>
         <ul>
           <li>Rua: Travessa Ana Delmira</li>
           <li>Bairro: Curral Novo</li>
@@ -37,14 +37,14 @@ export const Footer = () => {
         </ul>
       </div>
       <div>
-        <h3>Horário de funcionamento</h3>
+        <h1>Horário de funcionamento</h1>
         <ul>
           <li>Segunda à sexta: 07:00 às 11:00 e das 13:00 ás 17:00</li>
           <li>Sábado: 08:00 às 12:00</li>
         </ul>
       </div>
       <Parceiros>
-        <h3>Nossos Parceiros</h3>
+        <h1>Nossos Parceiros</h1>
         <div>
           <img src={ parceiro1 } alt="Parceiro 1" />
           <img src={ parceiro1 } alt="Parceiro 2" />

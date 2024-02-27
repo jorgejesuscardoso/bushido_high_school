@@ -8,7 +8,7 @@ export const NavBa = styled.nav`
   justify-content: end;
   align-items: center;
   width: 100%;
-  height: 6vw;
+  height: 7vw;
   font-weight: bolder;
   font-size: 1.3em;
 `;
@@ -33,7 +33,7 @@ export const DivSearch = styled.div`
   display: flex;
   align-items: center;
   width: 35%;
-  height: 6vw;
+  height: 70%;
   margin-right: 10%;
 
   input {
@@ -60,11 +60,20 @@ export const DivSearch = styled.div`
     border: none;
     background-color: var(--nav-button-background-color);
     color: var(--button-text-color);
-    font-weight: bolder !important;
     font-size: 0.7em;
     cursor: pointer;
     &:hover {
       background-color: var(--nav-button-hover-color);
+    }
+  }
+
+  @media (max-width: 968px) {
+    height: 7vw;
+
+    button {
+      width: 17%;
+      font-size: 0.5em;
+      font-weight: 600;
     }
   }
 `;
@@ -85,6 +94,13 @@ export const LoginOrRegister = styled.div`
       font-weight: 400;
       padding: 5px;
       width: 50%;
+    }
+
+    @media (max-width: 968px) {
+      width: 12%;
+      a {
+        font-size: 0.5em;
+      }
     }
 `;
 export const LogOut = styled.div`

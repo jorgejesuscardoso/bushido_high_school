@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ImageFrameProps } from "../../types/components";
-import { ImgDisplay, DisplayContainer, SelectBoxImg } from "./style";
+import { ImgDisplay, DisplayContainer, SelectBox } from "./style";
 
 export const Display = ({ 
   id, 
@@ -42,7 +42,7 @@ export const Display = ({
         <h3>{ title }</h3>
         <p>{ description }</p>
       </div>
-      <SelectBoxImg>
+      <SelectBox>
         {pages.map((page) => {
           return (
             <span 
@@ -57,7 +57,7 @@ export const Display = ({
           );
           })
         }
-      </SelectBoxImg>
+      </SelectBox>
     </DisplayContainer>
   );
 }

@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom"
 import { Home } from "./pages/Home/Home"
-import { LayOut } from "./components/LayOut/LayOut"
 import { StudentArea } from "./pages/StudentArea.tsx/StudentArea"
 import { Contact } from "./pages/contact/Contact"
 import { About } from "./pages/About/About"

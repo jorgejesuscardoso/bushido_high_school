@@ -18,6 +18,9 @@ module.exports = {
     {
       name: 'student'
     },
+    {
+      name: 'default'
+    }
   ], {}),
 
   down: async (queryInterface, Sequelize) => queryInterface.bulkDelete('Role', null, {}),

@@ -71,11 +71,13 @@ select {
   --home-button-color: #cccccc;
   --slide-frame-background-color: #111;
   --slide-grid-color: rgb(0, 0, 0);
-  --slide-grid-hover-color: #111;
+  --slide-grid-content-color: #1117;
+  --slide-grid-content-hover-color: #111;
   --slide-grid-p-color: #fff;
   --slide-frame-p-hover-color: rgba(0, 0, 0, 0.7);
   --slide-frame-span-background-color: #cccccc34;
   --slide-frame-background-pages-color: #000000;
+  --slide-frame-description-background-color: #00000075;
   --scroll-bar-color: #ccccccd0;
   --scroll-thumb-color: #575757bb;
   --text-color: #ccc;

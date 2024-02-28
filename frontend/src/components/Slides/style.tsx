@@ -60,7 +60,7 @@ export const DisplayContainer = styled.div`
       width: 70.5%;
       height: 15%;
       overflow-y: scroll;
-      background-color: var(--slide-frame-p-background-color);
+      background-color: var(--slide-frame-description-background-color);
 
       h3 {
         text-align: start;
@@ -158,6 +158,7 @@ export const SelectBox = styled.div`
 
 `;
 export const Grids = styled.div`
+  text-align: center;
   display: flex;
   justify-content: space-between;
   width: 95%;
@@ -165,13 +166,14 @@ export const Grids = styled.div`
   padding: 5px;
   font-size: 0.85em;
   cursor: pointer;
+  background-color: var(--slide-grid-content-color);
 
   &:last-child {
     margin-bottom: 200px;
   }
   
   &:hover {
-    background-color: var(--slide-grid-hover-color);
+    background-color: var(--slide-grid-content-hover-color);
   }
   img {
     width: 40%;

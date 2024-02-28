@@ -4,7 +4,9 @@ Este é o backend do projeto Bushido School, uma plataforma que visa facilitar o
 ## Banco de dados - MySQL
 O banco de dados do projeto conta com um sistema ORM para uma consulta segura e prática dos dados nele armazenados. Além disso, dados sensíveis como informações pessoais e senhas são criptografados por meio da ferramenta de hashing prática e eficiente, bcrypt.
 
-Outro fator que contribui significativamente para a segurança do projeto é a adoção do modelo MSC (Model, Service, Controller).
+Outro fator que contribui significativamente para a segurança do projeto é a adoção do modelo MSC (Model, Service, Controller) e uma registro detalhado dos login de usuários.
+
+Caso aja algum tipo de ataque como o de XSS, será possivel localizar de onde veio, pois apenas usuários devidamente autenticados pode ter acesso aos endpoints das API's.
 
 ### Camada Controller
 

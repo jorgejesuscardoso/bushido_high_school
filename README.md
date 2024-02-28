@@ -45,9 +45,3 @@ Recursos adicionais incluem registro de novos professores e alunos, acesso ao ch
 - <b>Avaliações</b>: Lista as datas e tipos de avaliações a serem realizadas por uma turma, seríe ou matéria. Podendo filtrar por todas as opções ao mesmo tempo. Ex: Serie: 3º ano médio, Turma: B, Matéria: Fisica, trará todas as avaliações vindouras e suas datas.
 - <b>Eventos</b>: Mostra as datas dos próximos eventos da escola. Em determinado tipo de evento onde é necessário inscrição para participar, é possivél se inscrever se estiver logado como aluno. 
 
-## Próximas Features
-
-- <b>Chat</b>: Implementação de um chat interativo entre alunos, professores e administração. Facilitando a comunicação e resolução de pendências.
-- <b>Mural de Notas</b>: Exibição das notas dos alunos em seus respectivos perfis.
-- <b>Mural de Atividades</b>: Lista as atividades realizadas pelos alunos e informa sobre as atividades e avaliações pendentes.
-- <b>Mural de Faltas e Observações</b>: Registro das faltas e observações relevantes.

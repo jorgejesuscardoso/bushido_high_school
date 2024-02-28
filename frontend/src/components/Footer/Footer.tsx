@@ -6,13 +6,20 @@ export const Footer = () => {
   return (
     <Footers>
       <div>
-        <h1>Nossas redes sociais</h1>
+        <h1>Links uteis</h1>
         <ul>
           <li>
-            <a href="https://www.instagram.com/jorge.bushido/">Instagram</a>
+            <Link to="https://www.instagram.com/jorge.bushido/">
+              Instagram
+            </Link>
           </li>
           <li>
-            <a href="https://www.facebook.com/tst.jorgecardoso">Facebook</a>
+            <Link to="https://www.facebook.com/tst.jorgecardoso">
+              Facebook
+            </Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
           </li>
         </ul>
       </div>
@@ -24,9 +31,6 @@ export const Footer = () => {
             <a href="#"> tst.jorgecardoso@gmail.com</a>
           </li>
         </ul>
-        <h1>
-          <Link to="/about">About</Link>
-        </h1>
       </div>
       <div>
         <h1>Endereço</h1>

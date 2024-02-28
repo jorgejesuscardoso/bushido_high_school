@@ -69,11 +69,9 @@ Recursos adicionais incluem registro de novos professores e alunos, acesso ao ch
 - <b>Avaliações</b>: Lista as datas e tipos de avaliações a serem realizadas por uma turma, seríe ou matéria. Podendo filtrar por todas as opções ao mesmo tempo. Ex: Serie: 3º ano médio, Turma: B, Matéria: Fisica, trará todas as avaliações vindouras e suas datas.
 - <b>Eventos</b>: Mostra as datas dos próximos eventos da escola. Em determinado tipo de evento onde é necessário inscrição para participar, é possivél se inscrever se estiver logado como aluno. 
 </details>
-<details>
-<summary>Dados Técnicos</summary>
+
+### Dados técnicos
 
   - [Readme do frontend](https://github.com/jorgejesuscardoso/bushido_school/tree/main/frontend)
 
   - [Readme do backend](https://github.com/jorgejesuscardoso/bushido_school/tree/main/backend)
-
- </details>

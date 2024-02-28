@@ -3,7 +3,7 @@ Deploy: [Netlify](https://cndev.netlify.app/)
 
 <details>
 
-## <summary> Visão Geral </summary>
+<summary> Visão Geral </summary>
 
 O Bushido School é uma plataforma educacional projetada para facilitar a comunicação e interação entre alunos, professores e administração de uma escola. A plataforma oferece funcionalidades específicas para cada tipo de usuário, incluindo áreas de login distintas e recursos dedicados para matrículas, eventos, calendário e mais.
 
@@ -16,17 +16,14 @@ No Bushido School, oferecemos uma interface intuitiva e amigável, projetada par
 O Bushido School foi criado para simplificar o dia a dia dos pais de alunos, especialmente para aqueles com pouco tempo disponível ou que vivem em regiões remotas, garantindo acesso fácil e rápido a informações importantes sobre a vida escolar de seus filhos.
 </details>
 
-## Funcionalidades Principais
+### Funcionalidades Principais
 
 
-### Áreas de Usuários
+#### Áreas de Usuários
 
 <details>
 
-<summary>
-
-#### Área do Aluno
-</summary>
+<summary>Área do Aluno</summary>
 
 Permite que os alunos acessem informações pessoais, notas, atividades, calendário escolar e eventos.
 Recursos adicionais incluem acesso ao chat interativo com professores e administração, enviou de documentos, acesso e assinaturas de boletins e eventos.
@@ -34,31 +31,22 @@ Recursos adicionais incluem acesso ao chat interativo com professores e administ
 </details>
 
 <details>
-<summary>
-
-#### Área do Professor
-</summary>
+<summary>Área do Professor</summary>
 Oferece aos professores recursos para gerenciar notas, atividades e comunicações com os alunos.
 Recursos adicionais incluem acesso ao chat interativo com alunos e administração, além do registro de notas no boletim virtual dos alunos.
 </details>
 
 <details>
-<summary>
-
-#### Área de Administração (Adm)
-</summary>
+<summary>Área de Administração (Adm)</summary>
 Permite à administração gerenciar matrículas, eventos, notícias, calendário e usuários.
 Recursos adicionais incluem registro de novos professores e alunos, acesso ao chat interativo e gerenciamento de informações gerais da escola.
 </details>
 
 
-## Sobre as abas
+### Sobre as abas
 
 <details>
-<summary>
-
-#### Menu de Notícias
-</summary>
+<summary>Menu de Notícias</summary>
 
 - <b>Notícias</b>: Apresenta todas as notícias relevantes para a comunidade escolar. É necessário ter um perfil de adm para gerênciar as publicações.
 - <b>Eventos</b>: Informa sobre os eventos atuais e futuros da escola. É necessário ter um perfil de adm para gerênciar as publicações.
@@ -66,10 +54,7 @@ Recursos adicionais incluem registro de novos professores e alunos, acesso ao ch
 </details>
 
 <details>
-<summary>
-
-#### Matrículas
-</summary>
+<summary>Matrículas</summary>
 
 - <b>Matrícula</b>: Permite que novos alunos se matriculem na escola. É necessário ter um cadastro no site e estar logado para solicitar uma matrícula.
 - <b>Confirmar Matrículas</b>: Permite que os pais dos alunos, confirme a matrículas após a aprovação da administração. 
@@ -78,20 +63,14 @@ Recursos adicionais incluem registro de novos professores e alunos, acesso ao ch
 </details>
 
 <details>
-<summary>
-
-#### Calendário
-</summary>
+<summary>Calendário</summary>
 - <b>Calendário</b>: Apresenta um calendário com todas as programações escolares. Passadas e futuras dentro do ano letivo e anteriores.
 - <b>Ano Letivo</b>: Informa sobre as atividades e planejamentos para o ano letivo e outras informações das programações pertinentes para um determinado ano letivo, atual, passado ou futuro.
 - <b>Avaliações</b>: Lista as datas e tipos de avaliações a serem realizadas por uma turma, seríe ou matéria. Podendo filtrar por todas as opções ao mesmo tempo. Ex: Serie: 3º ano médio, Turma: B, Matéria: Fisica, trará todas as avaliações vindouras e suas datas.
 - <b>Eventos</b>: Mostra as datas dos próximos eventos da escola. Em determinado tipo de evento onde é necessário inscrição para participar, é possivél se inscrever se estiver logado como aluno. 
 </details>
 <details>
-<summary>
- 
- ### Dados Técnicos
- </summary>
+<summary>Dados Técnicos</summary>
 
   - [Readme do frontend](https://github.com/jorgejesuscardoso/bushido_school/tree/main/frontend)
 

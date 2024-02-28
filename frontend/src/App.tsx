@@ -24,7 +24,6 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={ <LayOut /> } >
         <Route index element={ <Home /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/register" element={ <Register /> } />
@@ -43,8 +42,7 @@ function App() {
         <Route path="/send_document" element={ <SendDocuments /> } />
         <Route path="/teacher_area" element={ <TeacherArea /> } />
         <Route path="/admin" element={ <AdminArea /> } />
-      </Route>
-        <Route path="*" element={ <NotFound /> } />
+      <Route path="*" element={ <NotFound /> } />
     </Routes>
   )
 }

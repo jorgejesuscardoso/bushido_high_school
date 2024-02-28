@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { Home } from "./pages/Home/Home"
+import { LayOut } from "./components/LayOut/LayOut"
 import { StudentArea } from "./pages/StudentArea.tsx/StudentArea"
 import { Contact } from "./pages/contact/Contact"
 import { About } from "./pages/About/About"
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <Routes>
+      <Route path="/" element={ <LayOut /> } >
         <Route index element={ <Home /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/register" element={ <Register /> } />
@@ -41,6 +43,7 @@ function App() {
         <Route path="/send_document" element={ <SendDocuments /> } />
         <Route path="/teacher_area" element={ <TeacherArea /> } />
         <Route path="/admin" element={ <AdminArea /> } />
+      </Route>
       <Route path="*" element={ <NotFound /> } />
     </Routes>
   )

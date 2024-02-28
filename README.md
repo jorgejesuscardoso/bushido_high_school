@@ -1,11 +1,9 @@
 # Projeto: Bushido School
 Deploy: [Netlify](https://cndev.netlify.app/)
+
 <details>
-<summary>
 
-## Visão Geral
-
-</summary>
+## <summary> Visão Geral </summary>
 
 O Bushido School é uma plataforma educacional projetada para facilitar a comunicação e interação entre alunos, professores e administração de uma escola. A plataforma oferece funcionalidades específicas para cada tipo de usuário, incluindo áreas de login distintas e recursos dedicados para matrículas, eventos, calendário e mais.
 

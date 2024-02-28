@@ -18,6 +18,7 @@ import { Register } from "./pages/Register/Register"
 import { Login } from "./pages/Login/Login"
 import { TeacherArea } from "./pages/TeacherArea/TeacherArea"
 import { AdminArea } from "./pages/Admin/AdminArea"
+import { Calendar_events } from "./pages/Evento/Calendar_evens"
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/about" element={ <About />} />
         <Route path="/news" element={ <News /> } />
         <Route path="/event" element={ <Eventos /> } />
+        <Route path="/calendar_event" element={ <Calendar_events /> } />
         <Route path="/programming" element={ <Programming /> } />
         <Route path="/evaluation" element={ <Evaluation /> } />
         <Route path="/school_year" element={ <SchoolYear /> } />

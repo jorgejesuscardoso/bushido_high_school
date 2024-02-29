@@ -1,5 +1,7 @@
 'use strict';
 
+// Alimenta a tabela de roles com os valores padrões. Aqui são definidos os tipos de usuários que podem ser cadastrados no sistema. Esses são valores inicialmente definidos e podem ser alterados posteriormente.
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Roles', [

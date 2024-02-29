@@ -1,5 +1,7 @@
 'use strict';
 
+// Alimenta a tabela de dados do usuário com valores iniciais. Esses valores são utilizados para testes e podem ser alterados posteriormente.
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('User_Data', [

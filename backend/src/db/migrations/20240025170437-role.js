@@ -1,5 +1,7 @@
 'use strict';
 
+// cria a tabela de roles
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -16,6 +18,7 @@ module.exports = {
       }
     },
     {
+      // remove os campos createdAt e updatedAt e mantém o underscored
       timestamps: false,
       underscored: true
     }

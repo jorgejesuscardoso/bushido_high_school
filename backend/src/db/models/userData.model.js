@@ -1,3 +1,5 @@
+// Define o modelo de usuário. Para poder utilizar os metodos de criação de tabelas e relacionamentos do sequelize é necessário importar o { User_Data } no arquivo de destino, exemplo: const { User_Data } = require('../db/models');
+
 const UserAdminData = (sequelize, DataTypes) => {
   const UserData = sequelize.define('User_Data', {
     user_id: DataTypes.INTEGER,

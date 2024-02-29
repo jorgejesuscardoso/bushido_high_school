@@ -26,7 +26,7 @@ module.exports = {
         allowNull: false,
         field: 'role_id',
         references: {
-          model: 'Role',
+          model: 'Roles',
           key: 'id'
         }
       }
@@ -34,11 +34,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
+    await queryInterface.dropTable('Users');
   }
 };

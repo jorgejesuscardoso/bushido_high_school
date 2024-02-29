@@ -1,4 +1,5 @@
 // src/config/config.js
+// Dados de conexão com o banco de dados.
 
 const config = {
   username: process.env.MYSQL_USER,

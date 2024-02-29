@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Admin', [
+  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('User_Data', [
       {
         name: 'Jorge de Jesus Cardoso',
         email: 'tst.jorgecardoso@gmail.com',
@@ -23,8 +23,9 @@ module.exports = {
         bank: 'Banco do Brasil',
         account: '123456',
         agency: '1234',
+        user_id: 1,
   },
 ], {}),
 
-  down: async (queryInterface, Sequelize) => queryInterface.bulkDelete('Admin', null, {}),
+  down: async (queryInterface, Sequelize) => queryInterface.bulkDelete('User_Data', null, {}),
 };

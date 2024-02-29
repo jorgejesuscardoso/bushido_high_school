@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Admin', {
+    await queryInterface.createTable('User_Data', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -16,6 +16,17 @@ module.exports = {
       email: {
         type: Sequelize.STRING(50),
         allowNull: false,
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        field: 'User_id',
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       matriculation: {
         type: Sequelize.STRING(20),
@@ -96,6 +107,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Admin');
+    await queryInterface.dropTable('User_Data');
   }
 };

@@ -5,7 +5,13 @@
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "db:reset": "env $(cat .env) npx sequelize-cli db:drop && env $(cat .env) npx sequelize-cli db:create && env $(cat .env) npx sequelize-cli db:migrate && env $(cat .env) npx sequelize-cli db:seed:all",
+    "db:create": "env $(cat .env) npx sequelize-cli db:create",
+    "db:migrate": "env $(cat .env) npx sequelize-cli db:migrate",
+    "db:seed": "env $(cat .env) npx sequelize-cli db:seed:all",
+    "db:drop": "env $(cat .env) npx sequelize-cli db:drop",
+    "db:start": "env $(cat .env) npx sequelize-cli db:create && env $(cat .env) npx sequelize-cli db:migrate && env $(cat .env) npx sequelize-cli db:seed:all"
   },
   "author": "jorge de jesus cardoso",
   "license": "ISC",

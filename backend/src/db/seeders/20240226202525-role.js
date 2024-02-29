@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Role', [
+  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Roles', [
     {
       name: 'admin'
     },

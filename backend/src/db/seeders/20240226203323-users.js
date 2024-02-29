@@ -6,9 +6,15 @@ module.exports = {
     { 
       username: 'Bushido',
       email: 'tst.jorgecardoso@gmail.com',
-      password: '83098332',
+      password: 'Abc.123',
       role_id: 1,
     },
+    { 
+      username: 'UserTest',
+      email: 'testmail@gmail.com',
+      password: 'Pass.Test1',
+      role_id: 6,
+    }
   ], {}),
 
   down: async (queryInterface, Sequelize) => queryInterface.bulkDelete('Users', null, {}),

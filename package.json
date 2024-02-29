@@ -5,7 +5,10 @@
   "main": "backend/src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon backend/src/server.js"
+    "start": "nodemon backend/src/server.js",
+    "start:dev": "docker-compose up -d",
+    "stop:dev": "docker-compose down",
+    "start:all": "npm run start:dev && npm run start && cd backend && npm run db:start"
   },
   "author": "jorge de jesus cardoso",
   "license": "ISC",

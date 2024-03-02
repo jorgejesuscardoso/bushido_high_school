@@ -18,9 +18,7 @@ O projeto Bushido School é uma plataforma escolar. Seu objetivo é facilitar o 
 
 
  <details> 
- <Summary> 
- 
- ## Roles (funções / cargo)</summary>
+ <Summary> Roles (funções / cargo)</summary>
 
  
   - <b>Admin - administração:</b> role_id = 1.

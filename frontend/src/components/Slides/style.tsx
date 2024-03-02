@@ -9,6 +9,10 @@ export const SlideSection = styled.section`
   max-height: 429px;
   font-size: 0.8em;
   background-color: var(--slide-frame-background-color);
+
+  @media (max-width: 968px) {
+    height: 300px;
+  }
   
 `;
 export const Frame = styled.div`
@@ -97,6 +101,13 @@ export const DisplayContainer = styled.div`
         font-size: 0.9em;
       }
     }
+
+
+  @media (max-width: 968px) {
+    div {
+      top: 47%;
+    }
+  }
 `;
 export const BtnPrevious = styled.button`
   position: absolute;
@@ -114,6 +125,10 @@ export const BtnPrevious = styled.button`
   &:hover {
     opacity: 1;
   }
+
+  @media (max-width: 968px) {
+    top: 38%;
+  }
 `;
 export const BtnNext = styled.button`
   position: absolute;
@@ -129,6 +144,10 @@ export const BtnNext = styled.button`
   }
   &:hover {
     opacity: 1;
+  }
+
+  @media (max-width: 968px) {
+    top: 38%;
   }
 `;
 export const SelectBox = styled.div`
@@ -156,7 +175,15 @@ export const SelectBox = styled.div`
     cursor: pointer;
   }
 
+  @media (max-width: 968px) {
+    span {
+      font-size: 0.85em;
+      width: 13px;
+      height: 13px;    
+    }
+  }
 `;
+
 export const Grids = styled.div`
   text-align: center;
   display: flex;
@@ -192,6 +219,12 @@ export const Grids = styled.div`
     width: 55%;
     gap: 5px;
     overflow: hidden;
+  }
+
+  @media (max-width: 968px) {
+    img {
+      height: 75px;
+    }
   }
 `;
 export const SlideGradeSection = styled.section`

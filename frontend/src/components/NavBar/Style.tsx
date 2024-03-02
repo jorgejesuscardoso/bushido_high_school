@@ -133,7 +133,7 @@ export const NavFloats = styled.nav`
   position: absolute;
   top: 6vw;
   width: 100%;
-  height: 2.5vw;
+  height: 3vw;
 
     button {
     width: 15%;

@@ -20,7 +20,7 @@ O Bushido School foi criado para simplificar o dia a dia dos pais de alunos, esp
 #### Comandos CLI uteis
 
 ##### Na pasta backend.
-- `npm run db:start`: Cria um nanco de dados com o sequelize e o popula com os dados iniciais.
+- `npm run db:start`: Cria um banco de dados com o sequelize e o popula com os dados iniciais.
 
 - `npm run db:reset`: Deve ser usada na pasta backend. Reseta o banco de dados.
 
@@ -29,7 +29,7 @@ O Bushido School foi criado para simplificar o dia a dia dos pais de alunos, esp
 - `npm run start`: Inicia o server com nodemon.
 - `npm run start:dev`: Inicia o docker-compose (atualmente so está o banco MySQL no compose).
 - `npm run stop:dev`: Para o docker-compose.
-- `npm run start:all`: Roda todos os comandos anteriores com exceção do `npm stop:dev`.
+- `npm run start:all`: Roda todos os comandos anteriores com exceção do `npm run stop:dev` e `npm run db:reset`.
 
 ##### Na pasta frontend
 

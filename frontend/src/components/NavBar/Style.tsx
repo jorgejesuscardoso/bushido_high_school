@@ -143,7 +143,15 @@ export const NavFloats = styled.nav`
     font-size: 0.9em;
     &:hover {
       border-bottom: 1px solid var( --button-border-color);
+      color: var(--text-color-2);
     }
+  }
+
+
+  @media (max-width: 968px) {
+    button {
+      font-size: 0.7em;
+    } 
   }
 `;
 export const NewsMenus = styled.div`
@@ -170,6 +178,12 @@ export const NewsMenus = styled.div`
       border-radius: 0 ;
     }
   }
+
+  @media (max-width: 968px) {
+    button {
+      font-size: 0.7em;
+    }  
+  }
 `;
 export const MatricMenus = styled.div`
   background-color: var(--nav-menu-floating-background-color);
@@ -194,6 +208,12 @@ export const MatricMenus = styled.div`
       background-color: var(--nav-menu-floating-btn-hover-color);
      border-radius: 0 ;
     }
+  }
+
+  @media (max-width: 968px) {
+    button {
+      font-size: 0.7em;
+    } 
   }
 `;
 export const CalendarMenus = styled.div`
@@ -220,22 +240,29 @@ export const CalendarMenus = styled.div`
       border-radius: 0 ;
     }
   }
+
+
+  @media (max-width: 968px) {
+    button {
+      font-size: 0.7em;
+    } 
+  }
 `;
 export const ContainerCalendarMenu = styled.div`
   position: absolute;
   top: 2.5vw;
-  left: 43.5%;
-  width: 13%;  
+  left: 43%;
+  width: 14%;  
 `;
 export const ContainerMatricMenu = styled.div`
   position: absolute;
   top: 2.5vw;
-  left: 33%;
-  width: 13%;  
+  left: 32%;
+  width: 14%;  
 `;
 export const ContainerNewsMenu = styled.div`
   position: absolute;
   top: 2.5vw;
   left: 22%;
-  width: 13%;  
+  width: 14%;  
 `;

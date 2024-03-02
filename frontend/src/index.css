@@ -80,7 +80,8 @@ select {
   --slide-frame-description-background-color: #00000075;
   --scroll-bar-color: #ccccccd0;
   --scroll-thumb-color: #575757bb;
-  --text-color: #ccc;
+  --text-color: #fff;
+  --text-color-2: #5eff00;
   --text-color-black: #000000;
   --text-float-nav-color: #fff;
   --footer-background-color: #141414;

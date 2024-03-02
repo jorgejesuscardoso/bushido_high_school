@@ -6,11 +6,23 @@ const { GetDataByIdService } = require("./userDataService")
 
 // Essa função retorna um array com todos os usuários cadastrados.
 
-const getAllUserService = async () => {
+const getAllUserService = async (data) => {
   try {
+    if (data === 'true') {
+      const allUsers = await Users.findAll()
+      const users = []
+      for (let i = 0; i < allUsers.length; i++) {
+        const userData = await GetDataByIdService(allUsers[i].id, null)
+        users.push({
+          ...allUsers[i].dataValues,
+          data: userData
+        })
+      }
+      return users
+    }
     const getUser = await Users.findAll()
     if (!getUser) {
-     throw new Error("Error while fetching user data")
+     throw new Error("Houve um erro ao buscar os usuários cadastrados ou não há usuários cadastrados.")
     }
     return getUser;
    } catch (error) {
@@ -18,41 +30,30 @@ const getAllUserService = async () => {
    }
   }
 
-// Obtem todos os usuários cadastrados e seus dados pessoais. É retornado um array de objetos com todos os usuários e seus dados pessoais.
-
-const getAllUserWithDataService = async () => {
- try {
-  // Usa o método findAll do sequelize para obter todos os usuários cadastrados.
-  const getUser = await Users.findAll()
-  // Se não houver usuários cadastrados, retorna um erro.
-  if (!getUser) {
-   throw new Error("Error while fetching user data")
-  }
-  // Se houver usuários cadastrados, obtem os dados pessoais de cada usuário.
-  if (getUser) {
-    // Usa o método map para obter o id de cada usuário.
-    const usersId = getUser.map(user => user.id)
-    // Como é uma chama assíncrona, usa o método Promise.all para obter os dados de cada usuário. Sem o Promise.all, a função retornaria um array de Promises.
-    const usersData = await Promise.all(usersId.map(id => GetDataByIdService(id)))
-   
-    // Usa o método map para criar um novo array com os usuários e seus dados pessoais respectivos.
-    const usersWithData = getUser.map((user, index) => {
+const getUserByIdService = async (userId, data) => {
+  try {
+    let userData;
+    if (data === 'true')  {
+      const getUserData = await GetDataByIdService(userId, null)
+      userData = getUserData
+    }
+    const user = await Users.findByPk(userId)
+    if (!user) {
+      throw new Error("Usuário não encontrado.")
+    }
+    if (userData) {
       return {
-        // Usa o spread operator para persistir as propriedades do objeto user enquanto adiciona a propriedade data com os dados pessoais do usuário.
         ...user.dataValues,
-        data: usersData[index]
+        data: userData
       }
-    });
-    // Retorna o array com os usuários e seus dados pessoais.
-    return usersWithData
+    }
+    return user
+  } catch (error) {
+    throw new Error(error.message)
   }
- } catch (error) {
-  // Se houver um erro, retorna uma mensagem de erro.
-  throw new Error(error.message)
- }
 }
 
 module.exports = {
   getAllUserService,
-  getAllUserWithDataService
+  getUserByIdService,
 }

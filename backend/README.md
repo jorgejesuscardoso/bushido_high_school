@@ -1,5 +1,5 @@
 # Visão geral
-Este é o backend do projeto Bushido School, uma plataforma que visa facilitar o acesso dos alunos e pais à escola.
+O projeto Bushido School é uma plataforma escolar. Seu objetivo é facilitar o acesso dos alunos e pais à escola, oferecendo funcionalidades como gerenciamento de usuários, acesso a informações sobre eventos, notícias e atividades acadêmicas, além de fornecer uma camada de segurança robusta para proteger dados sensíveis.
 
 
 ## Comandos CLI uteis
@@ -17,6 +17,36 @@ Este é o backend do projeto Bushido School, uma plataforma que visa facilitar o
 - `npm run stop:dev`: Para o docker-compose.
 - `npm run start:all`: Roda todos os comandos anteriores com exceção do `npm run stop:dev` e `npm run db:reset`.
 
+
+
+## Roles (funções/cargo)
+  - <b>Admin - administração:</b> role_id = 1.
+  - <b>Manager - gerente (direção, secretária e afins):</b> role_id = 2.
+  - <b>Teacher - professor:</b> role_id = 3.
+  - <b>Staff - funcionários (que não faz parte da administração ou direção):</b> role_id = 4.
+  - <b>Student - estudantes e seus responsáveis:</b> role_id = 5.
+  - <b>Default - padrão (visitantes e pessoas cujas roles anteriores não se aplica):</b> role_id = 6.
+
+### Nivéis de permissão
+
+#### Admin
+As roles `Admin`tem permissão total no  sistema. Pode ver, criar, modificar e deletar qualquer evento, noticias, programações do calendário, postagens, usuário e dados de usuaŕios e afins. Ele consegue ter acesso a quase todas as informações no banco de dados, salvo aquelas que não é exposta via API. Dados sensiveis e confidénciais de funcionários, alunos e professores cadastrado, ficam totalmente acessivél para as roles `Admin`.
+
+#### Manager
+As roles `Mnager` tem poder semi-total no sestima. Elas podem ver, criar, editar e deletar dados, incluindos os dados pessoais, porém ficam limitados a dados de pessoas cadastradas com role `Student`. Dados pessoais de funcionários, qualquer que seja a role, ficam indisponivél para as roles `Manager`. É permitido o acesso somente leitura, de alguns dados de outras roles, e são elas: CNH, endereço, contato, contato de emergencia, matricula, numéro do contrato, plano de saúde, ramal e cartão SUS.
+
+#### Teacher
+As roles `Teacher`tem permissões apenas para acessar dados referentes a desempenho dos alunos. Eles podem ver, criar, modificar e deletar dados dos tipos notas nas matérias, faltas, trabalhos feitos e por fazer, atividades diversas (avaliativas ou não). Além disso, esses acessos só é permitido para as matérias e turma na qual ele/ela leciona. Um professor/a não tem permissão para ver ou interagir com dados de outras matérias ou turma.
+
+#### Staff
+As roles `Staff` só permissão para fazer gerenciamento de conteúdo do site: criar, ver, modificar e deletar postagens, noticias, eventos e programações.
+
+#### Students
+As roles `Students`só tem acesso somente leitura dos seus dados, pessaois, matrécula e desempenho escolar. Além de acesso a area onde é possivél enviar e recebe documentos escolar e renovar ou cancelar matrículas (tanto para evntos: viagens, acampamentos, etc, quanto escolar).
+
+#### Default
+As roles `Default` são as roles padrão para visitantes ou usuários cujas as roles anteriores não se aplica. Elas só tem permissão somente leitura das publicações do site e acesso a área de matréculas.
+
 # Tecnologias utilizadas
 ## Banco de dados - MySQL
 O banco de dados do projeto conta com um sistema ORM para uma consulta segura e prática dos dados nele armazenados. Além disso, dados sensíveis como informações pessoais e senhas são criptografados por meio da ferramenta de hashing prática e eficiente, bcrypt.
@@ -25,6 +55,41 @@ Outro fator que contribui significativamente para a segurança do projeto é a a
 
 Caso aja algum tipo de ataque como o de XSS, será possivel localizar de onde veio, pois apenas usuários devidamente autenticados pode ter acesso aos endpoints das API's.
 
+## ORM Sequelize
+O Sequelize é uma biblioteca Node.js amplamente adotada para mapeamento objeto-relacional (ORM - Object-Relational Mapping). Essa ferramenta simplifica a interação entre uma aplicação Node.js e um banco de dados relacional, tornando a manipulação de dados mais intuitiva e eficiente.
+
+Com o Sequelize, é possível definir modelos de dados usando JavaScript, o que corresponde diretamente às tabelas no banco de dados. Isso facilita a implementação das operações CRUD (Create, Read, Update, Delete), pois se baseia em conceitos familiares ao desenvolvedor.
+
+Além disso, o Sequelize oferece suporte a uma variedade de bancos de dados, incluindo MySQL, PostgreSQL, SQLite e MSSQL. Essa flexibilidade permite escolher a tecnologia mais adequada às necessidades do projeto.
+
+Além disso, o Sequelize é complementado pelo Sequelize CLI, uma ferramenta de linha de comando que facilita ainda mais o desenvolvimento e a manutenção de bancos de dados relacionais.
+
+O Sequelize CLI oferece uma variedade de comandos que agilizam tarefas comuns, como a geração automática de modelos, migrações e seeders. Com alguns comandos, é possivel inicializar um projeto Sequelize, criar e gerenciar modelos de dados, realizar migrações de esquema e preencher o banco de dados com dados de teste.
+
+Outra vantagem do Sequelize é sua ampla aceitação na comunidade Node.js e uma documentação abrangente e ativa, garantindo um suporte confiável e uma curva de aprendizado suave para os desenvolvedores.
+
+## Express
+O Express.js é um framework web minimalista para Node.js que simplifica o desenvolvimento de aplicativos web e APIs.
+O Express segue o paradigma "faça o mínimo, mas faça bem feito", o que o torna fácil de aprender e usar para desenvolvedores de todos os níveis de experiência.
+
+O Express permite que escolhamos e implementemos apenas os recursos necessários para os aplicativos, sem impor estruturas rígidas ou convenções.
+
+O Express possui um vasto ecossistema de middleware, que são funções intermediárias que podem ser adicionadas ao pipeline de requisição para realizar diversas tarefas, como tratamento de erros, autenticação e autorização, entre outras.
+
+### Middlewares json() e cors()
+O middleware express.json() é utilizado para fazer o parsing do corpo das requisições HTTP que possuem o formato JSON, ou seja, ele extrai os dados enviados pelo cliente no corpo da requisição e os disponibiliza no objeto req.body para fácil manipulação pelo código do servidor.
+
+O middleware express(cors()) é utilizado para habilitar o CORS (Cross-Origin Resource Sharing) em um aplicativo Express. Isso permite que o servidor responda a solicitações de recursos vindas de diferentes origens do que o próprio servidor, o que é útil em cenários de APIs que precisam ser acessadas por clientes hospedados em domínios diferentes.
+
+Esses dois middlewares são comumente utilizados em aplicações Express para lidar com requisitos comuns, como o envio de dados JSON e a habilitação do CORS, garantindo assim uma maior eficiência e segurança no desenvolvimento de aplicativos web.
+
+
+
+
+
+
+
+# Camadas da Aplicação
 ### Camada Controller
 
 A camada de controle (Controller) é responsável por verificar o tipo de solicitação que está sendo feita. Em quase todas as requisições, é necessário estar devidamente autenticado, com um token válido e uma 'role' associada, exceto nas seguintes rotas:
@@ -37,6 +102,7 @@ A camada de controle (Controller) é responsável por verificar o tipo de solici
 - `app.post('/matric', RequestNewMatric)`
 
 Se não houver um token válido ou uma role associada na requisição, é enviado um erro com o status HTTP 400 (Bad Request), indicando que os dados não são válidos. Em casos de múltiplas tentativas inválidas de acesso (5 vezes), a conexão é bloqueada por 5 minutos como medida de segurança. Além disso, um e-mail é enviado para o usuário registrado naquele login, alertando sobre as tentativas de acesso inválidas.
+
 
 
 ### Camada Service
@@ -102,6 +168,8 @@ Para registrar um novo `user` para o professor no banco de dados e necessário p
 
   Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/teacher/data', CreateTeacherData)`:
 
+  - <b>Role id</b>: `role_id`. para professor é a role id número 3
+
  - <b>Id de usuário</b>: Pode ser encontrada passando o email do professor na pesquisa que acessa o endpoint `app.get('/teacher', GetTeacherByEmail)` passando o paramento `getemail`, ficando assim `/teacher&getemail:"email aqui"`.
 
  - <b>Nome completo</b>: O Nome completo do funcionário.
@@ -148,6 +216,8 @@ Para registrar um novo `user` para uma pessoa colaboradora que não faz parte do
 
  - <b>Id de usuário</b>: Pode ser encontrada passando o email da pessoa colaboradora na pesquisa que acessa o endpoint `app.get('/staff', GetStaffByEmail)` passando o paramento `getemail`, ficando assim `/staff&getemail:"email aqui"`.
 
+ - <b>Role id</b>: `role_id`. para funcionários é a role id número 4
+
  - <b>Nome completo</b>: O Nome completo do funcionário.
 
  - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, estado.
@@ -191,6 +261,8 @@ Para registrar um novo `user` para uma pessoa da direção é necessário passar
 
   Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/manager/data', CreateManagerData)`:
 
+  - <b>Role id</b>: `role_id`. com permissão de gerenciamento é a role id número 2
+
  - <b>Id de usuário</b>: Pode ser encontrada passando o email da pessoa colaboradora na pesquisa que acessa o endpoint `app.get('/manager', GetManagerByEmail)` passando o paramento `getemail`, ficando assim `/manager&getemail:"email aqui"`.
 
  - <b>Nome completo</b>: O Nome completo do funcionário.
@@ -229,6 +301,8 @@ Para registrar um novo `user` para uma pessoa da direção é necessário passar
 
   Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/admin/data', CreateAdmData)`:
 
+- <b>Role id</b>: `role_id`. com permissão de acesso geral(admin) é a role id número 1
+
  - <b>Id de usuário</b>: Pode ser encontrada passando o email da pessoa colaboradora na pesquisa que acessa o endpoint `app.get('/admin', GetAdmByEmail)` passando o paramento `getemail`, ficando assim `/admin&getemail:"email aqui"`.
 
  - <b>Nome completo</b>: O Nome completo do funcionário.
@@ -252,31 +326,3 @@ Para registrar um novo `user` para uma pessoa da direção é necessário passar
  - <b>turnos</b>: `shift`, deve ser um array e não pode ser vazio. Exemplo: `["matutino", "verpertino", "noturno"]`.
 
 - <b>Cargo</b>: `role_description`, descreve o cargo da pessoa colaboradora. Deve ser uma string, exemplo. `Diretor/a`, `Reitor/a`, `Vice diretor/a`. `Vice reitor/a`
-
-## ORM Sequelize
-O Sequelize é uma biblioteca Node.js amplamente adotada para mapeamento objeto-relacional (ORM - Object-Relational Mapping). Essa ferramenta simplifica a interação entre uma aplicação Node.js e um banco de dados relacional, tornando a manipulação de dados mais intuitiva e eficiente.
-
-Com o Sequelize, é possível definir modelos de dados usando JavaScript, o que corresponde diretamente às tabelas no banco de dados. Isso facilita a implementação das operações CRUD (Create, Read, Update, Delete), pois se baseia em conceitos familiares ao desenvolvedor.
-
-Além disso, o Sequelize oferece suporte a uma variedade de bancos de dados, incluindo MySQL, PostgreSQL, SQLite e MSSQL. Essa flexibilidade permite escolher a tecnologia mais adequada às necessidades do projeto.
-
-Além disso, o Sequelize é complementado pelo Sequelize CLI, uma ferramenta de linha de comando que facilita ainda mais o desenvolvimento e a manutenção de bancos de dados relacionais.
-
-O Sequelize CLI oferece uma variedade de comandos que agilizam tarefas comuns, como a geração automática de modelos, migrações e seeders. Com alguns comandos, é possivel inicializar um projeto Sequelize, criar e gerenciar modelos de dados, realizar migrações de esquema e preencher o banco de dados com dados de teste.
-
-Outra vantagem do Sequelize é sua ampla aceitação na comunidade Node.js e uma documentação abrangente e ativa, garantindo um suporte confiável e uma curva de aprendizado suave para os desenvolvedores.
-
-## Express
-O Express.js é um framework web minimalista para Node.js que simplifica o desenvolvimento de aplicativos web e APIs.
-O Express segue o paradigma "faça o mínimo, mas faça bem feito", o que o torna fácil de aprender e usar para desenvolvedores de todos os níveis de experiência.
-
-O Express permite que escolhamos e implementemos apenas os recursos necessários para os aplicativos, sem impor estruturas rígidas ou convenções.
-
-O Express possui um vasto ecossistema de middleware, que são funções intermediárias que podem ser adicionadas ao pipeline de requisição para realizar diversas tarefas, como tratamento de erros, autenticação e autorização, entre outras.
-
-### Middlewares json() e cors()
-O middleware express.json() é utilizado para fazer o parsing do corpo das requisições HTTP que possuem o formato JSON, ou seja, ele extrai os dados enviados pelo cliente no corpo da requisição e os disponibiliza no objeto req.body para fácil manipulação pelo código do servidor.
-
-O middleware express(cors()) é utilizado para habilitar o CORS (Cross-Origin Resource Sharing) em um aplicativo Express. Isso permite que o servidor responda a solicitações de recursos vindas de diferentes origens do que o próprio servidor, o que é útil em cenários de APIs que precisam ser acessadas por clientes hospedados em domínios diferentes.
-
-Esses dois middlewares são comumente utilizados em aplicações Express para lidar com requisitos comuns, como o envio de dados JSON e a habilitação do CORS, garantindo assim uma maior eficiência e segurança no desenvolvimento de aplicativos web.

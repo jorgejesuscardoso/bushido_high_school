@@ -1,5 +1,22 @@
 # Visão geral
 Este é o backend do projeto Bushido School, uma plataforma que visa facilitar o acesso dos alunos e pais à escola.
+
+
+## Comandos CLI uteis
+
+##### Na pasta backend.
+- `npm run start`: Inicia o server com nodemon.
+
+- `npm run db:start`: Cria um banco de dados com o sequelize e o popula com os dados iniciais.
+
+- `npm run db:reset`: Deve ser usada na pasta backend. Reseta o banco de dados.
+
+##### Na rais do projeto>
+
+- `npm run start:dev`: Inicia o docker-compose (atualmente so está o banco MySQL no compose).
+- `npm run stop:dev`: Para o docker-compose.
+- `npm run start:all`: Roda todos os comandos anteriores com exceção do `npm run stop:dev` e `npm run db:reset`.
+
 # Tecnologias utilizadas
 ## Banco de dados - MySQL
 O banco de dados do projeto conta com um sistema ORM para uma consulta segura e prática dos dados nele armazenados. Além disso, dados sensíveis como informações pessoais e senhas são criptografados por meio da ferramenta de hashing prática e eficiente, bcrypt.

@@ -16,8 +16,7 @@ No Bushido School, oferecemos uma interface intuitiva e amigável, projetada par
 O Bushido School foi criado para simplificar o dia a dia dos pais de alunos, especialmente para aqueles com pouco tempo disponível ou que vivem em regiões remotas, garantindo acesso fácil e rápido a informações importantes sobre a vida escolar de seus filhos.
 </details>
 
-### Funcionalidades Principais
-#### Comandos CLI uteis
+## Comandos CLI uteis
 
 ##### Na pasta backend.
 - `npm run db:start`: Cria um banco de dados com o sequelize e o popula com os dados iniciais.
@@ -34,6 +33,10 @@ O Bushido School foi criado para simplificar o dia a dia dos pais de alunos, esp
 ##### Na pasta frontend
 
 - `npm run dev`: Inicia um server interativo frontend no endereço `http://localhost:5173` ou `127.0.0.1:5173`.
+
+
+
+## Funcionalidades Principais do site
 
 #### Áreas de Usuários
 

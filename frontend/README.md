@@ -1,5 +1,24 @@
 # Bushido School
 
+
+## Comandos CLI uteis
+
+##### Na pasta backend.
+- `npm run db:start`: Cria um banco de dados com o sequelize e o popula com os dados iniciais.
+
+- `npm run db:reset`: Deve ser usada na pasta backend. Reseta o banco de dados.
+
+##### Na rais do projeto>
+
+- `npm run start`: Inicia o server com nodemon.
+- `npm run start:dev`: Inicia o docker-compose (atualmente so está o banco MySQL no compose).
+- `npm run stop:dev`: Para o docker-compose.
+- `npm run start:all`: Roda todos os comandos anteriores com exceção do `npm run stop:dev` e `npm run db:reset`.
+
+##### Na pasta frontend
+
+- `npm run dev`: Inicia um server interativo frontend no endereço `http://localhost:5173` ou `127.0.0.1:5173`.
+
 ## Instalação
 Para rodar localmente esse projeto, você deve primeiramente fazer o clone desse repositório. Lembre-se de ter o git, node package manager(NodeJs), ou o yarn(macOS) e o docker devidamente instalado e configurado.
 

@@ -1,7 +1,6 @@
 # Visão geral
 O projeto Bushido School é uma plataforma escolar. Seu objetivo é facilitar o acesso dos alunos e pais à escola, oferecendo funcionalidades como gerenciamento de usuários, acesso a informações sobre eventos, notícias e atividades acadêmicas, além de fornecer uma camada de segurança robusta para proteger dados sensíveis.
 
-
 ## Comandos CLI uteis
 
 ##### Na pasta backend.
@@ -18,8 +17,12 @@ O projeto Bushido School é uma plataforma escolar. Seu objetivo é facilitar o 
 - `npm run start:all`: Roda todos os comandos anteriores com exceção do `npm run stop:dev` e `npm run db:reset`.
 
 
+ <details> 
+ <Summary> 
+ 
+ ## Roles (funções / cargo)</summary>
 
-## Roles (funções/cargo)
+ 
   - <b>Admin - administração:</b> role_id = 1.
   - <b>Manager - gerente (direção, secretária e afins):</b> role_id = 2.
   - <b>Teacher - professor:</b> role_id = 3.
@@ -46,7 +49,7 @@ As roles `Students`só tem acesso somente leitura dos seus dados, pessaois, matr
 
 #### Default
 As roles `Default` são as roles padrão para visitantes ou usuários cujas as roles anteriores não se aplica. Elas só tem permissão somente leitura das publicações do site e acesso a área de matréculas.
-
+</details>
 # Tecnologias utilizadas
 ## Banco de dados - MySQL
 O banco de dados do projeto conta com um sistema ORM para uma consulta segura e prática dos dados nele armazenados. Além disso, dados sensíveis como informações pessoais e senhas são criptografados por meio da ferramenta de hashing prática e eficiente, bcrypt.
@@ -326,3 +329,5 @@ Para registrar um novo `user` para uma pessoa da direção é necessário passar
  - <b>turnos</b>: `shift`, deve ser um array e não pode ser vazio. Exemplo: `["matutino", "verpertino", "noturno"]`.
 
 - <b>Cargo</b>: `role_description`, descreve o cargo da pessoa colaboradora. Deve ser uma string, exemplo. `Diretor/a`, `Reitor/a`, `Vice diretor/a`. `Vice reitor/a`
+
+## API

@@ -8,6 +8,18 @@ const { User_Data } = require('../db/models');
  * @returns {Object|string} - Os dados pessoais do usuário ou uma mensagem de erro.
  */
 
+const createNewUserDataService = async (data) => {
+  try {
+    const newData = await User_Data.create(data);
+
+    if (newData === null) return { message: "Erro ao cadastrar os dados pessoais." };
+
+    return newData;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
 const GetAllDataService = async () => {
   try {
     const data = await User_Data.findAll();
@@ -48,6 +60,7 @@ const GetDataByIdService = async (userId, id) => {
 };
 
 module.exports = {
+  createNewUserDataService,
   GetAllDataService,
   GetDataByIdService
 };

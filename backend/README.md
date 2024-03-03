@@ -24,12 +24,12 @@ O projeto Bushido School é uma plataforma escolar. Seu objetivo é facilitar o 
  <details> 
  <Summary>Role ID - funções, cargo e permissões</summary>
 
-  - <b>Admin - administração:</b> role_id = 1.
+  - <b>Admin - administração:</b>.
   - <b>Manager - gerente (direção, secretária e afins):</b> role_id = 2.
-  - <b>Teacher - professor:</b> role_id = 3.
-  - <b>Staff - funcionários (que não faz parte da administração ou direção):</b> role_id = 4.
+  - <b>Teacher - professor:</b>.
+  - <b>Staff - funcionários (que não faz parte da administração ou direção):</b>.
   - <b>Student - estudantes e seus responsáveis:</b> role_id = 5.
-  - <b>Default - padrão (visitantes e pessoas cujas roles anteriores não se aplica):</b> role_id = 6.
+  - <b>Default - padrão (visitantes e pessoas cujas roles anteriores não se aplica):</b>.
 
 ### Nivéis de permissão
 
@@ -95,9 +95,9 @@ O Express permite que escolhamos e implementemos apenas os recursos necessários
 O Express possui um vasto ecossistema de middleware, que são funções intermediárias que podem ser adicionadas ao pipeline de requisição para realizar diversas tarefas, como tratamento de erros, autenticação e autorização, entre outras.
 
 ### Middlewares json() e cors()
-O middleware express.json() é utilizado para fazer o parsing do corpo das requisições HTTP que possuem o formato JSON, ou seja, ele extrai os dados enviados pelo cliente no corpo da requisição e os disponibiliza no objeto req.body para fácil manipulação pelo código do servidor.
+O middleware `express.json()` é utilizado para fazer o parsing do corpo das requisições HTTP que possuem o formato JSON, ou seja, ele extrai os dados enviados pelo cliente no corpo da requisição e os disponibiliza no objeto req.body para fácil manipulação pelo código do servidor.
 
-O middleware express(cors()) é utilizado para habilitar o CORS (Cross-Origin Resource Sharing) em um aplicativo Express. Isso permite que o servidor responda a solicitações de recursos vindas de diferentes origens do que o próprio servidor, o que é útil em cenários de APIs que precisam ser acessadas por clientes hospedados em domínios diferentes.
+O middleware `express(cors())` é utilizado para habilitar o CORS (Cross-Origin Resource Sharing) em um aplicativo Express. Isso permite que o servidor responda a solicitações de recursos vindas de diferentes origens do que o próprio servidor, o que é útil em cenários de APIs que precisam ser acessadas por clientes hospedados em domínios diferentes.
 
 Esses dois middlewares são comumente utilizados em aplicações Express para lidar com requisitos comuns, como o envio de dados JSON e a habilitação do CORS, garantindo assim uma maior eficiência e segurança no desenvolvimento de aplicativos web.
 </details>
@@ -150,7 +150,7 @@ Para poder registrar um novo usuário no banco de dados, é necessário os segui
 
   - email: Seŕa utilizando tanto para efetuar login como também para possiveis envio de emails e recuperação de senha. 
 
-  - password: A senha deve ser composta por: letra maiuscula, minuscula, números e caractere especial e possuir no minimo 8 digitos e o máximo de 20.
+  - password: A senha deve ser composta por: letra maiuscula, minuscula, números e caractere especial e possuir no minimo 6 digitos.
 
   - role_id: Esse é um dos identificadores de segurança e função no sistema. Sem uma role_id, o usuário não pode fazer nada além de ver o conteúdo do site. É listado todas as roles possiveis no inicio desse documento.
 </details>
@@ -222,6 +222,61 @@ Se o cadastro for feito com sucesso, é retornado um objeto com a mensagem de su
 </details>
 
 
+<details>
+<summary>ValidateNewData</summary>
+
+Essa Middleware é a responsável por tratar os dados de entrada no cadastro de dados pessoais do usuários. Caso algum dado esteja inválido ou ausente, a conexão é imterrompida e um erro é lançado.
+
+- <b>name:</b> 
+Se não tiver um name lança um erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório e mostrando um exemplo de formato válido.
+
+> {<br> <span style="margin-left: 30px">message: "O campo 'name' é obrigatório e deve ter no minimo 6 caracteres"</span><br>}
+
+- <b>email:</b> 
+Se o email estiver ausente ou no formato errado lança um erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório e mostrando um exemplo de formato válido. 
+
+> {<br> <span style="margin-left: 30px">message: "O campo 'email' é obrigatório e deve ser no formato: 'test@test.com'"</span><br>}
+
+Caso o email já exista no banco de dados, lança um erro com status `409 Conflict`, com a mensagem que o email informado já está cadastrado no sistema. 
+
+> {<br> <span style="margin-left: 30px">message: "O email já está cadastrado!"</span><br>}
+
+- <b>user_id:</b>
+ Caso o userìd informado não constar no banco de dados ou ter um formato inválido, é lançado um erro com status `400 Bad Request` e uma mensagem avisando que esse campo é obrigatório e mostrando um exemplo de formato válido.
+
+ > {<br> <span style="margin-left: 30px">message: "O campo 'user_id' é obrigatório e deve ser um número !"</span><br>}
+
+- <b>matriculation:</b> 
+Se não houver matriculation ou ter um formato inválida, retornar erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório.
+
+> {<br> <span style="margin-left: 30px">message: "O campo "matriculation" é obrigatório"</span><br>}
+
+- <b>birthday:</b> 
+Se não houver birthday ou ter um formato inválida, retornar erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório.
+
+> {<br> <span style="margin-left: 30px">message: "O campo "birthday" é obrigatório" e deve ter o formato `YYYY-MM-DD`!</span><br>}
+
+- <b>address:</b> 
+Se não houver address ou ter um formato inválida, retornar erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório.
+> {<br> <span style="margin-left: 30px">message: "O campo "address" é obrigatório"</span><br>}
+
+- <b>phone:</b> 
+Se não houver phone ou ter um formato inválida, retornar erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório.
+> {<br> <span style="margin-left: 30px">message: "O campo "phone" é obrigatório e deve ter o formato `xx x xxxx-xxxx`"</span><br>}
+
+- <b>phone:</b> 
+Se não houver phone ou ter um formato inválida, retornar erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório.
+> {<br> <span style="margin-left: 30px">message: "O campo "phone" é obrigatório e deve ter o formato `xx x xxxx-xxxx`"</span><br>}
+
+- <b>CPF:</b> 
+Se não houver CPF ou ter um formato inválida, retornar erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório.
+> {<br> <span style="margin-left: 30px">message: "O campo "CPF" é obrigatório e deve ter o formato `xxx.xxx.xxx-xx`"</span><br>}
+
+- <b>RG:</b> 
+Se não houver RG ou ter um formato inválida, retornar erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório.
+> {<br> <span style="margin-left: 30px">message: "O campo "RG" é obrigatório e deve ter o formato `xx.xxx.xxx-x`"</span><br>}
+</details>
+
 ### Endpoints
 
 <details>
@@ -287,5 +342,3 @@ Ao utilizar o metodo HTTP PUT nessa rota e você estiver devidamente logado, com
 
 Não é possivel utilizar o metodo HTTP DELETE nesta rota, os dados pessoais são deletada juntamente com os dados de usuários. Metodo CASCADE
 </details>
-
-asdas 

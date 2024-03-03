@@ -6,22 +6,28 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Roles', [
     {
-      name: 'admin'
+      name: 'admin',
+      role_key: '8.3k1@4S09'
     },
     {
-      name: 'manager'
+      name: 'manager',
+      role_key: '1-k%3M4@9'
     },
     {
-      name: 'teacher'
+      name: 'teacher',
+      role_key: '4c-18,U9'
     },
     {
-      name: 'staff'
+      name: 'staff',
+      role_key: '7*3.H4=f'
     },    
     {
-      name: 'student'
+      name: 'student',
+      role_key: '5_t$3-T'
     },
     {
-      name: 'default'
+      name: 'default',
+      role_key: 'p!d0G3-1'
     }
   ], {}),
 

@@ -15,6 +15,11 @@ module.exports = {
         type: Sequelize.STRING(20),
         allowNull: false,
         unique: true
+      },
+      role_key: {
+        type: Sequelize.VARCHAR(20),
+        allowNull: false,
+        unique: true  
       }
     },
     {

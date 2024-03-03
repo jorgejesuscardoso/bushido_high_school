@@ -2,6 +2,8 @@
 O projeto Bushido School é uma plataforma escolar. Seu objetivo é facilitar o acesso dos alunos e pais à escola, oferecendo funcionalidades como gerenciamento de usuários, acesso a informações sobre eventos, notícias e atividades acadêmicas, além de fornecer uma camada de segurança robusta para proteger dados sensíveis.
 
 ## Comandos CLI uteis
+<details> 
+ <Summary> Comandos CLI e onde execultar</summary>
 
 ##### Na pasta backend.
 - `npm run start`: Inicia o server com nodemon.
@@ -15,12 +17,13 @@ O projeto Bushido School é uma plataforma escolar. Seu objetivo é facilitar o 
 - `npm run start:dev`: Inicia o docker-compose (atualmente so está o banco MySQL no compose).
 - `npm run stop:dev`: Para o docker-compose.
 - `npm run start:all`: Roda todos os comandos anteriores com exceção do `npm run stop:dev` e `npm run db:reset`.
+</details>
 
+ ## Roles
 
  <details> 
- <Summary> Roles (funções / cargo)</summary>
+ <Summary>Role ID - funções, cargo e permissões</summary>
 
- 
   - <b>Admin - administração:</b> role_id = 1.
   - <b>Manager - gerente (direção, secretária e afins):</b> role_id = 2.
   - <b>Teacher - professor:</b> role_id = 3.
@@ -48,13 +51,23 @@ As roles `Students`só tem acesso somente leitura dos seus dados, pessaois, matr
 #### Default
 As roles `Default` são as roles padrão para visitantes ou usuários cujas as roles anteriores não se aplica. Elas só tem permissão somente leitura das publicações do site e acesso a área de matréculas.
 </details>
+
 # Tecnologias utilizadas
+
+
+<details>
+<summary> Banco de dados MySQL</summary>
+
 ## Banco de dados - MySQL
 O banco de dados do projeto conta com um sistema ORM para uma consulta segura e prática dos dados nele armazenados. Além disso, dados sensíveis como informações pessoais e senhas são criptografados por meio da ferramenta de hashing prática e eficiente, bcrypt.
 
 Outro fator que contribui significativamente para a segurança do projeto é a adoção do modelo MSC (Model, Service, Controller) e uma registro detalhado dos login de usuários.
 
 Caso aja algum tipo de ataque como o de XSS, será possivel localizar de onde veio, pois apenas usuários devidamente autenticados pode ter acesso aos endpoints das API's.
+</details>
+
+<details>
+<summary>ORM Sequelize</summary>
 
 ## ORM Sequelize
 O Sequelize é uma biblioteca Node.js amplamente adotada para mapeamento objeto-relacional (ORM - Object-Relational Mapping). Essa ferramenta simplifica a interação entre uma aplicação Node.js e um banco de dados relacional, tornando a manipulação de dados mais intuitiva e eficiente.
@@ -68,6 +81,10 @@ Além disso, o Sequelize é complementado pelo Sequelize CLI, uma ferramenta de 
 O Sequelize CLI oferece uma variedade de comandos que agilizam tarefas comuns, como a geração automática de modelos, migrações e seeders. Com alguns comandos, é possivel inicializar um projeto Sequelize, criar e gerenciar modelos de dados, realizar migrações de esquema e preencher o banco de dados com dados de teste.
 
 Outra vantagem do Sequelize é sua ampla aceitação na comunidade Node.js e uma documentação abrangente e ativa, garantindo um suporte confiável e uma curva de aprendizado suave para os desenvolvedores.
+</details>
+
+<details>
+<summary>Express.Js</summary>
 
 ## Express
 O Express.js é um framework web minimalista para Node.js que simplifica o desenvolvimento de aplicativos web e APIs.
@@ -83,15 +100,14 @@ O middleware express.json() é utilizado para fazer o parsing do corpo das requi
 O middleware express(cors()) é utilizado para habilitar o CORS (Cross-Origin Resource Sharing) em um aplicativo Express. Isso permite que o servidor responda a solicitações de recursos vindas de diferentes origens do que o próprio servidor, o que é útil em cenários de APIs que precisam ser acessadas por clientes hospedados em domínios diferentes.
 
 Esses dois middlewares são comumente utilizados em aplicações Express para lidar com requisitos comuns, como o envio de dados JSON e a habilitação do CORS, garantindo assim uma maior eficiência e segurança no desenvolvimento de aplicativos web.
-
-
-
+</details>
 
 
 
 
 # Camadas da Aplicação
-### Camada Controller
+<details>
+<summary>Controller</summary>
 
 A camada de controle (Controller) é responsável por verificar o tipo de solicitação que está sendo feita. Em quase todas as requisições, é necessário estar devidamente autenticado, com um token válido e uma 'role' associada, exceto nas seguintes rotas:
 
@@ -103,229 +119,173 @@ A camada de controle (Controller) é responsável por verificar o tipo de solici
 - `app.post('/matric', RequestNewMatric)`
 
 Se não houver um token válido ou uma role associada na requisição, é enviado um erro com o status HTTP 400 (Bad Request), indicando que os dados não são válidos. Em casos de múltiplas tentativas inválidas de acesso (5 vezes), a conexão é bloqueada por 5 minutos como medida de segurança. Além disso, um e-mail é enviado para o usuário registrado naquele login, alertando sobre as tentativas de acesso inválidas.
+</details>
 
+<details>
+<summary>Service</summary>
 
-
-### Camada Service
-- A camada de serviços (Service) é responsável por lidar com as regras de negócios. Ela verifica se todos os dados são válidos e então os encaminha para a camada Model. Se houver algum dado que não esteja de acordo com os padrões estipulados, um erro é retornado.
+A camada de serviços (Service) é responsável por lidar com as regras de negócios. Ela verifica se todos os dados são válidos e então os encaminha para a camada Model. Se houver algum dado que não esteja de acordo com os padrões estipulados, um erro é retornado.
 
   - Exemplo, ao tentar acessar uma rota sem a devida credêncial: 
 
    - Um aluno, devidamente logado, com seu token e role ativos, tenta acessar um painel que apenas um professor ou alguem com uma role superior ao de `student` pode acessar. Nesse exemplo, ele passará pela rota controller, já que existe um token ativo e uma role válida no corpo da requisição. No entanto, essa rota é destinada a professores ou a uma role superior à de student, como staff, manager ou admin. Quando a requisição chega na camada de serviços (Service) e a verificação da role não atende às regras de serviços, `é necessário ter uma role válida;`  a requisição é recusada e é retornado um erro com status 401 unauthorized e uma mensagem, `Acesso Negado! Você não possui as permissões necessárias para acessar esta funcionalidade.` .
-### Camada Model
+
+   </details>
+
+<details>
+<summary>Model</summary>
 
 A camada Model é responsável pela interação com o banco de dados e pela manipulação dos dados da aplicação. Ela representa as entidades do sistema e define suas estruturas, relações e comportamentos.
 
 Cada modelo possui responsabilidades únicas, consultando sua respectiva entidade (tabela do banco de dados). Cada consulta é feita utilizando o ORM do Sequelize, o que facilita muito a implementação do CRUD.
 
-#### A model StudentModel
-O Model StudentModel é responsável por interagir com a tabela `students` no banco de dados. Com ele, realizamos todas as operações de CRUD com segurança, desde adicionar um novo aluno até lançar notas e excluí-lo.
+<details>
+<summary>Users</summary>
 
-A tabela de alunos armazena todos os usuários de alunos. Nenhum aluno tem permissões acima de sua função, que é somente de leitura, exceto para enviar mensagens para a secretária.
+O model `Users` é o responsável por interagir a tabela `Users` no banco de dados. Com ela é possivel fazer o CRUD de cada usuários registrado.
 
-Nenhum aluno tem permissão para modificar seus dados cadastrais em seu perfil, com exceção do email, senha e `apelido`. No entanto, a alteração do `apelido` não afeta o nome real do aluno no banco de dados.
+Para poder registrar um novo usuário no banco de dados, é necessário os seguintes dados.
 
-Para o registro de um novo `user` estudante no banco de dados, é necessário passar os seguintes dados na rota `app.post('/student', CreateStudent)`:
+  - username: O nome de usuário será utilizado para fazer login no sistema.
 
-  - <b>Nome de usuário</b>: Pode ser o que você quizer. É nome que vai aparecer ao entrar em seu perfil, máximo de 20 caracteres.
+  - email: Seŕa utilizando tanto para efetuar login como também para possiveis envio de emails e recuperação de senha. 
 
-  - <b>Email</b>: email valido com `@` e `.com`. nao pode terpaço vazio. Máximo de 50 caracteres.
+  - password: A senha deve ser composta por: letra maiuscula, minuscula, números e caractere especial e possuir no minimo 8 digitos e o máximo de 20.
 
-  - <b>Password</b>: A senha deve ser alfanúmerica com letras maiuscula e minuscula e com o minimo de 6 caracteres e com o máximo de 20 caracteres.
+  - role_id: Esse é um dos identificadores de segurança e função no sistema. Sem uma role_id, o usuário não pode fazer nada além de ver o conteúdo do site. É listado todas as roles possiveis no inicio desse documento.
+</details>
 
-Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário passar os seguintes dados na rota `app.post('/students/data', CreateStudentData)`.
+<details>
+<summary>User_Data</summary>
 
-  - <b>Role id</b>: `role_id`. para aluno e a role id número 5
-  .
- - <b>Id de usuário do aluno</b>: pode conseguir o id de usuário passando o paramento `getemail`, na rota `app.get('/student', GetStudentByEmail)`, ficando assim `/users&getemail:"email aqui"`:
+ Essa Model é a responsável por interagir com a tabela `User_data` no banco de dados. Nessa tabela, fica registrado todos os dados pessoais dos usuários.
 
- - <b>Nome completo</b>: O Nome completo do aluno.
+ Para poder registrar um novo usuário no banco de dados, é necessário os seguintes dados.
+ 
+ - user_id: Sem ter um `user` devidamente regsitrado no sistema não é possivel ter dados pessoais de `user`.
 
- - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, 
- estado.
+ - name: É necessário passar o nome completo. Esse nome náo é o nome de usuário nem o nome que é exposto no perfil de usuário e não é possivel alterar sem uma consulta direta no banco de dados com uma role de `admin`.
 
- - <b>Nome do responsável</b>: Se o responsável não reside na mesma residência do aluno, deve informar tambem o endereço do responsável passando o paramento `responsible` no endpoint, ficando assim `/student/data&responsible:"o endereço aqui!"`.
+ - email: Deve ser o mesmo email utilizado no momento de criar o `username`. Não é possivel registrar um email inválido: sem o `@` e o `.com` e com espaço vazio entre eles.
 
- - <b>Telefone do responsável</b>: O telefone tem que ter o formato por padrão xx-x-xxxx-xxxx.
+ - birthday: No formato `YYYY-MM-DD`. Não permitido data inválido: uma data no futuro ou com mais de 100 anos.
 
-Apatir daqui todos os documentos são de ambos, aluno e responsável.
+ - address: Endereço completo: rua, bairro, cidade, estado e CEP.
 
- - <b>RG</b>.
- - <b>CPF</b>
- - <b>Cartão de vácina do COVID</b>
+ - phone: Telefone deve ser `string` e no formato: `XX X XXXX-XXXX`.
 
-#### A TeacherModel
- Model TeacherModel é responsável por interagir com a tabela `teachers` no banco de dados. Com ele, podemos criar um novo usuário para um professor, adicionar uma nova disciplina, modificar a carga horária ou a classe pela qual ele é responsável.
+  > Apartir desse ponto, serão envio de documentação e que só é adicionado após a confirmação da matrícula. No caso de registro de funcionários, todos esses dados, com exeção de `username`, será preenchida por alguem da direção ou alguem com permissão necessária.
 
-Nessa tabela são listados todos os usuários com permissões e privilégios de professores no sistema. Os professores têm acesso limitado às funcionalidades referentes ao seu cargo, não podendo acessar áreas administrativas ou de gerência. Por exemplo, até o momento, um professor não tem permissão para criar postagens nem gerenciar publicações de notícias ou eventos.
+- matriculation: O número da matrícula pode ser visto no perfil de usuário.
 
-Para registrar um novo `user` para o professor no banco de dados e necessário passar os seguintes dados na rota `app.post('/teacher', CreateTeacher)`:
+- RG: O RG deve ser preenchido no formato de `string` com essa estrutura `xx.xxx.xxx-x`.
+- CPF: O CPF deve ser preenchido no formato de `string` com essa estrutura `xxx.xxx.xxx-xx`.
+</details>
+</details>
 
-  - <b>Nome de usuário</b>: Pode ser o que você quizer. É nome que vai aparecer ao entrar em seu perfil, máximo de 20 caracteres.
+# API
 
-  - <b>Email</b>: email valido com `@` e `.com`. nao pode terpaço vazio. Máximo de 50 caracteres.
+### Middlewares
 
-  - <b>Password</b>: A senha deve ser alfanúmerica com letras maiuscula e minuscula e com o minimo de 6 caracteres e com o máximo de 20 caracteres.
+<details>
+<summary>ValidateNewUser</summary>
 
-  Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/teacher/data', CreateTeacherData)`:
+Essa Middleware é a responsável por tratar os dados de entrada no cadastro de novos usuários. Caso algum dado esteja inválido ou ausente, a conexão é imterrompida e um erro é lançado.
 
-  - <b>Role id</b>: `role_id`. para professor é a role id número 3
+- <b>username:</b> 
+Se não tiver um username lança um erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório e mostrando um exemplo de formato válido.
 
- - <b>Id de usuário</b>: Pode ser encontrada passando o email do professor na pesquisa que acessa o endpoint `app.get('/teacher', GetTeacherByEmail)` passando o paramento `getemail`, ficando assim `/teacher&getemail:"email aqui"`.
+> {<br> <span style="margin-left: 30px">message: "O campo 'username' é obrigatório e deve ter no minimo 3 caracteres"</span><br>}
 
- - <b>Nome completo</b>: O Nome completo do funcionário.
+- <b>email:</b> 
+Se o email estiver ausente ou no formato errado lança um erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório e mostrando um exemplo de formato válido. 
 
- - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, estado.
+> {<br> <span style="margin-left: 30px">message: "O campo 'email' é obrigatório e deve ser no formato: 'test@test.com'"</span><br>}
 
- - <b>Telefone</b>: O telefone tem que ter o formato por padrão xx-x-xxxx-xxxx.
+Caso o email já exista no banco de dados, lança um erro com status `409 Conflict`, com a mensagem que o email informado já está cadastrado no sistema. 
 
- - <b>RG</b>.
- - <b>CPF</b>
- - <b>CNH</b>: Opicional.
- - <b>Cartão de vácina do COVID</b>
- - <b>Certificação</b>: Diploma ou certificado. Dependendo do cargo.
+> {<br> <span style="margin-left: 30px">message: "O email já está cadastrado!"</span><br>}
 
- Para os dados relacionados ao exercicio da profissão, deve-se passar os dados na rota `app.post('/teacher/data/role', CreateRole)`:
+- <b>password:</b>
+ Caso a senha esteja ausente ou formato e tamanho inválido, é lançado um erro com status `400 Bad Request` e uma mensagem avisando que esse campo é obrigatório e mostrando um exemplo de formato válido.
 
- - <b>id da Role</b>: `role_id`, deve ser um Number. No caso para professor é o id número 3 .
+ > {<br> <span style="margin-left: 30px">message: "O campo 'password' é obrigatório e deve ter no minimo 6 caracteres!"</span><br>}
 
- - <b>carga horária</b>: `workload`, String no fomato, exemplo, `40 horas`.
+- <b>role_id:</b> 
+Se não houver role_id ou for uma role_id inválida, retornar erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório.
 
- - <b>turnos</b>: `shift`, deve ser um array e não pode ser vazio. Exemplo: `["matutino", "verpertino", "noturno"]`.
+> {<br> <span style="margin-left: 30px">message: "O campo "role_id" é obrigatório"</span><br>}
 
- - <b>classe</b>: `class`, deve ser um array, com todas as classes onde irá lecionar. Exemplo, Terceiro ano do ensino médio. E se tiver mais de uma turma, a estrutura deve ser igual no enxemplo, um array de String, começando com o valor ordinário da classe. Exemplo: 
- `["9º ano do ensino fundamental", "2º ano do ensino médio", "3º ano do ensino médio", "2º ano do ensino médio"]`.
+Se o cadastro for feito com sucesso, é retornado um objeto com a mensagem de sucesso e informando a role do usuário e o status http `201 created`.
 
- - <b>matéria</b>: `subject`, qual matérias ele lecionará. Deve seré um array de string, e não pode ser vazio. Exemplo: `["Matemática"]`.
+> {<br> <span style="margin-left: 30px">message: "Usuário criado com sucesso! A sua role é: "role-exemplo", status: 201"</span><br>}
+</details>
 
 
-##### A StaffModel
+### Endpoints
 
-A StaffModel é responsável por interagir com a tabela `staffs`. Nessa tabela, podemos adicionar todos os outros funcionários que não façam parte do corpo docente oficial ou administrativo, como estagiários, prestadores de serviços, etc.
+<details>
+<summary> Endpoints <b>/users</b></summary>
 
-Essa tabela armazena os usuários das pessoas colaboradoras que possuem privilégios mais limitados do que os professores. No entanto, elas podem ser promovidas e receber privilégios adicionais conforme necessário. Elas podem até mesmo ter sua função elevada para `manager`, obtendo permissões semitotais no sistema, com nível de privilégio inferior apenas ao de admin. Caso de exemplo, durante periodo de matrículas onde a demada é alta e é necessário ter mais funcionários com permissões de manipulação dos cadastrais dos alunos.
+Este endpoit é a rota para ter acesso a todos os usuários registrado no banco de dados. 
 
-Para registrar um novo `user` para uma pessoa colaboradora que não faz parte do corpo docente ou administrativo, é necessário passar os seguintes dados na rota `app.post('/staff', CreateStaff)`:
+Ao utilizar o metodo HTTP POST, você cosegue criar um novo usuário na tabela `Users` no banco de dado caso todos os dados passados estejam corretos.
 
-  - <b>Nome de usuário</b>: Pode ser o que você quizer. É nome que vai aparecer ao entrar em seu perfil, máximo de 20 caracteres.
+Ao acessar essa rota utlizando o metodo GET, estando devidamente logado, com um token e uma `role_id` válida, que neste caso é a role de `manager` ou de `admin`, você terá como retorno, um array de objetos com todos os usuários cadastrado na tabela `Users` no banco de dados
 
-  - <b>Email</b>: email valido com `@` e `.com`. nao pode terpaço vazio. Máximo de 50 caracteres.
+Ao utilizar o metodo HTTP PUT nessa rota e você estiver devidamente logado, com um token e uma `role_id` válida, você consegue fazer a atualização de seus dados de usuários
 
-  - <b>Password</b>: A senha deve ser alfanúmerica com letras maiuscula e minuscula e com o minimo de 6 caracteres e com o máximo de 20 caracteres.
+Ao utilizar o metodo HTTP DELETE, estando devidamente logado, com token e `role_id` válida, você consegue encerrar o seu cadastro no sistema deletando permanentemente o seu username.
 
-  Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/staff/data', CreateStaffData)`:
+Neste endpoint também é possível passar uma `query data=true` ficando assim, `/users?data=true`.
 
- - <b>Id de usuário</b>: Pode ser encontrada passando o email da pessoa colaboradora na pesquisa que acessa o endpoint `app.get('/staff', GetStaffByEmail)` passando o paramento `getemail`, ficando assim `/staff&getemail:"email aqui"`.
+Ao adicionar no endpoint a query `data=true` numa requesição GET, você terá no retorno, um array com todos `users` juntamente com seus dados pessoais. Sem a query você recebe somente um array contendo os dados de usuários de todos os usuários cadastrado.
+</details>
 
- - <b>Role id</b>: `role_id`. para funcionários é a role id número 4
+<details>
+<summary>Endpoints <b>/users/:id</b></summary>
 
- - <b>Nome completo</b>: O Nome completo do funcionário.
+Este endpoit é a rota para ter acesso aos dados de usuário de um determinado usuário registrado no banco de dados. 
 
- - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, estado.
+Não é possível utilizar o metodo HTTP POST nesta rota.
 
- - <b>Telefone</b>: O telefone tem que ter o formato por padrão xx-x-xxxx-xxxx.
+Ao acessar essa rota utlizando o metodo GET passando como paramentro um ID de usuário valido e estando devidamente logado, com um token e uma `role_id` válida, que neste caso é a role de `manager` ou de `admin`, você terá como retorno, um objeto com todos os dados de usuário pertencentes à aquele ID.
 
- - <b>RG</b>.
- - <b>CPF</b>
- - <b>CNH</b>: Opicional.
- - <b>Cartão de vácina do COVID</b>
- - <b>Certificação</b>: Diploma ou certificado. Dependendo do cargo.
+Ao utilizar o metodo HTTP PUT nessa rota e você estiver devidamente logado, com um token e uma `role_id` válida, você consegue fazer a atualização de seus dados de usuários mas não é possível alterar dados de outros usuários. Ao menos que tenha uma role `admin`.
 
- Para os dados relacionados ao exercicio da profissão, deve-se passar os dados na rota `app.post('/staff/data/role', CreateRole)`:
+Ao utilizar o metodo HTTP DELETE, estando devidamente logado, com token e `role_id` válida, você consegue encerrar o seu cadastro no sistema deletando permanentemente o seu usuário ou de outro usuário. 
 
- - <b>id da Role</b>: `role_id`, deve ser um Number. No caso para staff é o id número 4 .
+Neste endpoint também é possível passar uma `query data=true` ficando assim, `/users/:id?data=true`.
 
- - <b>carga horária</b>: `workload`, String no fomato, exemplo, `40 horas`.
+Ao adicionar no endpoint a query `data=true` numa requesição GET, você terá no retorno, além dos dados de usuário como tambem todos os seus dados pessoais. Sem a query você recebe somente um objeto contendo os dados de usuários.
+</details>
 
- - <b>turnos</b>: `shift`, deve ser um array e não pode ser vazio. Exemplo: `["matutino", "verpertino", "noturno"]`.
+<details>
+<summary>Endpoint <b>/data</b></summary>
 
-- <b>Cargo</b>: `role_description`, descreve o cargo da pessoa colaboradora. Deve ser uma string, exemplo. `Estágiario`, `serviços gerais`, `jardineiro`, `merendeira`.
+Este endpoit é a rota para ter acesso aos dados pessoais de todos os usuários registrados no banco de dados. 
 
-Apartir daqui, é no caso dessa pessoa colaboradora for trabalhar em sala de aula, exemplo, um professor estágiario, instrutor temporário.
+Ao utilizar o metodo HTTP POST passando um `user_id` válido, você cosegue inserir dados pessoais do usuário dono do ID, na tabela `User_Data` no banco de dado, caso todos os dados passados estejam de acordo com as regras de serviços.
 
- - <b>classe</b>: `class`, deve ser um array, com todas as classes onde irá lecionar. Exemplo, Terceiro ano do ensino médio. E se tiver mais de uma turma, a estrutura deve ser igual no enxemplo, um array de String, começando com o valor ordinário da classe. Exemplo: 
- `["9º ano do ensino fundamental", "2º ano do ensino médio", "3º ano do ensino médio", "2º ano do ensino médio"]`.
+Ao acessar essa rota utlizando o metodo GET, estando devidamente logado, com um token e uma `role_id` válida, que neste caso é a role de `manager` ou de `admin`, você terá como retorno, um array de objetos com todos os dados pessoas cadastrado na tabela `User_Data` no banco de dados
 
- - <b>matéria</b>: `subject`, qual matérias ele lecionará. Deve seré um array de string, e não pode ser vazio. Exemplo: `["Matemática"]`.
+Ao utilizar o metodo HTTP PUT nessa rota e você estiver devidamente logado e passar um ID válido (ID dos dados pessoais na tabela `User_Data`), e estiver com um token e uma `role_id` válida, você consegue fazer a atualização de seus dados pessoais
 
-##### A ManagerModel
+Não é possível usar o metodo HTTP DELETE nessa rota. Caso o usuário deseja deletar o seu cadastro, os seus dados pessoais serão deletados automaticamente. Metodo CASCADE.
+</details>
 
-A ManagerModel é responsável por interagir com a tabela `manager`, reservada para os usuários das pessoas colaboradoras com cargo de gerência na escola. Isso inclui secretários, coordenadores, supervisores, entre outros. São responsáveis diretos pelo tratamento com os alunos e seus dados pessoais, lidando com o cadastro, manutenção e atualização desses dados, bem como o tratamento direto com os alunos e responsáveis.
+<details>
+<summary>Endpoint <b>/data/:id</b></summary>
 
-Para registrar um novo `user` para uma pessoa da direção é necessário passar os seguintes dados na rota `app.post('/manager', CreateManager )`:
+Este endpoit é a rota para ter acesso a dados pessoais específicos. 
 
-  - <b>Nome de usuário</b>: Pode ser o que você quizer. É nome que vai aparecer ao entrar em seu perfil, máximo de 20 caracteres.
+Não é possível utilizar o metodo HTTP POST nesta rota.
 
-  - <b>Email</b>: email valido com `@` e `.com`. nao pode terpaço vazio. Máximo de 50 caracteres.
+Ao acessar essa rota utlizando o metodo GET passando como paramentro um ID válido e estando devidamente logado, com um token e uma `role_id` válida, que neste caso é a role de `manager` ou de `admin`, você terá como retorno, um objeto com os dados pessoais pertencentes à aquele ID.
 
-  - <b>Password</b>: A senha deve ser alfanúmerica com letras maiuscula e minuscula e com o minimo de 6 caracteres e com o máximo de 20 caracteres.
+Ao utilizar o metodo HTTP PUT nessa rota e você estiver devidamente logado, com um token e uma `role_id` válida, você consegue fazer a atualização desses dados. Desde que tenha uma role `admin` ou esses dados pertencer ao usuário que está logado.
 
-  Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/manager/data', CreateManagerData)`:
+Não é possivel utilizar o metodo HTTP DELETE nesta rota, os dados pessoais são deletada juntamente com os dados de usuários. Metodo CASCADE
+</details>
 
-  - <b>Role id</b>: `role_id`. com permissão de gerenciamento é a role id número 2
-
- - <b>Id de usuário</b>: Pode ser encontrada passando o email da pessoa colaboradora na pesquisa que acessa o endpoint `app.get('/manager', GetManagerByEmail)` passando o paramento `getemail`, ficando assim `/manager&getemail:"email aqui"`.
-
- - <b>Nome completo</b>: O Nome completo do funcionário.
-
- - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, estado.
-
- - <b>Telefone</b>: O telefone tem que ter o formato por padrão xx-x-xxxx-xxxx.
-
- - <b>RG</b>.
- - <b>CPF</b>
- - <b>CNH</b>: Opicional.
- - <b>Cartão de vácina do COVID</b>
- - <b>Certificação</b>: Diploma ou certificado. Dependendo do cargo.
-
- Para os dados relacionados ao exercicio da profissão, deve-se passar os dados na rota `app.post('/manager/data/role', CreateRole)`:
-
- - <b>id da Role</b>: `role_id`, deve ser um Number. No caso para staff é o id número 4 .
-
- - <b>carga horária</b>: `workload`, String no fomato, exemplo, `40 horas`.
-
- - <b>turnos</b>: `shift`, deve ser um array e não pode ser vazio. Exemplo: `["matutino", "verpertino", "noturno"]`.
-
-- <b>Cargo</b>: `role_description`, descreve o cargo da pessoa colaboradora. Deve ser uma string, exemplo. `Secretário/a`, `Supervisor/a`, `Coordenador/a`. `RH`
-
-##### A AdminModel
-
-Esta model é simples, porém é responsável por interagir com a tabela admin, onde são listados todos os usuários com privilégio total no sistema. Exemplos de pessoas para esse cargo incluem diretores, reitores e seus vices.
-
-Para registrar um novo `user` para uma pessoa da direção é necessário passar os seguintes dados na rota `app.post('/admin', CreateAdm)`:
-
-  - <b>Nome de usuário</b>: Pode ser o que você quizer. É nome que vai aparecer ao entrar em seu perfil, máximo de 20 caracteres.
-
-  - <b>Email</b>: email valido com `@` e `.com`. nao pode terpaço vazio. Máximo de 50 caracteres.
-
-  - <b>Password</b>: A senha deve ser alfanúmerica com letras maiuscula e minuscula e com o minimo de 6 caracteres e com o máximo de 20 caracteres.
-
-  Para os dados pessoais (fica na responsabilidade da direção fazer essa inserção), é necessário utilizar a rota `app.post('/admin/data', CreateAdmData)`:
-
-- <b>Role id</b>: `role_id`. com permissão de acesso geral(admin) é a role id número 1
-
- - <b>Id de usuário</b>: Pode ser encontrada passando o email da pessoa colaboradora na pesquisa que acessa o endpoint `app.get('/admin', GetAdmByEmail)` passando o paramento `getemail`, ficando assim `/admin&getemail:"email aqui"`.
-
- - <b>Nome completo</b>: O Nome completo do funcionário.
-
- - <b>Endereço</b>: Endeço completo, rua, bairro, cidade, estado.
-
- - <b>Telefone</b>: O telefone tem que ter o formato por padrão xx-x-xxxx-xxxx.
-
- - <b>RG</b>.
- - <b>CPF</b>
- - <b>CNH</b>: Opicional.
- - <b>Cartão de vácina do COVID</b>
- - <b>Certificação</b>: Diploma ou certificado. Dependendo do cargo.
-
- Para os dados relacionados ao exercicio da profissão, deve-se passar os dados na rota `app.post('/adm/data/role', CreateRole)`:
-
- - <b>id da Role</b>: `role_id`, deve ser um Number. No caso para staff é o id número 4 .
-
- - <b>carga horária</b>: `workload`, String no fomato, exemplo, `40 horas`.
-
- - <b>turnos</b>: `shift`, deve ser um array e não pode ser vazio. Exemplo: `["matutino", "verpertino", "noturno"]`.
-
-- <b>Cargo</b>: `role_description`, descreve o cargo da pessoa colaboradora. Deve ser uma string, exemplo. `Diretor/a`, `Reitor/a`, `Vice diretor/a`. `Vice reitor/a`
-
-## API
+asdas 

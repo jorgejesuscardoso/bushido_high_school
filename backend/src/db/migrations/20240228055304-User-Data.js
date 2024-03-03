@@ -18,11 +18,12 @@ module.exports = {
       email: {
         type: Sequelize.STRING(50),
         allowNull: false,
+        unique: true
       },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        field: 'User_id',
+        field: 'user_id',
         references: {
           model: 'Users',
           key: 'id'
@@ -31,7 +32,7 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       matriculation: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(26),
         allowNull: false,
         unique: true,
       },
@@ -47,62 +48,16 @@ module.exports = {
         type: Sequelize.STRING(15),
         allowNull: false
       },
-      role: {
-        type: Sequelize.STRING(12),
-        allowNull: false
-      },
-      shift: {
-        type: Sequelize.STRING(12),
-        allowNull: false
-      },
-      cpf: {
-        type: Sequelize.STRING(11),
-        allowNull: false
-      },
-      identity: {
+      CPF: {
         type: Sequelize.STRING(14),
         allowNull: false
       },
-      ctps : {
-        type: Sequelize.STRING(20),
+      RG: {
+        type: Sequelize.STRING(12),
         allowNull: false
-      },
-      fgts : {
-        type: Sequelize.STRING(20),
-        allowNull: false
-      },
-      pis : {
-        type: Sequelize.STRING(20),
-        allowNull: false
-      },
-      admissionDate : {
-        type: Sequelize.DATEONLY,
-        allowNull: false,
-        field: 'admission_date'
-      },
-      workload: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      salary: {
-        type: Sequelize.DECIMAL(10,2),
-        allowNull: false
-      },
-      bank: {
-        type: Sequelize.STRING(50),
-        allowNull: false
-      },
-      agency: {
-        type: Sequelize.STRING(50),
-        allowNull: false
-      },
-      account: {
-        type: Sequelize.STRING(50),
-        allowNull: false
-      },      
+      },     
     },
     {
-    // remove os campos createdAt e updatedAt e mantém o underscored
       timestamps: false,
       underscored: true
     }

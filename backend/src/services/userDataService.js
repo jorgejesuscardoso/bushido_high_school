@@ -7,6 +7,19 @@ const { User_Data } = require('../db/models');
  * @param {number} id - O ID dos dados a serem obtidos.
  * @returns {Object|string} - Os dados pessoais do usuário ou uma mensagem de erro.
  */
+
+const GetAllDataService = async () => {
+  try {
+    const data = await User_Data.findAll();
+    if (data === null) return "Nenhum dado pessoal foi encontrado.";
+  
+    return data;
+  } catch (error) {
+    // Em caso de erro, retorna uma mensagem de erro.
+    throw new Error(error.message);
+  }
+}
+
 const GetDataByIdService = async (userId, id) => {
   try {
     // Se userId for informado, retorna os dados pessoais do usuário correspondente.
@@ -35,5 +48,6 @@ const GetDataByIdService = async (userId, id) => {
 };
 
 module.exports = {
-  GetDataByIdService,
+  GetAllDataService,
+  GetDataByIdService
 };

@@ -4,7 +4,20 @@ const { GetDataByIdService } = require("./userDataService")
 // Obtem todos os usuários cadastrados.
 // Não é necessário passar parâmetros para essa função.
 
+
 // Essa função retorna um array com todos os usuários cadastrados.
+
+const createUserService = async (data) => {
+  try {
+    const user = await Users.create(data)
+    if (!user) {
+      throw new Error("Houve um erro ao cadastrar o usuário.")
+    }
+    return user;
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
 
 const getAllUserService = async (data) => {
   try {
@@ -54,6 +67,7 @@ const getUserByIdService = async (userId, data) => {
 }
 
 module.exports = {
+  createUserService,
   getAllUserService,
   getUserByIdService,
 }

@@ -9,7 +9,7 @@ module.exports = {
       name: 'admin'
     },
     {
-      name: 'managers'
+      name: 'manager'
     },
     {
       name: 'teacher'

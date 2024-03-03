@@ -9,19 +9,8 @@ const UserData = (sequelize, DataTypes) => {
     birthday: DataTypes.DATEONLY,
     address: DataTypes.STRING,
     phone: DataTypes.STRING,
-    role: DataTypes.STRING,
-    shift: DataTypes.STRING,
-    cpf: DataTypes.STRING,
-    identity: DataTypes.STRING,
-    ctps: DataTypes.STRING,
-    fgts: DataTypes.STRING,
-    pis: DataTypes.STRING,
-    admission_date: DataTypes.DATEONLY,
-    workload: DataTypes.STRING,
-    bank: DataTypes.STRING,
-    account: DataTypes.STRING,
-    agency: DataTypes.STRING,
-    salary: DataTypes.INTEGER,
+    CPF: DataTypes.STRING,
+    RG: DataTypes.STRING,
   }, { timestamps: false}); 
 
   return UserData;

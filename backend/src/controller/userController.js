@@ -1,6 +1,18 @@
-const { getAllUserService, getUserByIdService } = require("../services/userServices")
+const { getAllUserService, getUserByIdService, createUserService } = require("../services/userServices")
 
 // Obtem todos os usuários cadastrados. Não é necessário passar nenhum parâmetro.
+
+const createUser = async (req, res) => {
+  const data = req.body;
+  try {
+    // Chama a função camada service que cria um novo usuário.
+    const user = await createUserService(data);
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 const getAllUser = async (req, res) => {
   try {
     const { data } = req.query;
@@ -24,6 +36,7 @@ const GetUserByID = async (req, res) => {
 }
 
 module.exports = {
+  createUser,
   getAllUser,
   GetUserByID
 }

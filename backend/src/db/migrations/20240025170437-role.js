@@ -17,7 +17,7 @@ module.exports = {
         unique: true
       },
       role_key: {
-        type: Sequelize.VARCHAR(20),
+        type: Sequelize.STRING(20),
         allowNull: false,
         unique: true  
       }

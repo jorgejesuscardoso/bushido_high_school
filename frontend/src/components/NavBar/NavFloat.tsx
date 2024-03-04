@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ContainerCalendarMenu, ContainerMatricMenu, ContainerNewsMenu, NavFloats } from "./Style";
 import { CalendarMenu, MatricMenu, NewsMenu } from "../Buttons/Menus";
 import { FloatNavButtons } from "../Buttons/NavFloatBtn";
-import { GetUserType } from "../../utils/LocalStorage";
+import { GetUserInfoOfStorage } from "../../utils/LocalStorage";
 
 export const NavFloat = () => {
   const refs = useRef<HTMLDivElement>(null);
@@ -10,7 +10,7 @@ export const NavFloat = () => {
   const [isMatric, setIsMatric] = useState(false);
   const [isCalendar, setIsCalendar] = useState(false);
   const [isFloatFixed, setIsFloatFixed] = useState(false);
-  const [userType, setUserType] = useState<string>('');
+  const [userRole, setUserRole] = useState(6);
 
   const handleNewsMenu = () => {
     setIsNews(true);
@@ -64,9 +64,10 @@ export const NavFloat = () => {
 
   },[]);
   useEffect(() => {
-    const userType = GetUserType();
-    if (userType) {
-      setUserType(userType);
+    const userRole = GetUserInfoOfStorage();
+    const getUserRole = userRole &&  JSON.parse(userRole);
+    if (getUserRole) {
+      setUserRole(getUserRole.role_id);
     }
   }, []);
 
@@ -78,7 +79,7 @@ export const NavFloat = () => {
         handleNewsMenu={ handleNewsMenu }
         handleMatricMenu={ handleMatricMenu }
         handleCalendarMenu={ handleCalendarMenu }
-        userType={ userType }
+        roler_id={ userRole }
       />
 
       {isNews && (

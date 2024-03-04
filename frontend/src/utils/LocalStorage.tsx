@@ -1,17 +1,9 @@
-export const GetUserType = () => {
-  const userType = localStorage.getItem('userType');
+export const SetUserInfoToStorage = (userInfo: string) => {
+  localStorage.setItem('userInfo', userInfo);
+}
+
+export const GetUserInfoOfStorage = () => {
+  const userType = localStorage.getItem('userInfo');
   return userType;
 }
 
-export const SetToken = (token: string) => {
-  localStorage.setItem('token', token);
-}
-
-export const SetRole = (role: string) => {
-  localStorage.setItem('role', role);
-}
-
-export const GetToken = () => {
-  const token = localStorage.getItem('token');
-  return token;
-}

@@ -3,7 +3,7 @@ import { LoginContainer, News } from './style';
 import { Link } from 'react-router-dom';
 import { TabelServices } from '../News/TabelServices';
 import { loginUser } from '../../services/UsersApi';
-import { SetRole, SetToken } from '../../utils/LocalStorage';
+import { SetUserInfoToStorage } from '../../utils/LocalStorage';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -25,13 +25,9 @@ export const LoginForm = () => {
       setError('Email ou senha incorretos!');
       return;
     }
-    console.log(response);
     if (response.token) {
-      const toStringToken = response.token.token;
-      const Role = response.role_id;
-      const toStringRole = JSON.stringify(Role);
-      SetToken(toStringToken);
-      SetRole(toStringRole);
+      const toStringUser = JSON.stringify(response);
+      SetUserInfoToStorage(toStringUser);
       setLogado(!logado);
       setLoading(!loading);
       setTimeout(() => {

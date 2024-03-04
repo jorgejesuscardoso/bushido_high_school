@@ -1,3 +1,15 @@
+interface CreateUserModel {
+  username: string;
+  email: string;
+  password: string;
+  role_id: number;
+}
+
+interface LoginUserModel {
+  email: string;
+  password: string;
+}
+
 export interface ImageFrameProps {
   id?: number;
   src: string;
@@ -16,5 +28,5 @@ export type FloatNavButtonsProps = {
   handleNewsMenu: () => void;
   handleMatricMenu: () => void;
   handleCalendarMenu: () => void;
-  userType: string;
+  roler_id: number;
 };

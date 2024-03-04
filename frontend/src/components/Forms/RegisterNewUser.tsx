@@ -15,7 +15,7 @@ export const FormNewUser = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const newUserData = {
+    const newUserData: CreateUserModel = {
       username: name,
       password,
       role_id: role,

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import { DivLogoMark, DivSearch, LogOut, LoginOrRegister, NavBa } from "./Style"
 import { useEffect, useState } from "react";
-import { GetUserType } from "../../utils/LocalStorage";
+import { GetUserInfoOfStorage } from "../../utils/LocalStorage";
 
 export const NavBar = () => {
   const [scroll, setScroll] = useState(false);
-  const userType = GetUserType();
+  const userType = GetUserInfoOfStorage();
 
   useEffect(() => {
     window.addEventListener('scroll', () => {

@@ -134,7 +134,7 @@ export const LoginContainer = styled.main`
     width: 45%;
     height: 100%;
     padding: 2rem;
-    border-left: 1px solid var(--main-form-border-color);
+    //border-left: 1px solid var(--main-form-border-color);
     background-color: var(--form-background-color);
 
     h1 {

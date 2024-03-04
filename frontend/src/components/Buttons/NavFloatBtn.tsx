@@ -1,20 +1,28 @@
 import { useNavigate } from "react-router-dom";
-import { FloatNavButtonsProps } from "../../types/components";
+import { FloatNavButtonsProps } from "../../types/types";
 import { ButtonsFloatNav } from "./style";
 
-type UserTypes = 'professor' | 'direção' | 'aluno';
+type UserTypes = 1 | 2 | 3 | 4 | 5 | 6;
 
 export const FloatNavButtons = ({ 
   handleCloseMenus,
   handleNewsMenu,
   handleMatricMenu,
   handleCalendarMenu,
-  userType = 'aluno' as UserTypes,
+  roler_id,
  }: FloatNavButtonsProps) => {
   const navigate = useNavigate(); 
 
-  const userRole = userType === 'direção' ? 'admin' : userType === 'professor' ? 'teacher_area' : 'student_area';
-  const userArea =  userType === 'direção' ? 'Área da Direção' : userType === 'professor' ? 'Área do Professor' : 'Área do Aluno';
+  const userRole = {
+    1: 'Área Administrativa',
+    2: 'Área da Direção',
+    3: 'Área do Professor',
+    4: 'Área da Staff',
+    5: 'Área do Aluno',
+    6: 'Área de Visitantes',
+  }
+
+  const userArea =  userRole[roler_id as UserTypes];
 
   return (
     <ButtonsFloatNav>
@@ -26,7 +34,7 @@ export const FloatNavButtons = ({
       </button>
         <button        
         onMouseOver={ handleCloseMenus }
-        onClick={ () => navigate(`/${userRole}`) }
+        onClick={ () => navigate(`/${userRole[roler_id as UserTypes]}`) }
       >
         { userArea }
       </button>

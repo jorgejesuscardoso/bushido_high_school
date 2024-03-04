@@ -1,9 +1,7 @@
-import { CardWarning } from "../../components/Cards/CardWarning";
+import { LoginForm } from '../../components/Forms/FormLogin';
 
 export const Login = () => {
   return (
-    <CardWarning
-      props="Entrar usando o login e senha cadastrada."
-    />
+    <LoginForm />
   );
 }

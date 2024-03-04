@@ -101,9 +101,10 @@ select {
   --form-background-color: #fff;
   --form-box-shadow-color: #777;
   --form-input-background-color: #dfdfdf;
-  --form-btn-submit-background-color: #056b1f;
-  --form-btn-submit-background-hover-color: #0d852b;
+  --form-btn-submit-background-color: #008a22;
+  --form-btn-submit-background-hover-color: #05ad2f;
   --form-btn-cancel-background-color: #910;
   --form-btn-cancel-hover-background-color: #f00;
   --link-color: #0000ff;
+  --link-color-2: #53a3fd;
 }

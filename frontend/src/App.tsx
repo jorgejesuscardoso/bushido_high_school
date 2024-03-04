@@ -26,8 +26,6 @@ function App() {
     <Routes>
       <Route path="/" element={ <LayOut /> } >
         <Route index element={ <Home /> } />
-        <Route path="/login" element={ <Login /> } />
-        <Route path="/register" element={ <Register /> } />
         <Route path="/student_area" element={ <StudentArea /> } />
         <Route path="/calendar" element={ <Calendar /> } />
         <Route path="/contact" element={ <Contact /> } />
@@ -44,6 +42,8 @@ function App() {
         <Route path="/teacher_area" element={ <TeacherArea /> } />
         <Route path="/admin" element={ <AdminArea /> } />
       </Route>
+      <Route path="/register" element={ <Register /> } />
+      <Route path="/login" element={ <Login /> } />
       <Route path="*" element={ <NotFound /> } />
     </Routes>
   )

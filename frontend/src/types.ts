@@ -4,3 +4,8 @@ interface CreateUserModel {
   password: string;
   role_id: number;
 }
+
+interface LoginUserModel {
+  email: string;
+  password: string;
+}

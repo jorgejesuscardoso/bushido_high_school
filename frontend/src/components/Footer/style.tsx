@@ -13,6 +13,7 @@ export const Footers = styled.footer`
   text-align: center;
   font-size: 0.7rem;
   padding: 10px;
+  margin-top: 10vw;
   div {
     width: 20%;
     height: 80%;
@@ -26,7 +27,7 @@ export const Footers = styled.footer`
       li {
         margin-bottom: 10px;
         a {
-          color: var(--text-color);
+          color: var(--link-color-2);
           text-decoration: none;
         }
       }

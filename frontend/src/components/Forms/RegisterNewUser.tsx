@@ -135,9 +135,14 @@ export const FormNewUser = () => {
           >
             Cancelar
         </button>
+        
       </FormBtnDiv>
+      <span>
+        Já possui uma conta?  
+        <Link to='/login'> clique aqui!</Link><br /> <br />
+        <Link to='/'>Voltar para a página inicial</Link>
 
-      <span>Já possui uma conta? <Link to='/login'>clique aqui!</Link></span>
+      </span>
      </form>
      { createError && <p className='error'>{ createError }</p> }
      { createSuccess && <p className='success'>{ createSuccess }</p> }

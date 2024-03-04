@@ -37,7 +37,7 @@ export const MainNews = styled.main`
   footer {
     position: relative;
     bottom: 0;
-    width: 65%;
+    width: 85%;
     padding: 1rem;
   }
   a {

@@ -1,5 +1,5 @@
 # Visão geral
-O projeto Bushido School é uma plataforma escolar. Seu objetivo é facilitar o acesso dos alunos e pais à escola, oferecendo funcionalidades como gerenciamento de usuários, acesso a informações sobre eventos, notícias e atividades acadêmicas, além de fornecer uma camada de segurança robusta para proteger dados sensíveis.
+O projeto Bushido High School é uma plataforma escolar. Seu objetivo é facilitar o acesso dos alunos e pais à escola, oferecendo funcionalidades como gerenciamento de usuários, acesso a informações sobre eventos, notícias e atividades acadêmicas, além de fornecer uma camada de segurança robusta para proteger dados sensíveis.
 
 ## Comandos CLI uteis
 <details> 

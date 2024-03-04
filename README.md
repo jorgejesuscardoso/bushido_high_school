@@ -1,4 +1,4 @@
-# Projeto: Bushido School
+# Projeto: Bushido High School
 Deploy: [Netlify](https://cndev.netlify.app/)
 
 <details>

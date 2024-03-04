@@ -1,4 +1,4 @@
-# Bushido School
+# Bushido High School
 
 
 ## Comandos CLI uteis

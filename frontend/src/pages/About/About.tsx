@@ -1,10 +1,12 @@
-import { CardWarning } from '../../components/Cards/CardWarning';
+import { NextFeat } from '../../components/News/NextFeat';
+import { TabelServices } from '../../components/News/TabelServices';
 import { Main } from './style';
 
 export const About = () => {
     return (
         <Main>
-            <CardWarning props="Quem somos" />
+            <TabelServices />
+            <NextFeat />
         </Main>
     );
 }

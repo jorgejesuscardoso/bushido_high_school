@@ -1,28 +1,47 @@
 import { Link } from "react-router-dom";
 import { parceiro1 } from "../../utils/imports";
-import { Footers, Parceiros, Copyright } from "./style";
+import { Footers, Parceiros, Copyright, DivLinks } from "./style";
 
 export const Footer = () => {
   return (
     <Footers>
-      <div>
+      <DivLinks>
         <h1>Links uteis</h1>
-        <ul>
-          <li>
-            <Link to="https://www.instagram.com/jorge.bushido/">
-              Instagram
-            </Link>
-          </li>
-          <li>
-            <Link to="https://www.facebook.com/tst.jorgecardoso">
-              Facebook
-            </Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-      </div>
+        <div>
+          <ul>
+            <li>
+              <img src="ico_insta.png" alt="Instagram" />
+              <Link to="https://www.instagram.com/jorge.bushido/" target='_blank' referrerPolicy='no-referrer' >
+                Instagram
+              </Link>
+            </li>
+            <li>
+              <img src="ico_face.png" alt="Facebook" />
+              <Link to="https://www.facebook.com/tst.jorgecardoso" target='_blank' referrerPolicy='no-referrer' >
+                Facebook
+              </Link>
+            </li>
+            <li>
+              <img src="ico_linkedin.png" alt="Linkedin" />
+              <Link to="https://www.linkedin.com/in/jorge-de-jesus-cardoso-0a3b3b1b3/" target='_blank' referrerPolicy='no-referrer' >
+                Linkedin
+              </Link>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <img src="ico_github_white.png" alt="GitHub" />
+              <Link to="https://github.com/jorgejesuscardoso/Portfolio" target='_blank' referrerPolicy='no-referrer' >GitHub</Link>
+            </li>
+            <li>
+              <img src="ico_yt.png" alt="YouTube" />
+              <Link to="https://www.youtube.com/channel/UCMYS6rJegLBYcfWzC0W4OyA" target='_blank' referrerPolicy='no-referrer' >
+                YouTube
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </DivLinks>
       <div>
         <h1>Contato</h1>
         <ul>
@@ -30,6 +49,9 @@ export const Footer = () => {
           <li>Email:
             <a href="#"> tst.jorgecardoso@gmail.com</a>
           </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
         </ul>
       </div>
       <div>

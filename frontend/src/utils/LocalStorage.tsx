@@ -3,7 +3,8 @@ export const SetUserInfoToStorage = (userInfo: string) => {
 }
 
 export const GetUserInfoOfStorage = () => {
-  const userType = localStorage.getItem('userInfo');
-  return userType;
+  const userInfos = localStorage.getItem('userInfo');
+  const userInfoParsed = userInfos ? JSON.parse(userInfos) : '';
+  return userInfoParsed;
 }
 

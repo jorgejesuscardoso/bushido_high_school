@@ -22,6 +22,11 @@ export const Footers = styled.footer`
       margin-bottom: 10px;
     }
     ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
       list-style: none;
       padding: 0;
       li {
@@ -55,4 +60,44 @@ export const Parceiros = styled.div`
 export const Copyright = styled.p`
   font-size: 0.8em;
   color: var(--text-color);
+`;
+
+export const DivLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 70%;
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          list-style: none;
+          padding: 0;
+          width: 35%;
+          li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 100%;
+            a {
+              color: var(--link-color-2);
+              text-decoration: none;
+            }
+            img {
+              width: 25px;
+            }
+          }
+        }
+  }
+    
 `;

@@ -65,9 +65,8 @@ export const NavFloat = () => {
   },[]);
   useEffect(() => {
     const userRole = GetUserInfoOfStorage();
-    const getUserRole = userRole &&  JSON.parse(userRole);
-    if (getUserRole) {
-      setUserRole(getUserRole.role_id);
+    if (userRole) {
+      setUserRole(userRole.role_id);
     }
   }, []);
 

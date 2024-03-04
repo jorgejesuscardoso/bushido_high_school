@@ -56,7 +56,11 @@ select {
   z-index: 100;
 }
 :root {
-  --body-color: #000000f5;
+  --body-color: #ccc;
+  --submit-btn-color: #056b1f;
+  --error-color: #f00;
+  --success-color: #0d852b;
+  --loading-color: #056b1f;
   --nav-background-color: #000000;
   --nav-button-hover-color: #053;
   --nav-floating-btn-hover-color: #3335;
@@ -93,4 +97,13 @@ select {
   --login-color: #086;
   --logOut-color: #f00;
   --logOut-hover-color: #700;
+  --main-form-background-color: #ccc;
+  --form-background-color: #fff;
+  --form-box-shadow-color: #777;
+  --form-input-background-color: #dfdfdf;
+  --form-btn-submit-background-color: #056b1f;
+  --form-btn-submit-background-hover-color: #0d852b;
+  --form-btn-cancel-background-color: #910;
+  --form-btn-cancel-hover-background-color: #f00;
+  --link-color: #0000ff;
 }

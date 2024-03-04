@@ -1,10 +1,10 @@
-const { validEmail, validUserId, validateFullName, validateMatriculation, validateBirthday, validateAddress, validatePhone, validateRG, validateCPF, validateNewDatas } = require('../utils/validates');
+const { validCreateEmail, validUserId, validateFullName, validateMatriculation, validateBirthday, validateAddress, validatePhone, validateRG, validateCPF, validateNewDatas } = require('../utils/validates');
 
 
 
 const validateNewData = async (req, res, next) => {
   const { name, email, user_id, matriculation, birthday, phone, address, RG, CPF} = req.body;
-  const isValidEmail = await validEmail(email);
+  const isValidEmail = await validCreateEmail(email);
   const isValidUserId = await validUserId(user_id);
   const isValidName = validateFullName(name);
   const isValidMatriculation = await validateMatriculation(matriculation);

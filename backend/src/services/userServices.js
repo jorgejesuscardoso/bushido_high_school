@@ -1,4 +1,5 @@
-const { Users }  = require("../db/models")
+const { Users }  = require("../db/models");
+const { validateLogin, validateFormatEmail } = require('../utils/validates');
 const { GetDataByIdService } = require("./userDataService")
 
 // Obtem todos os usuários cadastrados.
@@ -6,6 +7,34 @@ const { GetDataByIdService } = require("./userDataService")
 
 
 // Essa função retorna um array com todos os usuários cadastrados.
+
+const loginService = async (email, password) => {
+  try {
+    const isValidEmail = validateFormatEmail(email);
+    if (!isValidEmail.isValid) {
+      return { message: 'O "email" fornecido é inválido' }
+    }
+    const getToken = await validateLogin(email, password);
+
+    if (getToken.error || getToken.message) {
+      return getToken;
+    }
+
+    if (getToken) {
+      const userInfo = await Users.findOne({ where: { email } });
+
+      if (userInfo.dataValues) {
+        const { password, ...user } = userInfo.dataValues;
+        return {
+          ...user,
+          token: getToken
+        }
+      }
+    }
+  } catch (error) {
+    throw new Error(error.message)
+  }
+};
 
 const createUserService = async (data) => {
   try {
@@ -70,4 +99,5 @@ module.exports = {
   createUserService,
   getAllUserService,
   getUserByIdService,
+  loginService
 }

@@ -1,4 +1,6 @@
 const { Roles, Users, User_Data } = require('../db/models');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const validUserName = (username) => {
   if (!username || username.length < 3) {
@@ -14,24 +16,40 @@ const validateFullName = (fullName) => {
   return true;
 }
 
-const validEmail = async (email) => {
+const validateFormatEmail = (email) => {
   const emailRegex = /\S+@\S+\.\S+/;
+  if (!email)  {
+    return { message: 'O campo "email" é obrigatório' };
+  }
+  if (email && !emailRegex.test(email)) {
+    return { message: 'O "email" fornecido é inválido' };
+  }
+  return { isValid: true };
+}
 
-  if (!email || !emailRegex.test(email)) {
-    return { message: 'O campo "email" é obrigatório e deve ser no formato: "test@test.com"' };
+const validCreateEmail = async (email) => {
+
+  const isValidEmail = validateFormatEmail(email);
+
+  if ( !isValidEmail.isValid) {
+    return { message: isValidEmail.message };
   }
 
-  const user = await Users.findOne({ where: { email } });
+  if (isValidEmail.isValid === true) {
 
-  if (user) {
-    return { message: 'O email já está cadastrado!' };
+    const user = await Users.findOne({ where: { email } });
+
+    if (user) {
+      return { message: 'O email já está cadastrado!' };
+    }
   }
+
 
   return true;
 }
 
 const validPassword = (password) => {
-  const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/;
+  const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%,.*?&])[A-Za-z\d@$!%,.*?&]{8,}/;
 
   if (!password || !passwordRegex.test(password)) {
    return { message: 'O campo "password" é obrigatório e deve ter no minimo 6 caracteres!' };
@@ -68,7 +86,7 @@ const validUserId = async (user_id) => {
 }
 
 const validateMatriculation = async (matriculation) => {
-  const matriculationRegex = /[a-zA-Z]+\d+[a-zA-Z]-\d+[a-zA-Z]+\d+-[a-zA-Z]+\d+[a-zA-Z]-\d+[a-zA-Z]+\d+/;
+  const matriculationRegex = /\d+[a-zA-Z]+\d+-[a-zA-Z]+\d+[B]-\d+[a-zA-Z]+\d+-[a-zA-Z]+\d+[a-zA-Z]-\d+[a-zA-Z]+8-[a-zA-Z]+\d+[a-zA-Z]-\d+[a-zA-Z]/
 
   if (!matriculation || matriculation.length < 2) {
     return { message: 'O campo "matriculation" é obrigatório!' };
@@ -131,9 +149,44 @@ const validateNewDatas = async (user_id) => {
   return true;
 }
 
+const validateLogin = async (email, password) => {
+  try {
+    const TOKEN_1DAY = {
+      expiresIn: '1d',
+      algorithm: 'HS256',
+    }
+    
+    if (email && password) {
+      const hasUserEmail = await Users.findOne({ where: { email } });
+
+      if (!hasUserEmail || !hasUserEmail.dataValues) {
+        return { message: 'Dados inválidos!' };
+      }
+      
+      const hashedPass = hasUserEmail && hasUserEmail.dataValues.password;
+
+      const compare = bcrypt.compareSync(password, hashedPass);
+
+      if (!compare) {
+        return { message: 'Senha inválida' };
+      }
+      const dat = { id: hasUserEmail.dataValues.id, role: hasUserEmail.dataValues.role_id };
+      
+      const token = jwt.sign({ data: dat }, process.env.SECRET_TOKEN, TOKEN_1DAY);
+
+      return { token };
+    }
+
+    return { message: 'Email e senha são obrigatórios' };
+  } catch (error) {
+    return { message: 'Erro interno', error };
+  }
+};
+
+
 module.exports = {
   validUserName,
-  validEmail,
+  validCreateEmail,
   validPassword,
   validRole,
   validUserId,
@@ -144,5 +197,7 @@ module.exports = {
   validatePhone,
   validateCPF,
   validateRG,
-  validateNewDatas
+  validateNewDatas,
+  validateLogin,
+  validateFormatEmail,
 };

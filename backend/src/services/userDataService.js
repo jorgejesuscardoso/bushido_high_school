@@ -1,13 +1,5 @@
 const { User_Data } = require('../db/models');
 
-/**
- * Obtém os dados pessoais de um usuário.
- * 
- * @param {number} userId - O ID do usuário autenticado.
- * @param {number} id - O ID dos dados a serem obtidos.
- * @returns {Object|string} - Os dados pessoais do usuário ou uma mensagem de erro.
- */
-
 const createNewUserDataService = async (data) => {
   try {
     const newData = await User_Data.create(data);

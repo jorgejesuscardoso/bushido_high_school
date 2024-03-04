@@ -247,7 +247,7 @@ Caso o email já exista no banco de dados, lança um erro com status `409 Confli
  > {<br> <span style="margin-left: 30px">message: "O campo 'user_id' é obrigatório e deve ser um número !"</span><br>}
 
 - <b>matriculation:</b> 
-Se não houver matriculation ou ter um formato inválida, retornar erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório.
+Se não houver matriculation ou ter um formato inválida, retornar erro com status `400 Bad Request`, e uma mensagem avisando que esse campo é obrigatório. A matricula é formada por valores aleátorios com exceção do sexto caracter (terceira letra) que deve ser por obrigação a letra `B` e do decimo quinto caracter (oitavo número) ser o número `8`.
 
 > {<br> <span style="margin-left: 30px">message: "O campo "matriculation" é obrigatório"</span><br>}
 

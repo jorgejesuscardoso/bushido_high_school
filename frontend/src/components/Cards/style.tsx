@@ -19,8 +19,8 @@ export const Main = styled.main`
     padding: 10px 20px;
     font-size: 1.5em;
     font-weight: bolder;
-    background-color: var(--home-button-color);
-    color: var(--home-font-color);
+    background-color: var(--submit-btn-color);
+    color: var(--text-color);
     border: none;
     border-radius: 10px;
     margin-top: 20px;

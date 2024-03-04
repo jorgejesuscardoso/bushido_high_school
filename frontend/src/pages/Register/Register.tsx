@@ -1,9 +1,7 @@
-import { CardWarning } from "../../components/Cards/CardWarning"
+import { FormNewUser } from '../../components/Forms/RegisterNewUser'
 
 export const Register = () => {
   return (
-    <CardWarning
-      props="Registrar um ID para um novo aluno ou professor."
-    />
+    <FormNewUser />
   )
 }

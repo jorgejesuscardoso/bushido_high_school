@@ -101,15 +101,15 @@ export const FormNewUser = () => {
         >
 
           <option value="6">
-            Padrão: visitantes, solicitante de matrícula!
+            Padrão: Usuários não vinculados a escola!
           </option>
 
           <option value="5">
-            Aluno: Necessário está mátriculado!
+            Aluno: Necessário solicitar a mátricula em até 7 dias!
           </option>
 
           <option value="4">
-            Staff: Necessário validação!
+            Funcionário: Necessário validação!
           </option>
           <option value="3">
             Professor: Necessário validação!

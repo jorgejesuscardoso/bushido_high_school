@@ -61,6 +61,7 @@ export const DivSearch = styled.div`
     background-color: var(--nav-button-background-color);
     color: var(--button-text-color);
     font-size: 0.7em;
+    font-weight: 600;
     cursor: pointer;
     &:hover {
       background-color: var(--nav-button-hover-color);
@@ -137,10 +138,11 @@ export const NavFloats = styled.nav`
 
     button {
     width: 15%;
-    height: 70%;
+    height: 75%;
     color: var(--text-color);
     font-weight: bolder;
     font-size: 0.9em;
+    padding: 12px;
     &:hover {
       border-bottom: 1px solid var( --button-border-color);
       color: var(--text-color-2);
@@ -163,6 +165,8 @@ export const NewsMenus = styled.div`
   border-radius: 0 0 5px 5px;
 
   button {
+    display: flex;
+    align-items: center;
     text-align: start;
     padding-left: 10px;
     width: 100%;
@@ -194,6 +198,9 @@ export const MatricMenus = styled.div`
   border-radius: 0 0 5px 5px;
 
   button {
+    display: flex;
+    align-items: center;
+    text-align: start;
     text-align: start;
     padding-left: 10px;
     width: 100%;
@@ -225,6 +232,9 @@ export const CalendarMenus = styled.div`
   border-radius: 0 0 5px 5px;
 
   button {
+    display: flex;
+    align-items: center;
+    text-align: start;
     text-align: start;
     padding-left: 10px;
     width: 100%;

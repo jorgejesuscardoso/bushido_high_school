@@ -62,13 +62,13 @@ select {
   --success-color: #0d852b;
   --loading-color: #056b1f;
   --nav-background-color: #000000;
-  --nav-button-hover-color: #053;
+  --nav-button-hover-color: #081;
   --nav-floating-btn-hover-color: #3335;
   --nav-menu-floating-background-color: #141414;--nav-menu-floating-btn-border-color: #222;
   --nav-input-background-color: #85858549;
   --nav-input-focus-color: #ffffff35;
-  --nav-button-background-color: #0d6b25;
-  --nav-menu-floating-btn-hover-color: #2228;
+  --nav-button-background-color: #060;
+  --nav-menu-floating-btn-hover-color: #444;
   --font-nav-button-hover-color: #fff;
   --placeholder-color: #fff;
   --home-font-color: #00335c;
@@ -85,7 +85,7 @@ select {
   --scroll-bar-color: #ccccccd0;
   --scroll-thumb-color: #575757bb;
   --text-color: #fff;
-  --text-color-2: #5eff00;
+  --text-color-2: rgb(30, 253, 0);
   --text-color-black: #000000;
   --text-float-nav-color: #fff;
   --footer-background-color: #141414;

@@ -1,27 +1,11 @@
-import { Link } from 'react-router-dom';
-import { MainNews, SectionServices, SectionTable } from './style';
+import { MainNews, SectionTable } from './style';
 
 export const TabelServices = () => {
   return (
     <MainNews>
         <h1>Projeto Bushido High School</h1>
         <article>
-          <span>Já conhece os nossos produtos? Clique <Link to='/product'>aqui</Link> e fique por dentro!</span>
-          
-          <SectionServices>
-            <div>
-              <h3>Conheça também nossos cursos e serviços freelance</h3>
-             <ul>
-                <li>
-                  <strong>Cursos de Programação:</strong> Aprenda as linguagens mais modernas e frameworks populares com nossos cursos interativos e práticos.
-                </li>
-                <li>
-                  <strong>Serviços Freelance:</strong> Precisa de ajuda com seu projeto? Conte com nossos desenvolvedores fullstack capacitados para transformar suas ideias em realidade.
-                </li>
-              </ul>
-            </div>
-          </SectionServices>
-
+          <h2>Preços e Serviços</h2>
           <SectionTable>
             <table>
               <thead>
@@ -40,7 +24,7 @@ export const TabelServices = () => {
                 <tr>
                   <td>Aulas de Programação Full Stack</td>
                   <td>Aulas particulares ou em grupo, focadas em suas necessidades específicas de aprendizado.</td>
-                  <td>R$ 200/semana</td>
+                  <td>R$ 120/semana</td>
                 </tr>
                 <tr>
                   <td>
@@ -69,7 +53,7 @@ export const TabelServices = () => {
                     Aulas de TypeScript
                   </td>
                   <td>
-                    Aprenda uma das linguagem de programação mais completa e utilizada em backend do mundo. Principios SOLID, POO, TDD, Clean Code, Design Patterns, etc.
+                    Aprenda uma das linguagem de programação mais completa e utilizada em backend do mundo. Principios SOLID, POO, TDD, Clean Code, etc.
                   </td>
                   <td>
                     R$ 150/semana
@@ -80,7 +64,7 @@ export const TabelServices = () => {
                     Aulas de Python
                   </td>
                   <td>
-                    Aprenda a linguagem de programação mais popular do mundo. Amada por muitos, odiada por ninguém. Python é uma linguagem de programação de alto nível, muito conceituada, imperativa, orientada a objetos, funcional, tipagem dinâmica e forte e com uma curva de aprendizado muito baixa.
+                     Amada por muitos, odiada por ninguém. Python é uma linguagem de programação de alto nível, muito conceituada, imperativa, orientada a objetos, funcional, tipagem dinâmica e com uma curva de aprendizado muito baixa.
                   </td>
                   <td>
                     R$ 175/semana
@@ -91,7 +75,7 @@ export const TabelServices = () => {
                     Aulas de React 
                   </td>
                   <td>
-                    Aprenda a biblioteca de desenvolvimento web mais popular do mundo. Este curso é para quem deseja aprender a desenvolver aplicações web modernas e escaláveis utilizando React. Este portal foi desenvolvido inteiramente com React.
+                    Concerteza a biblioteca de desenvolvimento web mais popular que existe. Se você deseja aprender a desenvolver aplicações web modernas e escaláveis, então tem que aprender a utilizar React. Este portal, por exemplo, foi desenvolvido inteiramente com React.
                   </td>
                   <td>
                     R$ 120/semana

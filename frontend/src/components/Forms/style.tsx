@@ -7,18 +7,16 @@ export const FormContainer = styled.main`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: var(--main-form-background-color);
 
   form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
     padding: 2rem;
     border-radius: 10px;
     background-color: var(--form-background-color);
-    box-shadow: 0 0 10px 0 var(--form-box-shadow-color);
   }
   p {
     font-size: 1rem;
@@ -27,25 +25,25 @@ export const FormContainer = styled.main`
 
   p.error {
     position: absolute;
-    top: 35.7vw;
+    top: 41.7vw;
     font-size: 0.9rem;
     color: var(--error-color);
   }
 
   p.success {
     position: absolute;
-    top: 34.9vw;
+    top: 41.7vw;
     color: var(--success-color);
   }
 
   p.loading {
     position: absolute;
-    top: 36.6vw;
+    top: 43vw;
     color: var(--loading-color);
   }
 
   span {
-    margin-top: 2.5rem;
+    text-align: center;
     font-size: 0.94rem;
   }
 
@@ -125,7 +123,6 @@ export const LoginContainer = styled.main`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: var(--main-form-background-color);
   
   form {
     position: fixed;
@@ -134,11 +131,11 @@ export const LoginContainer = styled.main`
     align-items: center;
     right: 0;
     gap: 1rem;
-    width: 35%;
+    width: 45%;
     height: 100%;
     padding: 2rem;
+    border-left: 1px solid var(--main-form-border-color);
     background-color: var(--form-background-color);
-    box-shadow: 0 0 10px 0 var(--form-box-shadow-color);
 
     h1 {
       font-size: 1.5rem;
@@ -197,7 +194,7 @@ export const LoginContainer = styled.main`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    width: 70%;
+    width: 60%;
   }
   input {
     padding: 0.5rem;
@@ -230,6 +227,6 @@ export const News = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 65%;
+  width: 55%;
   height: 100vh;
 `;

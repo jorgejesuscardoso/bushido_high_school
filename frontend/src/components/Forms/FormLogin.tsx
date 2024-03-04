@@ -36,7 +36,7 @@ export const LoginForm = () => {
       setLoading(!loading);
       setTimeout(() => {
         window.location.href = '/';
-      }, 21000);
+      }, 2000);
     }
   };
 

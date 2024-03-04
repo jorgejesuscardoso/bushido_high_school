@@ -47,7 +47,8 @@ export const FormNewUser = () => {
         onSubmit={(e) => handleSubmit(e) }
       >
       <img src="logoBgdWhite.png" alt="Logo marca Bushido developer" />
-      <p><b>Registro para novos usuários</b></p>
+      <p><b>Todos os campos são obrigatórios</b></p>
+      <span>Registre-se para ter acesso a todos os recursos do sistema!</span>
       <div>
         <label htmlFor="name">Nome:</label>
         <input

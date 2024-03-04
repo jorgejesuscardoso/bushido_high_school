@@ -56,7 +56,7 @@ select {
   z-index: 100;
 }
 :root {
-  --body-color: #ccc;
+  --body-color: #fff;
   --submit-btn-color: #056b1f;
   --error-color: #f00;
   --success-color: #0d852b;
@@ -105,6 +105,7 @@ select {
   --form-btn-submit-background-hover-color: #05ad2f;
   --form-btn-cancel-background-color: #910;
   --form-btn-cancel-hover-background-color: #f00;
+  --main-form-border-color: #aaa;
   --link-color: #0000ff;
   --link-color-2: #53a3fd;
 }

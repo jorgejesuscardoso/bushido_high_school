@@ -88,7 +88,7 @@ export const TabelServices = () => {
                 </tr>
                 <tr>
                   <td>
-                    Aulas de React
+                    Aulas de React 
                   </td>
                   <td>
                     Aprenda a biblioteca de desenvolvimento web mais popular do mundo. Este curso é para quem deseja aprender a desenvolver aplicações web modernas e escaláveis utilizando React. Este portal foi desenvolvido inteiramente com React.

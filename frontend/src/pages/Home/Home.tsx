@@ -1,3 +1,4 @@
+import { NextFeat } from '../../components/News/NextFeat';
 import { TabelServices } from '../../components/News/TabelServices';
 import { Slide } from "../../components/Slides/Frame";
 import { Main } from "./style";
@@ -7,6 +8,7 @@ export const Home = () => {
     <Main>
       <Slide />
       <TabelServices />
+      <NextFeat />
     </Main>
   );
 }

@@ -23,22 +23,23 @@ export const FormNewUser = () => {
     }
 
   const response = await creatNewUser(newUserData)
-  console.log(response)
-    if (response.status === 400) {
-      setCreateError('Erro ao criar usuário! Tente novamente mais tarde!')
-    }
-    if (response.ok) {
+  
+    if (response.status === 201) {
       setCreateSuccess('Usuário criado com sucesso!');
-      setLoading(!loading);
-      setEmail('');
-      setPassword('');
-      setName('');
-      setRole(6);
-      setCreateError('');
+      setLoading(!loading)
+      setEmail('')
+      setPassword('')
+      setName('')
+      setRole(6)
+      setCreateError('')
+    
+      setTimeout(() => {
+        navigate('/')
+      }, 2500)
+
+    } else {
+      setCreateError(response.message);
     }
-    setTimeout(() => {
-      navigate('/')
-    }, 15000)
   }
   return (
     <FormContainer>

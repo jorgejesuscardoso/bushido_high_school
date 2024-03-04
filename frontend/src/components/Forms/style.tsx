@@ -29,6 +29,7 @@ export const FormContainer = styled.main`
   p.error {
     position: absolute;
     top: 45.7vw;
+    font-size: 0.9rem;
     color: var(--error-color);
   }
 

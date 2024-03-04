@@ -4,25 +4,31 @@ const bcrypt = require('bcryptjs');
 
 const validUserName = (username) => {
   if (!username || username.length < 3) {
-    return { message: 'O campo "username" é obrigatório e deve ter no minimo 3 caracteres' };
+    return { message: '"Nome de usuário" é obrigatório e deve ter no minimo 3 caracteres', status: 400};
   }
+
   return true;
 }
 
 const validateFullName = (fullName) => {
-  if (!fullName || fullName.length < 6) {
-    return { message: 'O campo "name" é obrigatório e deve ter no minimo 6 caracteres' };
+  if (!fullName || fullName.length < 6 || fullName !== String) {
+    return { message: 'O campo "Nome completo" é obrigatório e deve ter no minimo 6 caracteres', status: 400};
   }
+
+  if (typeof username !== String) {
+    return { message: 'O campo "Nome completo" deve ser do tipo string', status: 400};
+  }
+  
   return true;
 }
 
 const validateFormatEmail = (email) => {
   const emailRegex = /\S+@\S+\.\S+/;
   if (!email)  {
-    return { message: 'O campo "email" é obrigatório' };
+    return { message: 'O campo "email" é obrigatório', status: 400};
   }
   if (email && !emailRegex.test(email)) {
-    return { message: 'O "email" fornecido é inválido' };
+    return { message: 'O "email" fornecido é inválido', status: 400};
   }
   return { isValid: true };
 }
@@ -32,7 +38,7 @@ const validCreateEmail = async (email) => {
   const isValidEmail = validateFormatEmail(email);
 
   if ( !isValidEmail.isValid) {
-    return { message: isValidEmail.message };
+    return { message: isValidEmail.message, status: isValidEmail.status};
   }
 
   if (isValidEmail.isValid === true) {
@@ -40,7 +46,7 @@ const validCreateEmail = async (email) => {
     const user = await Users.findOne({ where: { email } });
 
     if (user) {
-      return { message: 'O email já está cadastrado!' };
+      return { message: 'O email já está cadastrado!', status: 409};
     }
   }
 
@@ -49,10 +55,10 @@ const validCreateEmail = async (email) => {
 }
 
 const validPassword = (password) => {
-  const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%,.*?&])[A-Za-z\d@$!%,.*?&]{8,}/;
+  const passwordRegex = /(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%,.*?&])[A-Za-z\d@$!%,.*?&]{8,}/;
 
   if (!password || !passwordRegex.test(password)) {
-   return { message: 'O campo "password" é obrigatório e deve ter no minimo 6 caracteres!' };
+   return { message: 'A senha informanda é inválida', status: 400};
   }
   return true;
 }

@@ -13,8 +13,11 @@ export const creatNewUser = async (user: CreateUserModel) => {
       },
       body: JSON.stringify(user),
     });
-    if (response.ok) {
+    if (response.ok === false) {
       return response.json();
+    }
+    if (response.ok) {
+      return response;
     } else {
       throw new Error(`Erro ao criar novo usuário: ${response.status}`);
     }

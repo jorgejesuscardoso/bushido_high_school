@@ -40,9 +40,12 @@ const createUserService = async (data) => {
   try {
     const user = await Users.create(data)
     if (!user) {
-      throw new Error("Houve um erro ao cadastrar o usuário.")
+      return {message: "Houve um erro ao cadastrar o usuário.", status: 400 }
     }
-    return user;
+    return {
+      ...user,
+      status: 201    
+    };
   } catch (error) {
     throw new Error(error.message)
   }

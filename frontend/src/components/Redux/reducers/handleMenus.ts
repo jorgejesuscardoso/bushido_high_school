@@ -1,14 +1,15 @@
+const initial = {
+  togglemenu: false
+}
 
-type ToogleMenuType = {
-  type: string;
-  payload: boolean;
-};
-
-export const toggleMenu = (state = false, action: ToogleMenuType) => {
+export const toggleMenu = (state = initial, action: any) => {
   switch (action.type) {
     case "TOGGLE_MENU":
-      return action.payload;
+      return {
+        ...state,
+        toggle: action.payload
+      }
     default:
       return state;
   }
-}
+} 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Display } from "./Display";
 import { ImageMap } from "../../utils/Hooks";
 import { BtnNext, BtnPrevious, GridSection, Frame, SlideGradeSection, SlideSection } from "./style";
-import { ImageFrameProps } from "../../types/components";
+import { ImageFrameProps } from "../../types/types";
 import { Grid } from "./Grid";
 
 export const Slide = () => {

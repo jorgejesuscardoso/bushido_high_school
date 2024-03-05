@@ -1,3 +1,5 @@
+import { CreateUserModel, LoginUserModel } from '../types/types';
+
 const endpointUsers = '/users/'; 
 const endpointLogin = '/login';/*
 const endpointData = '/data/';

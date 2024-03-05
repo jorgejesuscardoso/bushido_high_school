@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ImageFrameProps } from "../../types/components";
+import { ImageFrameProps } from "../../types/types";
 import { ImgDisplay, DisplayContainer, SelectBox } from "./style";
 
 export const Display = ({ 

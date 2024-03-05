@@ -1,4 +1,4 @@
-import { ImageFrameProps } from "../../types/components";
+import { ImageFrameProps } from "../../types/types";
 import { Grids } from "./style";
 
 export const Grid = ({ 

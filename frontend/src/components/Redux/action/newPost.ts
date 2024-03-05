@@ -11,3 +11,9 @@ export const newPostAction2 = () => {
     type: DECREMENT,
   };
 }
+
+export const toggleMenuAction = () => {
+  return {
+    type: "TOGGLE_MENU",
+  };
+}

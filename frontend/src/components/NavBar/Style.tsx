@@ -104,27 +104,14 @@ export const LoginOrRegister = styled.div`
       }
     }
 `;
-export const LogOut = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 4%;
-  height: 27px;
-  margin-right: 5%;
-  gap: 15px;
-  color: var(--text-color);
-  z-index: 10;
-  border: 1px solid var(--logOut-color);
-  border-radius: 10px;
-  font-size: 0.9em;
-  cursor: pointer;
-    &:hover {
-      background-color: var(--logOut-hover-color);
-    }
-  a {
-    color: var(--text-color);
-    font-size: 0.8em;
-    font-weight: 400;
+export const PerfilDiv = styled.div`
+ img {   
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 2vw;
+    margin-left: 10vw;
   }
 `;
 export const NavFloats = styled.nav`
@@ -275,4 +262,33 @@ export const ContainerNewsMenu = styled.div`
   top: 2.5vw;
   left: 22%;
   width: 14%;  
+`;
+export const MenuDiv = styled.div`
+  position: fixed;
+  top: 9vw;
+  background-color: var(--nav-menu-floating-background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30%;
+  border-radius: 0 0 5px 5px;
+  transition: all 0.5s;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 35px;
+    font-size: 0.7em;
+    font-weight: 400;
+    border-bottom: 1px solid var(--nav-menu-floating-btn-border-color);
+    border-radius: 0;   
+    color: var(--text-color);
+    transition: 0.2s;
+    &:hover {
+      background-color: var(--nav-menu-floating-btn-hover-color);
+      border-radius: 0 ;
+    }
+  }
 `;

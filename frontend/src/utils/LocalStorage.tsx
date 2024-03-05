@@ -8,3 +8,6 @@ export const GetUserInfoOfStorage = () => {
   return userInfoParsed;
 }
 
+export const RemoveUserInfoOfStorage = () => {
+  localStorage.removeItem('userInfo');
+}

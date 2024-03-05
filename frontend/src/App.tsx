@@ -19,6 +19,7 @@ import { Login } from "./pages/Login/Login"
 import { TeacherArea } from "./pages/TeacherArea/TeacherArea"
 import { AdminArea } from "./pages/Admin/AdminArea"
 import { Calendar_events } from "./pages/Evento/Calendar_evens"
+import { Dashboard } from './pages/Dashboard/Dashboard'
 
 function App() {
 
@@ -41,6 +42,8 @@ function App() {
         <Route path="/send_document" element={ <SendDocuments /> } />
         <Route path="/teacher_area" element={ <TeacherArea /> } />
         <Route path="/admin" element={ <AdminArea /> } />
+      </Route>
+      <Route path='/dashboard' element={ <Dashboard /> } >
       </Route>
       <Route path="/register" element={ <Register /> } />
       <Route path="/login" element={ <Login /> } />

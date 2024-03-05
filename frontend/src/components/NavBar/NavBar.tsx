@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom"
-import { DivLogoMark, DivSearch, LogOut, LoginOrRegister, NavBa } from "./Style"
-import { useEffect, useState } from "react";
-import { GetUserInfoOfStorage } from "../../utils/LocalStorage";
+import { DivLogoMark, DivSearch, PerfilDiv, NavBa } from "./Style"
+import { useEffect, useRef, useState } from "react";
+import { Menu } from './Menu';
 
 export const NavBar = () => {
+  
+  const ref = useRef<HTMLDivElement>(null);
   const [scroll, setScroll] = useState(false);
-  const userType = GetUserInfoOfStorage();
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -19,7 +21,20 @@ export const NavBar = () => {
       window.removeEventListener('scroll', () => {  });
     }
   }, []);
-  
+
+  const handleCloseMenus = (event: React.MouseEvent | MouseEvent) => {
+    if (!ref.current?.contains(event.target as Node)) {
+      setToggleMenu(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('click', (event) => { handleCloseMenus(event) });
+    return () => {
+      window.removeEventListener('click', () => {});
+    }
+  }, []);
+
   return (
     <NavBa>
       <DivLogoMark>
@@ -31,16 +46,14 @@ export const NavBar = () => {
         <input type="text" id="nav-search" placeholder="Faça uma pesquisa" />
         <button>Pesquisar</button>
       </DivSearch>
-      { userType ? (
-        <LogOut className={ scroll ? 'loginLink' : '' }>
-         <Link to='/'>LogOut</Link>
-        </LogOut>
-      ) : (
-        <LoginOrRegister className={ scroll ? 'loginLink' : '' }>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Registrar</Link>
-        </LoginOrRegister>
-      )}
+      <PerfilDiv className={ scroll ? 'loginLink' : '' }>
+        <img 
+          src="menu_white.png" 
+          alt="menu"
+          onClick={ () => setToggleMenu(!toggleMenu) }
+      />
+      </PerfilDiv>
+      <Menu />
     </NavBa>
   )
 }

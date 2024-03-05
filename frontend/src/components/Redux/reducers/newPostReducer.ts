@@ -20,3 +20,12 @@ export const newPost = (state = initialState, action: ActionType) => {
       return state;
   }
 }
+
+export const toggleMenu = (state = initialState, action: ActionType) => {
+  switch (action.type) {
+    case "TOGGLE_MENU":
+      return true;
+    default:
+      return state;
+  }
+}

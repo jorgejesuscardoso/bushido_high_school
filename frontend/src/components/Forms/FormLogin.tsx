@@ -31,7 +31,7 @@ export const LoginForm = () => {
       setLogado(!logado);
       setLoading(!loading);
       setTimeout(() => {
-        window.location.href = '/';
+        window.location.href = '/dashboard';
       }, 2000);
     }
   };

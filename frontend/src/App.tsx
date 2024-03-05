@@ -42,12 +42,12 @@ function App() {
         <Route path="/send_document" element={ <SendDocuments /> } />
         <Route path="/teacher_area" element={ <TeacherArea /> } />
         <Route path="/admin" element={ <AdminArea /> } />
+        <Route path="*" element={ <NotFound /> } />
       </Route>
       <Route path='/dashboard' element={ <Dashboard /> } >
       </Route>
       <Route path="/register" element={ <Register /> } />
       <Route path="/login" element={ <Login /> } />
-      <Route path="*" element={ <NotFound /> } />
     </Routes>
   )
 }

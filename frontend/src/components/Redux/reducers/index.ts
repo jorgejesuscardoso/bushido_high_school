@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import { newPost, toggleMenu } from './newPostReducer';
+import { newPost } from './newPostReducer';
+import { toggleMenu } from './handleMenus';
 
 const rootReducer = combineReducers({
   newPost,
-  toggleMenu: toggleMenu,
+  homeMenuNav: toggleMenu
 });
 
 export default rootReducer;

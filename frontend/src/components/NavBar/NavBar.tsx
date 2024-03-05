@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
 import { DivLogoMark, DivSearch, PerfilDiv, NavBa } from "./Style"
 import { useEffect, useRef, useState } from "react";
-import { Menu } from './Menu';
+import { useDispatch } from 'react-redux';
+import { toggleMenuAction } from '../Redux/action/newPost';
 
 export const NavBar = () => {
-  
   const ref = useRef<HTMLDivElement>(null);
+  const dispatch = useDispatch();
   const [scroll, setScroll] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -21,20 +22,22 @@ export const NavBar = () => {
       window.removeEventListener('scroll', () => {  });
     }
   }, []);
-
-  const handleCloseMenus = (event: React.MouseEvent | MouseEvent) => {
-    if (!ref.current?.contains(event.target as Node)) {
-      setToggleMenu(false);
-    }
+  const handleToggleMenu = () => {
+    setToggleMenu(!toggleMenu);
+    dispatch(toggleMenuAction(!toggleMenu));
   }
 
   useEffect(() => {
-    window.addEventListener('click', (event) => { handleCloseMenus(event) });
+    window.addEventListener('click', (event) => {
+      if (!ref.current?.contains(event.target as Node)) {
+        setToggleMenu(false);
+        dispatch(toggleMenuAction(false));
+      }
+    });
     return () => {
       window.removeEventListener('click', () => {});
     }
   }, []);
-
   return (
     <NavBa>
       <DivLogoMark>
@@ -46,14 +49,13 @@ export const NavBar = () => {
         <input type="text" id="nav-search" placeholder="Faça uma pesquisa" />
         <button>Pesquisar</button>
       </DivSearch>
-      <PerfilDiv className={ scroll ? 'loginLink' : '' }>
+      <PerfilDiv className={ scroll ? 'loginLink' : '' } ref={ ref }>
         <img 
           src="menu_white.png" 
           alt="menu"
-          onClick={ () => setToggleMenu(!toggleMenu) }
+          onClick={ () => handleToggleMenu()}
       />
       </PerfilDiv>
-      <Menu />
     </NavBa>
   )
 }

@@ -12,8 +12,9 @@ export const newPostAction2 = () => {
   };
 }
 
-export const toggleMenuAction = () => {
+export const toggleMenuAction = (toggle: boolean) => {
   return {
     type: "TOGGLE_MENU",
+    payload: toggle,
   };
 }

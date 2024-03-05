@@ -4,6 +4,8 @@ const initialState = {
 type ActionType = {
   type: string;
 };
+
+
 export const newPost = (state = initialState, action: ActionType) => {
   switch (action.type) {
     case "INCREMENT":
@@ -16,15 +18,6 @@ export const newPost = (state = initialState, action: ActionType) => {
         ...state,
         counter: state.counter - 1,
       };
-    default:
-      return state;
-  }
-}
-
-export const toggleMenu = (state = initialState, action: ActionType) => {
-  switch (action.type) {
-    case "TOGGLE_MENU":
-      return true;
     default:
       return state;
   }

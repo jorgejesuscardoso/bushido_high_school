@@ -3,19 +3,24 @@ import { ContainerCalendarMenu, ContainerMatricMenu, ContainerNewsMenu, NavFloat
 import { CalendarMenu, MatricMenu, NewsMenu } from "../Buttons/Menus";
 import { FloatNavButtons } from "../Buttons/NavFloatBtn";
 import { GetUserInfoOfStorage } from "../../utils/LocalStorage";
+import { Menu } from './Menu';
+import { useSelector } from 'react-redux';
 
 export const NavFloat = () => {
+  const isToggle = useSelector((state: any) => state.homeMenuNav);
   const refs = useRef<HTMLDivElement>(null);
   const [isNews, setIsNews] = useState(false);
   const [isMatric, setIsMatric] = useState(false);
   const [isCalendar, setIsCalendar] = useState(false);
   const [isFloatFixed, setIsFloatFixed] = useState(false);
   const [userRole, setUserRole] = useState(6);
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   const handleNewsMenu = () => {
     setIsNews(true);
     setIsMatric(false);
     setIsCalendar(false);
+    
   }
 
   const handleMatricMenu = () => {
@@ -47,7 +52,8 @@ export const NavFloat = () => {
   }
 
   useEffect(() => {    
-    window.addEventListener('click', (event) => { handleCloseMenus(event) });
+    window.addEventListener('click', (event) => { handleCloseMenus(event) }
+      );
 
     return () => {
       window.removeEventListener('click', () => {});
@@ -63,12 +69,17 @@ export const NavFloat = () => {
     }
 
   },[]);
+
   useEffect(() => {
     const userRole = GetUserInfoOfStorage();
     if (userRole) {
       setUserRole(userRole.role_id);
     }
   }, []);
+
+  useEffect(() => {
+    setToggleMenu(isToggle);
+  } ,[isToggle]);
 
   return (
     <NavFloats className={ isFloatFixed ? 'floatFixed' : '' }>
@@ -97,6 +108,7 @@ export const NavFloat = () => {
           <CalendarMenu />
         </ContainerCalendarMenu>
       )}
+      { toggleMenu && <Menu /> }
     </NavFloats>
   )
 }

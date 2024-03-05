@@ -264,8 +264,9 @@ export const ContainerNewsMenu = styled.div`
   width: 14%;  
 `;
 export const MenuDiv = styled.div`
-  position: fixed;
-  top: 9vw;
+  position: relative;
+  top: 6.9vw;
+  right: -5%;
   background-color: var(--nav-menu-floating-background-color);
   display: flex;
   flex-direction: column;

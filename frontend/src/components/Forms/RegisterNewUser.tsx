@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { FormBtnDiv, FormContainer } from './style'
 import { useState } from 'react'
 import { creatNewUser } from '../../services/UsersApi'
+import { CreateUserModel } from '../../types/types'
 
 export const FormNewUser = () => {
   const navigate = useNavigate()

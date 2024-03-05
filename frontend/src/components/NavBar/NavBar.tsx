@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { DivLogoMark, DivSearch, PerfilDiv, NavBa } from "./Style"
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from 'react-redux';
-import { toggleMenuAction } from '../Redux/action/newPost';
+import { toggleMenuAction } from '../Redux/action/toggleMenu';
 
 export const NavBar = () => {
   const ref = useRef<HTMLDivElement>(null);

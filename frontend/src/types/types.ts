@@ -1,11 +1,11 @@
-interface CreateUserModel {
+export interface CreateUserModel {
   username: string;
   email: string;
   password: string;
   role_id: number;
 }
 
-interface LoginUserModel {
+export interface LoginUserModel {
   email: string;
   password: string;
 }

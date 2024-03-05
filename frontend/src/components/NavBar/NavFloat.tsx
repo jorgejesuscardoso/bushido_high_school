@@ -7,7 +7,7 @@ import { Menu } from './Menu';
 import { useSelector } from 'react-redux';
 
 export const NavFloat = () => {
-  const isToggle = useSelector((state: any) => state.homeMenuNav);
+  const isToggle = useSelector((state: any) => state.toggleMenu);
   const refs = useRef<HTMLDivElement>(null);
   const [isNews, setIsNews] = useState(false);
   const [isMatric, setIsMatric] = useState(false);
@@ -15,7 +15,7 @@ export const NavFloat = () => {
   const [isFloatFixed, setIsFloatFixed] = useState(false);
   const [userRole, setUserRole] = useState(6);
   const [toggleMenu, setToggleMenu] = useState(false);
-
+  console.log(isToggle);
   const handleNewsMenu = () => {
     setIsNews(true);
     setIsMatric(false);

@@ -13,7 +13,9 @@ Apesar de existirem aplicativos como o WhatsApp e o Google Sala de Aula, que fac
 
 No Bushido School, oferecemos uma interface intuitiva e amigável, projetada para facilitar a navegação entre projetos, trabalhos e atividades dos alunos. Você pode enviar e receber documentos de forma segura, assinar boletins, fazer ou cancelar matrículas, entrar em contato com a secretaria da escola, se inscrever em eventos e projetos escolares, tudo isso sem sair de casa. As mensagens enviadas pela direção ficam salvas em seu perfil, permitindo que você as acesse a qualquer momento.
 
-O Bushido School foi criado para simplificar o dia a dia dos pais de alunos, especialmente para aqueles com pouco tempo disponível ou que vivem em regiões remotas, garantindo acesso fácil e rápido a informações importantes sobre a vida escolar de seus filhos.
+Além disso, o Bushido School também serve como um ponto de acesso para meus serviços de desenvolvimento fullstack freelancer. Se você está buscando soluções personalizadas para suas necessidades digitais, posso ajudar a criar sites responsivos, desenvolver sistemas web personalizados, realizar manutenção e atualização de sites existentes, e oferecer consultoria em tecnologia e desenvolvimento web. Estou comprometido em fornecer soluções de alta qualidade que atendam às suas necessidades específicas, tudo com o mesmo cuidado e atenção aos detalhes que dedico ao Bushido School.
+
+O Bushido School foi criado para simplificar o dia a dia dos pais de alunos, oferecer oportunidades educacionais e facilitar a contratação de serviços de desenvolvimento web, tudo em um só lugar.
 </details>
 
 ## Comandos CLI uteis
